@@ -131,6 +131,9 @@ Rules:
 
 - The chevron belongs to the primary readout row.
 - The chevron is vertically aligned with the primary measurement/status row, not with the full block height.
+- The chevron tip aligns to the shared readout/list-row right-edge axis.
+- For readouts with progress scales, the chevron tip and progress-scale end share the same vertical axis.
+- The chevron zone remains fixed-width; the chevron is right-aligned inside it.
 - Optional progress/detail content must not pull the chevron downward.
 - Use the same fixed chevron-zone principle as list rows.
 - No primary chevron by default.

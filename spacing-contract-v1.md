@@ -319,7 +319,8 @@ Rules:
 - The content block flexes/truncates before the chevron zone.
 - The chevron zone stays inside the normal screen/content padding grid.
 - Do not use negative margin for row chevrons.
-- The chevron is centered inside the 24px trailing zone.
+- The chevron is right-aligned inside the 24px trailing zone.
+- The chevron tip defines the shared right-edge axis for rows and readouts.
 - Do not make the content-to-chevron gap density-responsive in v1.
 
 Reason: 12px prevents text and chevron from colliding while preserving title width. A 24px fixed trailing zone makes reusable rows predictable without giving the quiet chevron too much space.

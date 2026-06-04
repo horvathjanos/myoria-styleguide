@@ -463,7 +463,8 @@ Rules:
 - Chevron uses muted tone by default.
 - Chevron is vertically centered within the full row.
 - Row content has a fixed 12px minimum gap before the trailing chevron zone.
-- Chevron sits centered inside a fixed 24px trailing zone.
+- Chevron sits right-aligned inside a fixed 24px trailing zone.
+- Chevron tip defines the shared right-edge axis.
 - The trailing zone stays inside the normal content grid.
 - Do not use negative margin for row chevrons.
 - Do not use primary chevrons on every row by default.
