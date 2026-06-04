@@ -52,7 +52,7 @@ NUTRITION
 progress scale
 
 FLUID                    BODYWEIGHT
-550 / 3000 ml         >  73.5 kg               >
+0.6 / 3 L             >  73.5 kg               >
 progress scale           Logged 07:12
 
 WORKOUT
@@ -152,7 +152,7 @@ Default Today/root example:
 
 ```text
 FLUID                    BODYWEIGHT
-550 / 3000 ml         >  73.5 kg               >
+0.6 / 3 L             >  73.5 kg               >
 progress scale           Logged 07:12
 ```
 
@@ -165,6 +165,10 @@ Rules:
 - Paired values use `row-title` typography, not primary `metric-value` typography.
 - Detail text uses `row-meta`.
 - Fluid may include a standard 1px progress scale.
+- Fluid on Today/root paired readouts uses liters, not milliliters.
+- Fluid consumed value uses one decimal place.
+- Fluid target may be shown as a whole liter when it is a whole-liter target, for example `3 L`.
+- Milliliter precision belongs to Fluid detail, history, and edit surfaces, not the root Today readout.
 - Bodyweight does not show a progress scale unless target/range tracking exists.
 - No card, surface, border, separator, or background is introduced around the pair.
 - The pair remains whitespace-based and uses standard spacing tokens.
