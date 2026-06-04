@@ -87,10 +87,10 @@
 
 .my-readout-pair-value {
   color: var(--my-color-text-primary);
-  font-family: var(--my-font-sans);
-  font-size: var(--my-type-row-title-size);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
   font-weight: 400;
-  line-height: var(--my-type-row-title-line);
+  line-height: var(--my-type-row-meta-line);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
