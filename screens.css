@@ -67,7 +67,7 @@
 
 .my-readout-pair {
   display: grid;
-  gap: var(--my-space-5);
+  gap: var(--my-space-4);
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
@@ -80,8 +80,9 @@
 .my-readout-pair-main {
   align-items: center;
   display: grid;
-  gap: var(--my-row-content-chevron-gap);
-  grid-template-columns: minmax(0, 1fr) var(--my-row-chevron-zone-width);
+  gap: var(--my-space-2);
+  grid-template-columns: auto var(--my-chevron-width);
+  justify-content: space-between;
   min-width: 0;
 }
 
@@ -91,8 +92,6 @@
   font-size: var(--my-type-row-meta-size);
   font-weight: 400;
   line-height: var(--my-type-row-meta-line);
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: max-content;
   white-space: nowrap;
 }
