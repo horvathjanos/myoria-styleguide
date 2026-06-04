@@ -25,6 +25,96 @@ Storybook may be reconsidered later, but only after reusable React Native compon
 
 Histoire, Fractal, Astro, 11ty, and similar catalog/static-site frameworks are out of scope for the current styleguide direction.
 
+## Hosted public preview
+
+The static styleguide is published to a public GitHub Pages preview.
+
+Published URL:
+
+```text
+https://horvathjanos.github.io/myoria-styleguide/
+```
+
+Source of truth:
+
+```text
+horvathjanos/Myoria
+  docs/styleguide/**
+```
+
+Published snapshot repository:
+
+```text
+horvathjanos/myoria-styleguide
+```
+
+Rules:
+
+- The private `horvathjanos/Myoria` repository remains the source of truth.
+- The public `horvathjanos/myoria-styleguide` repository is a published snapshot only.
+- Do not edit the public snapshot repository by hand.
+- Changes to `docs/styleguide/**` in `Myoria` are published by the `Publish styleguide` GitHub Actions workflow.
+- The workflow copies the contents of `docs/styleguide` into the public repository root.
+- The public repository exists only to host the rendered static preview through GitHub Pages.
+- The public repository does not grant reuse rights for the design system or source content.
+
+Required secret in `horvathjanos/Myoria`:
+
+```text
+STYLEGUIDE_PUBLISH_TOKEN
+```
+
+The secret contains a fine-grained GitHub token with write access to:
+
+```text
+horvathjanos/myoria-styleguide
+```
+
+Minimum token permission:
+
+```text
+Contents: Read and write
+```
+
+Published repository legal note:
+
+```text
+Copyright © 2026 Janos Horvath. All rights reserved.
+No license is granted for reuse, redistribution, copying, modification, or derivative work.
+```
+
+## Publish workflow
+
+Workflow path:
+
+```text
+.github/workflows/publish-styleguide.yml
+```
+
+Triggers:
+
+- push to `main` when `docs/styleguide/**` changes
+- push to `main` when the publish workflow changes
+- manual `workflow_dispatch`
+
+Publishing flow:
+
+```text
+Myoria main
+→ docs/styleguide changes
+→ Publish styleguide workflow
+→ public myoria-styleguide repository main
+→ GitHub Pages
+→ https://horvathjanos.github.io/myoria-styleguide/
+```
+
+Expected behavior:
+
+- Normal styleguide development happens in `docs/styleguide/**`.
+- The hosted preview updates automatically after relevant `main` commits.
+- GitHub Pages may take a short time to refresh after the public repository is updated.
+- The hosted preview is a convenience preview, not a production deployment surface.
+
 ## Shell guardrail
 
 The static shell is protected by:
