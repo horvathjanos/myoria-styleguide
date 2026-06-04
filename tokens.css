@@ -1,0 +1,179 @@
+:root {
+  /*
+   * Approved Myoria v1 palette.
+   * Light mode is a closed Hue Atlas Dieter Rams / Braun palette.
+   * Dark mode may add exactly two explicitly approved dark-extension colors.
+   * Do not introduce component-level hex values, opacity-mixed colors, or invented greys.
+   */
+  --my-palette-braun-white: #f0ede5;
+  --my-palette-braun-grey: #8a8a87;
+  --my-palette-anthracite: #2e2e2c;
+  --my-palette-pebble: #c5c3be;
+  --my-palette-warm-black: #1a1a18;
+  --my-palette-function-yellow: #d4b018;
+  --my-palette-signal-red: #c02820;
+
+  /* Approved dark-mode extension: only these two dark-only colors are allowed. */
+  --my-dark-extension-housing: #10100f;
+  --my-dark-extension-line: #4a4a45;
+
+  /* Light theme semantic mapping. */
+  --my-color-background: var(--my-palette-braun-white);
+  --my-color-text-primary: var(--my-palette-warm-black);
+  --my-color-text-secondary: var(--my-palette-anthracite);
+  --my-color-text-muted: var(--my-palette-braun-grey);
+  --my-color-text-inverted: var(--my-palette-braun-white);
+  --my-color-divider: var(--my-palette-pebble);
+  --my-color-error: var(--my-palette-signal-red);
+  --my-color-destructive: var(--my-palette-signal-red);
+  --my-color-critical: var(--my-palette-signal-red);
+  --my-color-active: var(--my-palette-function-yellow);
+  --my-color-operational: var(--my-palette-function-yellow);
+  --my-color-control-disabled: var(--my-palette-braun-grey);
+
+  /*
+   * Intentionally absent in v1:
+   * --my-color-surface-subtle / --my-color-surface-raised
+   * --my-color-line-subtle
+   * --my-color-action
+   * --my-color-accent
+   * --my-color-warning
+   */
+
+  /* Spacing scale. */
+  --my-space-0: 0;
+  --my-space-1: 4px;
+  --my-space-2: 8px;
+  --my-space-3: 12px;
+  --my-space-4: 16px;
+  --my-space-5: 24px;
+  --my-space-6: 32px;
+  --my-space-7: 48px;
+  --my-space-8: 64px;
+
+  /* Density source tokens. Source tokens are not component-facing. */
+  --my-screen-padding-x-compact: 24px;
+  --my-screen-padding-x-comfortable: 32px;
+  --my-screen-padding-top-compact: 64px;
+  --my-screen-padding-top-comfortable: 80px;
+  --my-screen-padding-bottom-compact: 32px;
+  --my-screen-padding-bottom-comfortable: 48px;
+  --my-header-content-gap-compact: 32px;
+  --my-header-content-gap-comfortable: 48px;
+  --my-section-gap-compact: 24px;
+  --my-section-gap-comfortable: 32px;
+  --my-row-padding-y-compact: 8px;
+  --my-row-padding-y-comfortable: 12px;
+  --my-row-min-height-compact: 56px;
+  --my-row-min-height-comfortable: 64px;
+  --my-search-create-gap-compact: 24px;
+  --my-search-create-gap-comfortable: 32px;
+  --my-list-state-padding-top-compact: 24px;
+  --my-list-state-padding-top-comfortable: 32px;
+
+  /* Resolved density tokens. Comfortable is the root fallback. */
+  --my-screen-padding-x: var(--my-screen-padding-x-comfortable);
+  --my-screen-padding-top: var(--my-screen-padding-top-comfortable);
+  --my-screen-padding-bottom: var(--my-screen-padding-bottom-comfortable);
+  --my-header-content-gap: var(--my-header-content-gap-comfortable);
+  --my-section-gap: var(--my-section-gap-comfortable);
+  --my-row-padding-y: var(--my-row-padding-y-comfortable);
+  --my-row-min-height: var(--my-row-min-height-comfortable);
+  --my-search-create-gap: var(--my-search-create-gap-comfortable);
+  --my-list-state-padding-top: var(--my-list-state-padding-top-comfortable);
+
+  --my-row-title-meta-gap: 4px;
+  --my-row-content-chevron-gap: 12px;
+  --my-row-chevron-zone-width: 24px;
+  --my-touch-target: 44px;
+  --my-back-title-gap: 0;
+
+  /* Full-screen object-list composition tokens. */
+  --my-search-block-inner-gap: 8px;
+  --my-create-action-padding-y: 16px;
+  --my-list-state-action-gap: 8px;
+
+  /* Typography. */
+  --my-font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --my-font-condensed: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --my-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --my-type-screen-title-size: 22px;
+  --my-type-screen-title-line: 26px;
+  --my-type-root-date-size: 14px;
+  --my-type-root-date-line: 18px;
+  --my-type-section-label-size: 14px;
+  --my-type-section-label-line: 18px;
+  --my-type-row-title-size: 16px;
+  --my-type-row-title-line: 20px;
+  --my-type-row-meta-size: 13px;
+  --my-type-row-meta-line: 17px;
+  --my-type-list-state-size: 14px;
+  --my-type-list-state-line: 20px;
+  --my-type-action-size: 14px;
+  --my-type-action-line: 18px;
+  --my-type-metric-value-size: 24px;
+  --my-type-metric-value-line: 28px;
+  --my-type-metric-unit-size: 11px;
+  --my-type-metric-unit-line: 14px;
+  --my-type-input-size: 15px;
+  --my-type-input-line: 20px;
+  --my-type-help-size: 13px;
+  --my-type-help-line: 18px;
+
+  /* Lines. */
+  --my-line-hairline: 1px;
+  --my-line-input: 1px;
+  --my-line-progress: 1px;
+  --my-line-progress-primary: 2px;
+
+  /* Component dimensions. */
+  --my-chevron-width: 6px;
+  --my-chevron-height: 8px;
+  --my-chevron-stroke-width: 5px;
+  --my-chevron-stroke-thickness: 1px;
+
+  /* Named state opacity tokens. */
+  --my-opacity-chevron: 0.78;
+  --my-opacity-pressed: 0.7;
+}
+
+:root,
+[data-density="comfortable"] {
+  --my-screen-padding-x: var(--my-screen-padding-x-comfortable);
+  --my-screen-padding-top: var(--my-screen-padding-top-comfortable);
+  --my-screen-padding-bottom: var(--my-screen-padding-bottom-comfortable);
+  --my-header-content-gap: var(--my-header-content-gap-comfortable);
+  --my-section-gap: var(--my-section-gap-comfortable);
+  --my-row-padding-y: var(--my-row-padding-y-comfortable);
+  --my-row-min-height: var(--my-row-min-height-comfortable);
+  --my-search-create-gap: var(--my-search-create-gap-comfortable);
+  --my-list-state-padding-top: var(--my-list-state-padding-top-comfortable);
+}
+
+[data-density="compact"] {
+  --my-screen-padding-x: var(--my-screen-padding-x-compact);
+  --my-screen-padding-top: var(--my-screen-padding-top-compact);
+  --my-screen-padding-bottom: var(--my-screen-padding-bottom-compact);
+  --my-header-content-gap: var(--my-header-content-gap-compact);
+  --my-section-gap: var(--my-section-gap-compact);
+  --my-row-padding-y: var(--my-row-padding-y-compact);
+  --my-row-min-height: var(--my-row-min-height-compact);
+  --my-search-create-gap: var(--my-search-create-gap-compact);
+  --my-list-state-padding-top: var(--my-list-state-padding-top-compact);
+}
+
+[data-theme="dark"] {
+  --my-color-background: var(--my-dark-extension-housing);
+  --my-color-text-primary: var(--my-palette-braun-white);
+  --my-color-text-secondary: var(--my-palette-pebble);
+  --my-color-text-muted: var(--my-palette-braun-grey);
+  --my-color-text-inverted: var(--my-dark-extension-housing);
+  --my-color-divider: var(--my-dark-extension-line);
+  --my-color-error: var(--my-palette-signal-red);
+  --my-color-destructive: var(--my-palette-signal-red);
+  --my-color-critical: var(--my-palette-signal-red);
+  --my-color-active: var(--my-palette-function-yellow);
+  --my-color-operational: var(--my-palette-function-yellow);
+  --my-color-control-disabled: var(--my-palette-braun-grey);
+}

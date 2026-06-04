@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>States · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html" class="is-current" aria-current="page">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">State Grammar</h1>
+          <p class="sg-description">States stay calm, textual, and local to the relevant screen or component.</p>
+        </header>
+
+        <div class="catalog-stack">
+          <p class="my-state my-state--loading">Loading items</p>
+          <p class="my-state my-state--empty">No active items</p>
+          <p class="my-state my-state--empty">No archived items</p>
+          <p class="my-state my-state--error">Could not load library items.</p>
+          <div class="my-warning-panel">
+            <strong>Possible duplicate</strong>
+            <span>NÖM PRO 35 Protein Drink Chocolate already exists.</span>
+          </div>
+          <div class="my-error-panel">
+            <strong>Save failed</strong>
+            <span>Keep the message near the failed action or affected field.</span>
+          </div>
+          <div class="my-list">
+            <a class="my-list-row my-list-row--archived" href="#">
+              <span class="my-list-row-main">
+                <span class="my-list-row-content">
+                  <span class="my-list-row-title">Archived food</span>
+                  <span class="my-list-row-meta">100 g · NUTRITION</span>
+                </span>
+                <span class="my-list-row-chevron-zone" aria-hidden="true">
+                  <span class="my-chevron"></span>
+                </span>
+              </span>
+            </a>
+            <a class="my-list-row my-list-row--disabled" href="#" aria-disabled="true">
+              <span class="my-list-row-main">
+                <span class="my-list-row-content">
+                  <span class="my-list-row-title">Linked source unavailable</span>
+                  <span class="my-list-row-meta">Cannot open this source from here</span>
+                </span>
+                <span class="my-list-row-chevron-zone" aria-hidden="true">
+                  <span class="my-chevron"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+          <p class="my-linked-unavailable">Linked-unavailable state must not fake a cross-domain record or navigation path.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

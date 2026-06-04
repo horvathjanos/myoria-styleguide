@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typography · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html" class="is-current" aria-current="page">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Typography</h1>
+          <p class="sg-description">
+            Approved type roles for root date context, secondary screens, rows,
+            actions, measurements, inputs, and inline feedback. Full rules live
+            in <code>docs/styleguide/typography-contract-v1.md</code>.
+          </p>
+        </header>
+        <div class="catalog-stack">
+          <div class="sg-card"><p class="my-root-date">Tuesday, 2 June</p><p class="sg-note">Root date only; no explicit Today title</p></div>
+          <div class="sg-card"><h2 class="my-screen-title">Food & Drink Library</h2><p class="sg-note">Secondary screen title · 22 / 26 · sans 400</p></div>
+          <div class="sg-card"><span class="my-section-label">SEARCH</span><p class="sg-note">Section label · 14 / 18 · condensed 500 uppercase</p></div>
+          <div class="sg-card"><span class="my-list-row-title">NÖM PRO 35 Protein Drink Chocolate</span><p class="sg-note">Row title · 16 / 20 · sans 400</p></div>
+          <div class="sg-card"><span class="my-list-row-meta">350 ml · NUTRITION + FLUID</span><p class="sg-note">Row meta · 13 / 17 · mono 400</p></div>
+          <div class="sg-card"><a class="my-text-action" href="#">CREATE ITEM</a><p class="sg-note">Action text · 14 / 18 · condensed 500 uppercase</p></div>
+          <div class="sg-card"><span class="my-measurement"><span class="my-measurement-value">861 / 2300</span><span class="my-measurement-unit">kcal</span></span><p class="sg-note">Measurement value mono 24 / 28; unit sans 11 / 14</p></div>
+          <div class="sg-card"><input class="my-line-input" placeholder="Search items" /><p class="sg-note">Text input · 15 / 20 · sans</p></div>
+          <div class="sg-card"><input class="my-line-input my-line-input--numeric" value="350" aria-label="Numeric input example" /><p class="sg-note">Numeric input · 15 / 20 · mono</p></div>
+          <div class="sg-card"><p class="my-inline-error">Name is required.</p><p class="my-inline-warning">Possible duplicate.</p><p class="sg-note">Inline feedback · 13 / 18 · sans</p></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

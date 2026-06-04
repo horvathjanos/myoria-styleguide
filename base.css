@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--my-color-background);
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-sans);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.sg-page {
+  display: grid;
+  gap: var(--my-space-6);
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  min-height: 100vh;
+  padding: var(--my-space-6);
+}
+
+.sg-nav {
+  align-self: start;
+  border-right: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-4);
+  padding-right: var(--my-space-5);
+}
+
+.sg-brand {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.sg-nav-group {
+  display: grid;
+  gap: var(--my-space-2);
+}
+
+.sg-nav-title {
+  color: var(--my-color-text-secondary);
+  font-family: var(--my-font-condensed);
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.sg-nav a {
+  color: var(--my-color-text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sg-nav a:hover {
+  color: var(--my-color-text-primary);
+  text-decoration: underline;
+}
+
+.sg-nav a.is-current,
+.sg-nav a[aria-current="page"] {
+  color: var(--my-color-text-primary);
+}
+
+.sg-content {
+  display: grid;
+  gap: var(--my-space-6);
+  min-width: 0;
+}
+
+.sg-header {
+  display: grid;
+  gap: var(--my-space-2);
+}
+
+.sg-title {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 34px;
+  margin: 0;
+}
+
+.sg-description {
+  color: var(--my-color-text-secondary);
+  font-size: 15px;
+  line-height: 22px;
+  margin: 0;
+  max-width: 720px;
+}
+
+.sg-global-controls {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-4);
+  padding-top: var(--my-space-4);
+}
+
+.sg-control-group {
+  display: grid;
+  gap: var(--my-search-block-inner-gap);
+  justify-items: start;
+}
+
+.sg-control-options {
+  align-items: center;
+  display: flex;
+  gap: var(--my-search-block-inner-gap);
+  min-height: var(--my-touch-target);
+}
+
+.sg-control-option,
+.sg-control-divider {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--my-color-text-muted);
+  display: inline-flex;
+  font-family: var(--my-font-condensed);
+  font-size: var(--my-type-section-label-size);
+  font-weight: 500;
+  line-height: var(--my-type-section-label-line);
+  min-height: var(--my-touch-target);
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.sg-control-option.is-active {
+  color: var(--my-color-text-primary);
+}
+
+.sg-control-divider {
+  color: var(--my-color-divider);
+  font-family: var(--my-font-sans);
+  font-weight: 400;
+}
+
+.sg-grid {
+  align-items: start;
+  display: grid;
+  gap: var(--my-space-5);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.sg-card {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-4);
+  padding-top: var(--my-space-4);
+}
+
+.sg-card h2,
+.sg-card h3 {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.sg-note {
+  color: var(--my-color-text-secondary);
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.sg-phone-wrap {
+  align-items: start;
+  display: flex;
+  gap: var(--my-space-6);
+  justify-content: center;
+}
+
+.sg-validation-stack {
+  display: grid;
+  gap: var(--my-space-7);
+}
+
+.sg-validation-pair {
+  display: grid;
+  gap: var(--my-space-5);
+}
+
+.sg-preview-label {
+  color: var(--my-color-text-secondary);
+  font-family: var(--my-font-condensed);
+  font-size: var(--my-type-section-label-size);
+  font-weight: 500;
+  line-height: var(--my-type-section-label-line);
+  margin: 0 0 var(--my-space-3);
+  text-transform: uppercase;
+}
+
+.my-phone {
+  background: var(--my-color-background);
+  border: var(--my-line-hairline) solid var(--my-color-divider);
+  min-height: 812px;
+  overflow: hidden;
+  width: 390px;
+}
+
+@media (max-width: 820px) {
+  .sg-page {
+    grid-template-columns: 1fr;
+    padding: var(--my-space-4);
+  }
+
+  .sg-nav {
+    border-right: 0;
+    border-bottom: var(--my-line-hairline) solid var(--my-color-divider);
+    padding-bottom: var(--my-space-4);
+    padding-right: 0;
+  }
+
+  .my-phone {
+    width: min(390px, 100%);
+  }
+}

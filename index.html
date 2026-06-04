@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Myoria UI Styleguide</title>
+    <script src="./styleguide-controls.js"></script>
+    <link rel="stylesheet" href="./tokens.css" />
+    <link rel="stylesheet" href="./base.css" />
+    <link rel="stylesheet" href="./components.css" />
+    <link rel="stylesheet" href="./screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand is-current" aria-current="page">Myoria UI Styleguide</strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="./design-system-v1.md">Design-system v1 draft</a>
+          <a href="./styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="./readout-contract-v1.md">Readout contract</a>
+          <a href="./progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="./components/typography.html">Typography</a>
+          <a href="./components/colors.html">Colors</a>
+          <a href="./components/spacing.html">Spacing</a>
+          <a href="./components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="./components/list-rows.html">List rows</a>
+          <a href="./components/inputs.html">Inputs</a>
+          <a href="./components/actions.html">Actions</a>
+          <a href="./components/measurements.html">Measurements</a>
+          <a href="./components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="./screens/today.html">Today</a>
+          <a href="./screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="./validation/compact-density.html">Compact density</a>
+          <a href="./validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Static Myoria UI Styleguide</h1>
+          <p class="sg-description">
+            A browser-openable HTML/CSS mirror app for the Rams/Braun-inspired
+            measurement-instrument grammar. This is a design contract preview,
+            not production app logic.
+          </p>
+        </header>
+
+        <section class="sg-global-controls" aria-label="Global styleguide controls">
+          <div class="sg-control-group">
+            <span class="my-section-label">THEME</span>
+            <div class="sg-control-options" aria-label="Theme">
+              <button class="sg-control-option" type="button" data-sg-control="theme" data-value="light">LIGHT</button>
+              <span class="sg-control-divider" aria-hidden="true">|</span>
+              <button class="sg-control-option" type="button" data-sg-control="theme" data-value="dark">DARK</button>
+            </div>
+          </div>
+
+          <div class="sg-control-group">
+            <span class="my-section-label">DENSITY</span>
+            <div class="sg-control-options" aria-label="Density">
+              <button class="sg-control-option" type="button" data-sg-control="density" data-value="comfortable">COMFORTABLE</button>
+              <span class="sg-control-divider" aria-hidden="true">|</span>
+              <button class="sg-control-option" type="button" data-sg-control="density" data-value="compact">COMPACT</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="sg-grid">
+          <article class="sg-card">
+            <h2>Design-System V1 Draft</h2>
+            <p class="sg-note">
+              The written contract for colors, type, spacing, headers,
+              chevrons, rows, actions, inputs, states, screens, migration, and
+              must-not-do rules.
+            </p>
+            <a class="my-text-action" href="./design-system-v1.md">Read draft</a>
+          </article>
+          <article class="sg-card">
+            <h2>Foundation Tokens</h2>
+            <p class="sg-note">
+              Colors, spacing, type roles, line weights, touch targets, and the
+              shared chevron geometry are exposed as CSS variables.
+            </p>
+            <a class="my-text-action" href="./components/colors.html">View tokens</a>
+          </article>
+          <article class="sg-card">
+            <h2>Component Grammar</h2>
+            <p class="sg-note">
+              Rows, line inputs, text actions, measurements, empty states,
+              readouts, and chevrons are represented with reusable classes.
+            </p>
+            <a class="my-text-action" href="./components/list-rows.html">View rows</a>
+          </article>
+          <article class="sg-card">
+            <h2>Readout Contract</h2>
+            <p class="sg-note">
+              Reusable root measurement/readout grammar for Today and future
+              measurement-style surfaces.
+            </p>
+            <a class="my-text-action" href="./readout-contract-v1.md">Read contract</a>
+          </article>
+          <article class="sg-card">
+            <h2>Progress Scale Contract</h2>
+            <p class="sg-note">
+              Open measurement-scale progress grammar, including ticks, fixed
+              target length, and over-target marker rules.
+            </p>
+            <a class="my-text-action" href="./progress-scale-contract-v1.md">Read contract</a>
+          </article>
+          <article class="sg-card">
+            <h2>Screen Mirrors</h2>
+            <p class="sg-note">
+              Fake phone previews show intended layout behavior with dummy data,
+              including Food & Drink Library and a readout-based Today surface.
+            </p>
+            <a class="my-text-action" href="./screens/food-drink-library.html">View screen</a>
+          </article>
+          <article class="sg-card">
+            <h2>Validation</h2>
+            <p class="sg-note">
+              Targeted verification views for approved system modes. Compact
+              density and progress scale experiments are validated separately.
+            </p>
+            <a class="my-text-action" href="./validation/progress-scale.html">View validation</a>
+          </article>
+          <article class="sg-card">
+            <h2>Migration Path</h2>
+            <p class="sg-note">
+              Future production work should reference this contract first, then
+              migrate one token, primitive, or screen pattern at a time.
+            </p>
+            <a class="my-text-action" href="./components/actions.html">View actions</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

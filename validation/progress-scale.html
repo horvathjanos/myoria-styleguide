@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Progress Scale Validation · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+    <style>
+      .sg-progress-scale-stack {
+        display: grid;
+        gap: var(--my-section-gap);
+      }
+
+      .sg-progress-scale-case {
+        display: grid;
+        gap: var(--my-space-2);
+      }
+
+      .sg-progress-scale-label {
+        color: var(--my-color-text-muted);
+        font-family: var(--my-font-mono);
+        font-size: var(--my-type-row-meta-size);
+        font-weight: 400;
+        line-height: var(--my-type-row-meta-line);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html" class="is-current" aria-current="page">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Progress scale</h1>
+          <p class="sg-description">
+            Visual validation for a quiet measurement-scale progress grammar. This
+            page tests tick density, fill behavior, and over-target red overrun
+            segments against the canonical shared progress-scale primitive.
+          </p>
+        </header>
+
+        <div class="sg-phone-wrap">
+          <div class="my-phone">
+            <section class="my-screen" aria-label="Progress scale validation preview">
+              <header class="my-root-header">
+                <p class="my-root-date">Progress scale validation</p>
+              </header>
+
+              <div class="sg-progress-scale-stack">
+                <div class="sg-progress-scale-case">
+                  <p class="sg-progress-scale-label">Plain line reference — 37%</p>
+                  <span class="my-progress my-progress--primary">
+                    <span class="my-progress-fill" style="width: 37%"></span>
+                  </span>
+                </div>
+
+                <div class="sg-progress-scale-case">
+                  <p class="sg-progress-scale-label">Open scale emphasized — 37%</p>
+                  <div class="my-progress-scale my-progress-scale--emphasized" aria-label="37 percent progress">
+                    <div class="my-progress-scale-track">
+                      <span class="my-progress-scale-line"></span>
+                      <span class="my-progress-scale-fill" style="width: 37%"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sg-progress-scale-case">
+                  <p class="sg-progress-scale-label">Open scale emphasized — 100%</p>
+                  <div class="my-progress-scale my-progress-scale--emphasized" aria-label="100 percent progress">
+                    <div class="my-progress-scale-track">
+                      <span class="my-progress-scale-line"></span>
+                      <span class="my-progress-scale-fill" style="width: 100%"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sg-progress-scale-case">
+                  <p class="sg-progress-scale-label">Calories over — emphasized red overrun</p>
+                  <div class="my-progress-scale my-progress-scale--emphasized" aria-label="Calories, 2450 of 2300 kcal, 150 kcal over">
+                    <div class="my-progress-scale-track">
+                      <span class="my-progress-scale-line"></span>
+                      <span class="my-progress-scale-fill" style="width: 100%"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                      <span class="my-progress-scale-overrun"></span>
+                    </div>
+                    <p class="my-progress-scale-over-detail">150 kcal over</p>
+                  </div>
+                </div>
+
+                <div class="sg-progress-scale-case">
+                  <p class="sg-progress-scale-label">Fat over — standard red overrun</p>
+                  <div class="my-progress-scale" aria-label="Fat, 92 of 70 g, 22 g over">
+                    <div class="my-progress-scale-track">
+                      <span class="my-progress-scale-line"></span>
+                      <span class="my-progress-scale-fill" style="width: 100%"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                      <span class="my-progress-scale-overrun"></span>
+                    </div>
+                    <p class="my-progress-scale-over-detail">22 g over</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

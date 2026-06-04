@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>List Rows · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html" class="is-current" aria-current="page">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">List Rows</h1>
+          <p class="sg-description">
+            Rows prioritize the title, keep chevrons on the trailing axis, and put
+            metadata on the second line inside the canonical row content block.
+          </p>
+        </header>
+        <div class="my-list">
+          <a class="my-list-row" href="#" aria-label="Simple row, secondary information">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">Simple row</span>
+                <span class="my-list-row-meta">Secondary information</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+
+          <a class="my-list-row" href="#" aria-label="Chicken breast, 100 g, nutrition">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">Chicken breast</span>
+                <span class="my-list-row-meta">100 g · NUTRITION</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+
+          <a class="my-list-row" href="#" aria-label="NÖM PRO 35 Protein Drink Chocolate Extra Long Label Stress Test, 350 ml, nutrition and fluid">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">NÖM PRO 35 Protein Drink Chocolate Extra Long Label Stress Test</span>
+                <span class="my-list-row-meta">350 ml · NUTRITION + FLUID</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+
+          <a class="my-list-row" href="#" aria-label="Water, 500 ml, fluid">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">Water</span>
+                <span class="my-list-row-meta">500 ml · FLUID</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+
+          <a class="my-list-row my-list-row--archived" href="#" aria-label="Archived item, 100 g, nutrition">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">Archived item</span>
+                <span class="my-list-row-meta">100 g · NUTRITION</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+
+          <a class="my-list-row my-list-row--disabled" href="#" aria-disabled="true" aria-label="Linked entry unavailable, original source cannot be opened here">
+            <span class="my-list-row-main">
+              <span class="my-list-row-content">
+                <span class="my-list-row-title">Linked entry unavailable</span>
+                <span class="my-list-row-meta">Original source cannot be opened here</span>
+              </span>
+              <span class="my-list-row-chevron-zone" aria-hidden="true">
+                <span class="my-chevron"></span>
+              </span>
+            </span>
+          </a>
+          <p class="my-linked-unavailable">
+            Linked-unavailable state: show the condition plainly; do not fake
+            cross-domain navigation.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

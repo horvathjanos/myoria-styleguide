@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inputs · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html" class="is-current" aria-current="page">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Inputs</h1>
+          <p class="sg-description">Line inputs avoid rounded boxes and preserve the measurement-instrument surface.</p>
+        </header>
+        <form class="my-form">
+          <label class="my-field" for="search">
+            <span class="my-field-label">SEARCH</span>
+            <input class="my-line-input" id="search" placeholder="Search items" />
+          </label>
+          <label class="my-field" for="name">
+            <span class="my-field-label">NAME</span>
+            <input class="my-line-input" id="name" value="Protein drink" />
+            <span class="my-field-help">Field help stays near the control.</span>
+          </label>
+          <label class="my-field" for="error">
+            <span class="my-field-label">ERROR EXAMPLE</span>
+            <input class="my-line-input is-error" id="error" value="" placeholder="Required value" />
+            <span class="my-inline-error">Name is required.</span>
+          </label>
+          <div class="my-warning-panel">
+            <strong>Possible duplicate</strong>
+            <span>Protein drink already exists in the library.</span>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Colors · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html" class="is-current" aria-current="page">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Colors</h1>
+          <p class="sg-description">
+            Approved closed Rams/Braun color contract with rare functional signals.
+            Full rules live in <code>docs/styleguide/color-contract-v1.md</code>.
+          </p>
+        </header>
+
+        <div class="sg-grid">
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-braun-white)"></span><strong>Braun White</strong><span>#F0EDE5 · light background / inverted text</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-warm-black)"></span><strong>Warm Black</strong><span>#1A1A18 · primary text</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-anthracite)"></span><strong>Anthracite</strong><span>#2E2E2C · secondary text</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-braun-grey)"></span><strong>Braun Grey</strong><span>#8A8A87 · muted text / inactive detail</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-pebble)"></span><strong>Pebble</strong><span>#C5C3BE · light structural line</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-function-yellow)"></span><strong>Function Yellow</strong><span>#D4B018 · active / operational only</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-palette-signal-red)"></span><strong>Signal Red</strong><span>#C02820 · error / destructive / critical only</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-dark-extension-housing)"></span><strong>Dark housing</strong><span>#10100F · dark-mode extension</span></div>
+          <div class="token-swatch"><span class="token-color" style="background: var(--my-dark-extension-line)"></span><strong>Dark structural line</strong><span>#4A4A45 · dark-mode extension</span></div>
+        </div>
+
+        <div class="sg-card">
+          <h2>Intentionally absent</h2>
+          <p class="sg-note">
+            No generic surface, action, accent, warning, line-subtle, border-subtle,
+            domain, screenshot-sampled, or opacity-mixed color tokens are part of v1.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

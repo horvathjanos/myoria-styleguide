@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Actions · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html" class="is-current" aria-current="page">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Actions</h1>
+          <p class="sg-description">Current strict action grammar starts with underlined text actions and defines quiet primary, secondary, destructive, and disabled button roles for future form/workflow migration.</p>
+        </header>
+        <div class="catalog-stack">
+          <div class="sg-card">
+            <h2>Text action</h2>
+            <a class="my-text-action" href="#">CREATE ITEM</a>
+          </div>
+          <div class="sg-card">
+            <h2>Button roles</h2>
+            <div class="my-button-row">
+              <button class="my-button my-button--primary">Save item</button>
+              <button class="my-button my-button--secondary">Cancel</button>
+              <button class="my-button my-button--destructive">Archive item</button>
+              <button class="my-button my-button--secondary my-button--disabled" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="sg-card">
+            <h2>Action-bearing header</h2>
+            <header class="my-screen-header my-screen-header--with-action" style="margin-bottom: 0">
+              <span class="my-screen-header-title-group">
+                <a class="my-back-control" href="#"><span class="my-chevron my-chevron--left"></span></a>
+                <span class="my-screen-title">Edit item</span>
+              </span>
+              <a class="my-text-action my-header-action" href="#">SAVE</a>
+            </header>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

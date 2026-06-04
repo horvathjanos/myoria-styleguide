@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food & Drink Library Preview</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html" class="is-current" aria-current="page">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Food & Drink Library</h1>
+          <p class="sg-description">
+            Static target for the object-list screen. Search, scope, create action,
+            list boundary, row metadata, and chevron behavior follow the approved
+            object-list contract.
+          </p>
+        </header>
+
+        <div class="sg-phone-wrap">
+          <div class="my-phone">
+            <section class="my-screen" aria-label="Food and drink library preview">
+              <header class="my-screen-header">
+                <a class="my-back-control" href="../index.html" aria-label="Go back">
+                  <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                </a>
+                <h2 class="my-screen-title">Food & Drink Library</h2>
+              </header>
+
+              <div class="my-object-list-control">
+                <label class="my-section-label" for="food-search">SEARCH</label>
+                <input
+                  class="my-line-input"
+                  id="food-search"
+                  type="search"
+                  placeholder="Search items"
+                />
+                <div class="my-scope-selector" aria-label="Filter scope">
+                  <a class="is-active" href="#">ACTIVE</a>
+                  <span class="my-scope-divider">|</span>
+                  <a class="is-inactive" href="#">ARCHIVED</a>
+                </div>
+              </div>
+
+              <div class="my-object-list-action-row">
+                <a class="my-text-action" href="#">CREATE ITEM</a>
+              </div>
+
+              <div class="my-list">
+                <a class="my-list-row" href="#" aria-label="Chicken breast, 100 g, nutrition">
+                  <span class="my-list-row-main">
+                    <span class="my-list-row-content">
+                      <span class="my-list-row-title">Chicken breast</span>
+                      <span class="my-list-row-meta">100 g · NUTRITION</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                </a>
+                <a class="my-list-row" href="#" aria-label="Protein Drink Chocolate Double Zero Dark Choc Style, 350 ml, nutrition and fluid">
+                  <span class="my-list-row-main">
+                    <span class="my-list-row-content">
+                      <span class="my-list-row-title">Protein Drink Chocolate Double Zero Dark Choc Style</span>
+                      <span class="my-list-row-meta">350 ml · NUTRITION + FLUID</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                </a>
+                <a class="my-list-row" href="#" aria-label="Greek yogurt, 100 g, nutrition">
+                  <span class="my-list-row-main">
+                    <span class="my-list-row-content">
+                      <span class="my-list-row-title">Greek yogurt</span>
+                      <span class="my-list-row-meta">100 g · NUTRITION</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                </a>
+                <a class="my-list-row" href="#" aria-label="Archived, Mango skyr drink, 350 ml, nutrition and fluid">
+                  <span class="my-list-row-main">
+                    <span class="my-list-row-content">
+                      <span class="my-list-row-title">Mango skyr drink</span>
+                      <span class="my-list-row-meta">ARCHIVED · 350 ml · NUTRITION + FLUID</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                </a>
+                <a class="my-list-row" href="#" aria-label="Rice, 50 g, nutrition">
+                  <span class="my-list-row-main">
+                    <span class="my-list-row-content">
+                      <span class="my-list-row-title">Rice</span>
+                      <span class="my-list-row-meta">50 g · NUTRITION</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

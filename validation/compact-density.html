@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Compact Density Validation · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html" class="is-current" aria-current="page">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Compact density</h1>
+          <p class="sg-description">
+            Targeted validation for the compact density mode. Comfortable and compact
+            variants use the same mock content and the same preview width so only
+            density changes are visible.
+          </p>
+        </header>
+
+        <div class="sg-validation-stack">
+          <section class="sg-validation-pair" aria-label="Object-list density validation">
+            <div>
+              <p class="sg-preview-label">Object-list — comfortable</p>
+              <div class="sg-phone-wrap" data-density="comfortable">
+                <div class="my-phone">
+                  <section class="my-screen" aria-label="Object-list comfortable density preview">
+                    <header class="my-screen-header">
+                      <a class="my-back-control" href="#" aria-label="Go back">
+                        <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                      </a>
+                      <h2 class="my-screen-title">Food & Drink Library</h2>
+                    </header>
+
+                    <div class="my-object-list-control">
+                      <span class="my-section-label">SEARCH</span>
+                      <input class="my-line-input" type="search" placeholder="Search items" />
+                      <div class="my-scope-selector" aria-label="Filter scope">
+                        <a class="is-active" href="#">ACTIVE</a>
+                        <span class="my-scope-divider">|</span>
+                        <a class="is-inactive" href="#">ARCHIVED</a>
+                      </div>
+                    </div>
+
+                    <div class="my-object-list-action-row">
+                      <a class="my-text-action" href="#">CREATE ITEM</a>
+                    </div>
+
+                    <div class="my-list">
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Chicken breast</span>
+                            <span class="my-list-row-meta">100 g · NUTRITION</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Protein Drink Chocolate Double Zero Dark Choc Style</span>
+                            <span class="my-list-row-meta">350 ml · NUTRITION + FLUID</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Greek yogurt</span>
+                            <span class="my-list-row-meta">100 g · NUTRITION</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Mango skyr drink</span>
+                            <span class="my-list-row-meta">ARCHIVED · 350 ml · NUTRITION + FLUID</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="sg-preview-label">Object-list — compact</p>
+              <div class="sg-phone-wrap" data-density="compact">
+                <div class="my-phone">
+                  <section class="my-screen" aria-label="Object-list compact density preview">
+                    <header class="my-screen-header">
+                      <a class="my-back-control" href="#" aria-label="Go back">
+                        <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                      </a>
+                      <h2 class="my-screen-title">Food & Drink Library</h2>
+                    </header>
+
+                    <div class="my-object-list-control">
+                      <span class="my-section-label">SEARCH</span>
+                      <input class="my-line-input" type="search" placeholder="Search items" />
+                      <div class="my-scope-selector" aria-label="Filter scope">
+                        <a class="is-active" href="#">ACTIVE</a>
+                        <span class="my-scope-divider">|</span>
+                        <a class="is-inactive" href="#">ARCHIVED</a>
+                      </div>
+                    </div>
+
+                    <div class="my-object-list-action-row">
+                      <a class="my-text-action" href="#">CREATE ITEM</a>
+                    </div>
+
+                    <div class="my-list">
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Chicken breast</span>
+                            <span class="my-list-row-meta">100 g · NUTRITION</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Protein Drink Chocolate Double Zero Dark Choc Style</span>
+                            <span class="my-list-row-meta">350 ml · NUTRITION + FLUID</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Greek yogurt</span>
+                            <span class="my-list-row-meta">100 g · NUTRITION</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                      <a class="my-list-row" href="#">
+                        <span class="my-list-row-main">
+                          <span class="my-list-row-content">
+                            <span class="my-list-row-title">Mango skyr drink</span>
+                            <span class="my-list-row-meta">ARCHIVED · 350 ml · NUTRITION + FLUID</span>
+                          </span>
+                          <span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span>
+                        </span>
+                      </a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-validation-pair" aria-label="Measurement root density validation">
+            <div>
+              <p class="sg-preview-label">Measurement/root screen — comfortable</p>
+              <div class="sg-phone-wrap" data-density="comfortable">
+                <div class="my-phone">
+                  <section class="my-screen" aria-label="Measurement root comfortable density preview">
+                    <header class="my-root-header">
+                      <p class="my-root-date">Tuesday, 2 June</p>
+                    </header>
+                    <div class="my-readout-stack">
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Nutrition</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">861 / 2300</span><span class="my-measurement-unit">kcal</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-progress my-progress--primary"><span class="my-progress-fill" style="width: 37%"></span></span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Fluid</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">550 / 3000</span><span class="my-measurement-unit">ml</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-progress"><span class="my-progress-fill" style="width: 18%"></span></span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Bodyweight</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">73.5</span><span class="my-measurement-unit">kg</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-readout-detail">Logged 07:12</span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Workout</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-operational-marker" aria-hidden="true"></span><span class="my-readout-status">Active workout</span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-readout-detail">Push session · 42 min</span></a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="sg-preview-label">Measurement/root screen — compact</p>
+              <div class="sg-phone-wrap" data-density="compact">
+                <div class="my-phone">
+                  <section class="my-screen" aria-label="Measurement root compact density preview">
+                    <header class="my-root-header">
+                      <p class="my-root-date">Tuesday, 2 June</p>
+                    </header>
+                    <div class="my-readout-stack">
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Nutrition</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">861 / 2300</span><span class="my-measurement-unit">kcal</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-progress my-progress--primary"><span class="my-progress-fill" style="width: 37%"></span></span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Fluid</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">550 / 3000</span><span class="my-measurement-unit">ml</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-progress"><span class="my-progress-fill" style="width: 18%"></span></span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Bodyweight</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-measurement"><span class="my-measurement-value">73.5</span><span class="my-measurement-unit">kg</span></span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-readout-detail">Logged 07:12</span></a>
+                      <a class="my-readout-block" href="#"><span class="my-section-label">Workout</span><span class="my-readout-main"><span class="my-readout-content"><span class="my-operational-marker" aria-hidden="true"></span><span class="my-readout-status">Active workout</span></span><span class="my-list-row-chevron-zone" aria-hidden="true"><span class="my-chevron"></span></span></span><span class="my-readout-detail">Push session · 42 min</span></a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

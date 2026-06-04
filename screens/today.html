@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Today Preview</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html" class="is-current" aria-current="page">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Today</h1>
+          <p class="sg-description">
+            Minimal root measurement preview built from shared readout primitives,
+            standard typography roles, open measurement-scale progress, muted
+            chevrons, and app-wide spacing tokens.
+          </p>
+        </header>
+
+        <div class="sg-phone-wrap">
+          <div class="my-phone">
+            <section class="my-screen" aria-label="Today preview">
+              <header class="my-root-header">
+                <p class="my-root-date">Tuesday, 2 June</p>
+              </header>
+
+              <div class="my-readout-stack">
+                <a class="my-readout-block" href="#" aria-label="Nutrition, 861 of 2300 kcal">
+                  <span class="my-section-label">Nutrition</span>
+                  <span class="my-readout-main">
+                    <span class="my-readout-content">
+                      <span class="my-measurement">
+                        <span class="my-measurement-value">861 / 2300</span>
+                        <span class="my-measurement-unit">kcal</span>
+                      </span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                  <span class="my-progress-scale my-progress-scale--emphasized" aria-hidden="true">
+                    <span class="my-progress-scale-track">
+                      <span class="my-progress-scale-line"></span>
+                      <span class="my-progress-scale-fill" style="width: 37%"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                    </span>
+                  </span>
+
+                  <span class="my-readout-secondary-stack" aria-label="Nutrition macro targets">
+                    <span class="my-readout-secondary" aria-label="Protein, 156 of 180 grams">
+                      <span class="my-readout-secondary-main">
+                        <span class="my-section-label">Protein</span>
+                        <span class="my-readout-secondary-value">156 / 180 g</span>
+                      </span>
+                      <span class="my-progress-scale" aria-hidden="true">
+                        <span class="my-progress-scale-track">
+                          <span class="my-progress-scale-line"></span>
+                          <span class="my-progress-scale-fill" style="width: 87%"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                        </span>
+                      </span>
+                    </span>
+
+                    <span class="my-readout-secondary" aria-label="Carbs, 210 of 250 grams">
+                      <span class="my-readout-secondary-main">
+                        <span class="my-section-label">Carbs</span>
+                        <span class="my-readout-secondary-value">210 / 250 g</span>
+                      </span>
+                      <span class="my-progress-scale" aria-hidden="true">
+                        <span class="my-progress-scale-track">
+                          <span class="my-progress-scale-line"></span>
+                          <span class="my-progress-scale-fill" style="width: 84%"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                        </span>
+                      </span>
+                    </span>
+
+                    <span class="my-readout-secondary" aria-label="Fat, 92 of 70 grams, 22 grams over">
+                      <span class="my-readout-secondary-main">
+                        <span class="my-section-label">Fat</span>
+                        <span class="my-readout-secondary-value">92 / 70 g</span>
+                      </span>
+                      <span class="my-progress-scale" aria-hidden="true">
+                        <span class="my-progress-scale-track">
+                          <span class="my-progress-scale-line"></span>
+                          <span class="my-progress-scale-fill" style="width: 100%"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                          <span class="my-progress-scale-overrun"></span>
+                        </span>
+                        <span class="my-progress-scale-over-detail">22 g over</span>
+                      </span>
+                    </span>
+                  </span>
+                </a>
+
+                <div class="my-readout-pair">
+                  <a class="my-readout-pair-item" href="#" aria-label="Fluid, 550 of 3000 ml">
+                    <span class="my-section-label">Fluid</span>
+                    <span class="my-readout-pair-main">
+                      <span class="my-readout-pair-value">550 / 3000 ml</span>
+                      <span class="my-list-row-chevron-zone" aria-hidden="true">
+                        <span class="my-chevron"></span>
+                      </span>
+                    </span>
+                    <span class="my-progress-scale" aria-hidden="true">
+                      <span class="my-progress-scale-track">
+                        <span class="my-progress-scale-line"></span>
+                        <span class="my-progress-scale-fill" style="width: 18%"></span>
+                        <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
+                        <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
+                        <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
+                      </span>
+                    </span>
+                  </a>
+
+                  <a class="my-readout-pair-item" href="#" aria-label="Bodyweight, 73.5 kg, logged 07:12">
+                    <span class="my-section-label">Bodyweight</span>
+                    <span class="my-readout-pair-main">
+                      <span class="my-readout-pair-value">73.5 kg</span>
+                      <span class="my-list-row-chevron-zone" aria-hidden="true">
+                        <span class="my-chevron"></span>
+                      </span>
+                    </span>
+                    <span class="my-readout-detail">Logged 07:12</span>
+                  </a>
+                </div>
+
+                <a class="my-readout-block" href="#" aria-label="Workout active, push session, 42 min">
+                  <span class="my-section-label">Workout</span>
+                  <span class="my-readout-main">
+                    <span class="my-readout-content">
+                      <span class="my-operational-marker" aria-hidden="true"></span>
+                      <span class="my-operational-status">Active</span>
+                    </span>
+                    <span class="my-list-row-chevron-zone" aria-hidden="true">
+                      <span class="my-chevron"></span>
+                    </span>
+                  </span>
+                  <span class="my-readout-detail">Push session · 42 min</span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
