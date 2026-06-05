@@ -67,14 +67,24 @@
 
 .my-readout-pair {
   display: grid;
-  gap: var(--my-space-5);
+  column-gap: var(--my-space-5);
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  row-gap: var(--my-space-2);
 }
 
 .my-readout-pair-item {
   display: grid;
-  gap: var(--my-space-2);
+  grid-row: 1 / span 3;
+  grid-template-rows: subgrid;
   min-width: 0;
+}
+
+.my-readout-pair-item:first-child {
+  grid-column: 1;
+}
+
+.my-readout-pair-item:last-child {
+  grid-column: 2;
 }
 
 .my-readout-pair-main {

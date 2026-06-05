@@ -176,6 +176,29 @@ Rules:
 - No card, surface, border, separator, or background is introduced around the pair.
 - The pair remains whitespace-based and uses standard spacing tokens.
 
+## Paired readout geometry
+
+Paired secondary readouts behave as one component with shared row geometry, not as two independent widgets placed next to each other.
+
+Shared rows:
+
+```text
+row 1: section labels
+row 2: primary value + navigation affordance
+row 3: detail / progress content
+```
+
+Rules:
+
+- Both columns participate in the same row structure.
+- Section labels share one row.
+- Values and navigation chevrons share one row.
+- Detail and progress content share one row.
+- Columns align row-by-row through the paired-readout primitive.
+- Use token-based column and row gaps.
+- Do not use local offsets, custom padding, custom margins, negative margins, or position nudges to align a paired readout.
+- Do not add Today-specific paired-readout layout logic.
+
 ## Interaction
 
 Readout block interaction follows the object-list row interaction grammar.
