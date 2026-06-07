@@ -229,6 +229,11 @@
   padding: var(--my-create-action-padding-y) 0;
 }
 
+.my-object-list-action-row .my-text-action {
+  justify-content: flex-end;
+  text-align: right;
+}
+
 .my-list {
   border-top: var(--my-line-hairline) solid var(--my-color-divider);
 }

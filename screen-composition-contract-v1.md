@@ -58,14 +58,31 @@ Approved header structure:
 [44px back control] Screen Title
 ```
 
+Approved header axes:
+
+```text
+screen content-left axis
+│
+├─ 44px back-control touch target
+│  └─ visible back chevron centered inside the touch target
+└──── header-title axis
+      Screen Title
+```
+
 Rules:
 
 - Back control stays inside the normal screen padding grid.
 - Back control uses a 44px touch target.
 - Back control does not use negative margin.
 - Back-control-to-title gap is 0; the touch target already provides enough physical spacing.
+- The visible back chevron stays inside the 44px touch target.
+- The screen title starts on the reusable header-title axis after the 44px back-control touch target.
+- The header-title axis is intentionally separate from the object-list content-left axis in v1.
 - Do not place placeholder overflow menus in the header.
 - Do not move object creation into the header by default.
+- Do not move the title left with negative margins, transforms, absolute-position offsets, or screen-local pixel nudges.
+
+If future visual validation requires the title to sit closer to the content-left axis, define a new reusable header geometry first. The new geometry must preserve the 44px back-control touch target and must use tokens or approved primitive dimensions, not local offsets.
 
 ## Control group
 
@@ -176,6 +193,8 @@ Approved spacing and touch behavior:
 
 - Create text action uses the approved action text role.
 - Create text action has 44px min-height and 112px min-width.
+- The visible create action label is right-aligned inside its touch target.
+- The visible create action label aligns to the same right-edge axis as list-row chevron tips.
 - Pressed state uses the shared pressed opacity token.
 - Disabled state uses the approved disabled control color, keeps underline, and removes press/focus behavior.
 
