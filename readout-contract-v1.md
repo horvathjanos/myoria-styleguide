@@ -194,6 +194,9 @@ Rules:
 - Section labels share one row.
 - Values and navigation chevrons share one row.
 - Detail and progress content share one row.
+- Row 3 may contain either progress or metadata/detail text.
+- Progress and metadata align by visual center within the shared row.
+- Top-edge alignment is not the intended row-3 visual rule.
 - Columns align row-by-row through the paired-readout primitive.
 - Use token-based column and row gaps.
 - Do not use local offsets, custom padding, custom margins, negative margins, or position nudges to align a paired readout.

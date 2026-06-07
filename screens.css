@@ -87,6 +87,11 @@
   grid-column: 2;
 }
 
+.my-readout-pair-item > .my-progress-scale,
+.my-readout-pair-item > .my-readout-detail {
+  align-self: center;
+}
+
 .my-readout-pair-main {
   align-items: center;
   display: grid;
