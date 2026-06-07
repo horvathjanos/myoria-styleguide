@@ -81,9 +81,48 @@ function applyStoredPreviewModes() {
   setRootMode('density', density);
 }
 
+function createGlobalControls() {
+  const controls = document.createElement('section');
+
+  controls.className = 'sg-global-controls';
+  controls.setAttribute('aria-label', 'Global styleguide controls');
+  controls.innerHTML = `
+    <div class="sg-control-group">
+      <span class="my-section-label">THEME</span>
+      <div class="sg-control-options" aria-label="Theme">
+        <button class="sg-control-option" type="button" data-sg-control="theme" data-value="light">LIGHT</button>
+        <span class="sg-control-divider" aria-hidden="true">|</span>
+        <button class="sg-control-option" type="button" data-sg-control="theme" data-value="dark">DARK</button>
+      </div>
+    </div>
+
+    <div class="sg-control-group">
+      <span class="my-section-label">DENSITY</span>
+      <div class="sg-control-options" aria-label="Density">
+        <button class="sg-control-option" type="button" data-sg-control="density" data-value="comfortable">COMFORTABLE</button>
+        <span class="sg-control-divider" aria-hidden="true">|</span>
+        <button class="sg-control-option" type="button" data-sg-control="density" data-value="compact">COMPACT</button>
+      </div>
+    </div>
+  `;
+
+  return controls;
+}
+
+function injectGlobalControls() {
+  const nav = document.querySelector('.sg-nav');
+
+  if (!nav || nav.querySelector('.sg-global-controls')) {
+    return;
+  }
+
+  nav.append(createGlobalControls());
+}
+
 function initialiseStyleguideControls() {
   const { theme, density } = readPreviewModes();
 
+  injectGlobalControls();
   updateActiveButtons('theme', theme);
   updateActiveButtons('density', density);
 
