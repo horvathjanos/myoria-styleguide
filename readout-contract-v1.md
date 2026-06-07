@@ -56,8 +56,7 @@ FLUID                    BODYWEIGHT
 progress scale           Logged 07:12
 
 WORKOUT
-▌ Active                                          >
-Push session · 42 min
+▌ Bench press · 42 min                            >
 ```
 
 The Today/root screen is the first consumer of this primitive, not the owner of the primitive.
@@ -265,7 +264,7 @@ Operational/in-progress state may use a strict vertical operational marker primi
 Example:
 
 ```text
-▌ Active
+▌ Bench press · 42 min
 ```
 
 Rules:
@@ -277,13 +276,57 @@ Rules:
 - Marker is vertically centered with the operational text row.
 - Operational text uses root-date typography role: sans, 14px / 18px, 400.
 - Operational text uses secondary text color.
-- Default active readout wording: `Active`, not `Active workout`, because the section label already provides the domain.
+- The marker itself communicates the operational/active state; do not add a redundant `Active` label when the row can show concrete in-progress data.
 - Always pair the marker with a visible label.
 - Not a badge.
 - Not a pill.
 - Not an icon set.
 - Not a generic status dot system.
 - Not allowed for `featured`, `new`, `warning`, `important`, or generic accent use.
+
+## Workout root readout states
+
+The Today/root Workout readout is a status readout, not a navigation label or call to action.
+
+Rules:
+
+- The readout text describes the current workout state.
+- Do not use CTA-style labels such as `Start workout`, `Open workout`, `View workout`, or `Workout overview` for the primary readout text.
+- Do not reference unimplemented planning structures such as `Push`, `Pull`, or `A/B` day names until those concepts exist in the product model.
+- Active workout sessions use the operational marker plus concrete in-progress data.
+- Inactive workout states use last-workout history when available.
+- Time ranges use compact readout formatting with an en dash and no surrounding spaces.
+- Durations use detail text with a middle dot separator.
+
+Approved examples:
+
+```text
+WORKOUT
+▌ Bench press · 42 min                            >
+```
+
+```text
+WORKOUT
+Last workout · today                              >
+16:00–17:30 · 90 min
+```
+
+```text
+WORKOUT
+Last workout · yesterday                          >
+18:10–19:05 · 55 min
+```
+
+```text
+WORKOUT
+Last workout · 2 days ago                         >
+18:10–19:05 · 55 min
+```
+
+```text
+WORKOUT
+No workouts yet                                   >
+```
 
 ## Must-not-do rules
 
