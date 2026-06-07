@@ -284,6 +284,38 @@ Rules:
 - Not a generic status dot system.
 - Not allowed for `featured`, `new`, `warning`, `important`, or generic accent use.
 
+## Bodyweight root readout states
+
+The Today/root Bodyweight readout is a status readout, not a navigation label or call to action.
+
+Rules:
+
+- The readout text describes the current bodyweight logging state.
+- Today/root shows the current bodyweight value as the primary row when a measurement exists for today.
+- When the latest measurement is not from today, the primary row describes recency and the detail row carries the measured value.
+- Empty state uses `No measurements yet`.
+- Do not use CTA-style labels such as `Add weight`, `Log weight`, or `Open bodyweight` for the primary readout text.
+- Do not show a bodyweight progress scale unless target/range tracking exists.
+
+Approved examples:
+
+```text
+BODYWEIGHT
+73.5 kg                                            >
+Logged 07:12
+```
+
+```text
+BODYWEIGHT
+Last logged · yesterday                            >
+73.2 kg
+```
+
+```text
+BODYWEIGHT
+No measurements yet                                >
+```
+
 ## Workout root readout states
 
 The Today/root Workout readout is a status readout, not a navigation label or call to action.
