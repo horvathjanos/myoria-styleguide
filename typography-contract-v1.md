@@ -205,6 +205,18 @@ font-weight: 400;
 
 Reason: numeric values should feel like precise instrument readouts. Units are attached labels, so they stay smaller and calmer in sans.
 
+Measurement unit strength is semantic:
+
+- Primary units use the default `my-measurement-unit` styling.
+- `kcal` remains a primary unit in v1.
+- Supporting units use `my-measurement--supporting-unit`.
+- Supporting units include `g`, `kg`, `L`, and `ml` when they appear in
+  readout measurements.
+- Supporting units are visually quieter while numeric values remain primary.
+- Value/unit spacing belongs to the measurement primitive, not local screen CSS.
+- List row metadata remains unchanged in this slice and keeps the row-meta
+  typography contract.
+
 ## Actions
 
 Use for action/control labels, such as:

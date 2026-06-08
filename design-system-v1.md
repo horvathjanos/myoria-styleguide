@@ -355,6 +355,7 @@ React Native migration notes:
 Tokens/classes involved:
 
 - `.my-measurement`
+- `.my-measurement--supporting-unit`
 - `.my-measurement--compact`
 - `.my-measurement-value`
 - `.my-measurement-unit`
@@ -366,6 +367,13 @@ Intended usage:
 - Ratios should display exact values and units together.
 - Today fluid should display exact ml values, such as `550 / 3000 ml`.
 - Numeric values use mono type; units are smaller sans labels.
+- `kcal` remains a primary measurement unit in v1.
+- Supporting readout units such as `g`, `kg`, `L`, and `ml` use
+  `.my-measurement--supporting-unit`.
+- Supporting units are visually quieter, but numeric values remain primary.
+- Value/unit spacing is owned by `.my-measurement`, not screen-local CSS.
+- List row metadata remains unchanged in this slice and keeps the row-meta
+  grammar.
 - Compact measurements are allowed in dense split panels when exact values would otherwise wrap.
 - Progress lines stay neutral unless an over-target/attention state is meaningful.
 
@@ -374,6 +382,8 @@ Forbidden patterns:
 - No lossy rounding of fluid values in Today.
 - No decorative charts when a line/progress readout is clearer.
 - No detached unit that makes the value ambiguous.
+- No Today-only or screen-local measurement unit styling.
+- No secondary `kcal` styling without a separate design-system decision.
 
 React Native migration notes:
 

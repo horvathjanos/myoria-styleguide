@@ -70,6 +70,8 @@ Approved mapping:
 - section label: `section-label`
 - primary numeric value: `metric-value`
 - primary unit: `metric-unit`
+- supporting readout numeric value: readout-owned value role plus `my-measurement-value`
+- supporting readout unit: readout-owned value role plus `my-measurement-unit`
 - paired secondary value: `row-title`
 - active/operational status text: root-date typography role
 - non-numeric primary status/title: `row-title`
@@ -86,6 +88,30 @@ Rules:
 - Use the active/operational status text mapping only for true active / operational / in-progress states.
 - Active/operational status text is sentence case, not uppercase.
 - Active/operational status text uses secondary text color.
+
+## Measurement units
+
+Readout measurement units use the global measurement primitive. Unit strength is
+semantic, not screen-local.
+
+Primary measurement units remain visually primary by default. In v1, `kcal`
+stays primary because it is part of the headline Nutrition measurement identity.
+
+Supporting measurement units clarify lower-priority readout values without
+competing with the number. Supporting units include `g`, `kg`, `L`, and `ml`
+when they appear in readout measurements.
+
+Rules:
+
+- Numeric values remain the primary visual element.
+- Supporting units use `my-measurement my-measurement--supporting-unit`.
+- Supporting units are visually quieter than the numeric value.
+- Value/unit spacing is controlled by the measurement primitive, not local CSS.
+- Do not add Today-only unit styling.
+- Do not make `kcal` secondary without a separate design-system decision.
+- List row metadata remains unchanged in this slice; strings such as
+  `100 g · NUTRITION` and `350 ml · NUTRITION + FLUID` keep the row-meta
+  contract.
 
 ## Spacing
 

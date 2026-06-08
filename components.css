@@ -408,6 +408,15 @@
   line-height: var(--my-type-metric-unit-line);
 }
 
+.my-measurement--supporting-unit .my-measurement-value {
+  color: inherit;
+  font: inherit;
+}
+
+.my-measurement--supporting-unit .my-measurement-unit {
+  color: var(--my-color-text-muted);
+}
+
 .my-readout-stack {
   display: grid;
   gap: var(--my-section-gap);
