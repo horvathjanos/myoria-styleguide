@@ -1,4 +1,5 @@
 import { PhonePreview } from '../shell/PhonePreview';
+import { PreviewStack } from '../shell/PreviewStack';
 
 type Scope = 'active' | 'archived';
 
@@ -61,7 +62,7 @@ const archivedRows: LibraryRow[] = [
 
 export function FoodDrinkLibraryPreview() {
   return (
-    <div className="sg-validation-stack">
+    <PreviewStack>
       <PhonePreview label="Active scope">
         <FoodDrinkLibraryScreen
           ariaLabel="Food and drink library React active preview"
@@ -101,7 +102,7 @@ export function FoodDrinkLibraryPreview() {
           scope="archived"
         />
       </PhonePreview>
-    </div>
+    </PreviewStack>
   );
 }
 

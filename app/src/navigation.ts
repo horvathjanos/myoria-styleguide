@@ -1,14 +1,14 @@
-export type StyleguideNavLink = {
+type StyleguideNavLink = Readonly<{
   href: string;
   label: string;
-};
+}>;
 
-export type StyleguideNavGroup = {
-  links: StyleguideNavLink[];
+type StyleguideNavGroup = Readonly<{
+  links: readonly StyleguideNavLink[];
   title: string;
-};
+}>;
 
-export const styleguideNavGroups: StyleguideNavGroup[] = [
+export const styleguideNavGroups = [
   {
     title: 'Foundations',
     links: [
@@ -60,4 +60,7 @@ export const styleguideNavGroups: StyleguideNavGroup[] = [
       { href: './validation/progress-scale.html', label: 'Progress scale' },
     ],
   },
-];
+] as const satisfies readonly StyleguideNavGroup[];
+
+export type StyleguideHref =
+  (typeof styleguideNavGroups)[number]['links'][number]['href'];

@@ -1,4 +1,5 @@
 import { PhonePreview } from '../shell/PhonePreview';
+import { PreviewStack } from '../shell/PreviewStack';
 
 type MeasurementProps = {
   className?: string;
@@ -16,7 +17,7 @@ type ProgressScaleProps = {
 
 export function TodayPreview() {
   return (
-    <div className="sg-validation-stack">
+    <PreviewStack>
       <PhonePreview label="Today">
         <section className="my-screen" aria-label="Today React preview">
           <header className="my-root-header">
@@ -156,7 +157,7 @@ export function TodayPreview() {
           </div>
         </section>
       </PhonePreview>
-    </div>
+    </PreviewStack>
   );
 }
 

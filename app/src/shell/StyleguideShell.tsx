@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
 
+import type { StyleguideHref } from '../navigation';
 import { styleguideNavGroups } from '../navigation';
 
 type StyleguideShellProps = {
   children: ReactNode;
-  currentHref: string;
+  currentHref: StyleguideHref;
 };
 
 export function StyleguideShell({
