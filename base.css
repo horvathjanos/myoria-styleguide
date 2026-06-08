@@ -241,11 +241,11 @@ input {
     flex-wrap: wrap;
     gap: var(--my-space-3) var(--my-space-5);
     justify-content: space-between;
-    left: var(--my-space-4);
+    left: 0;
     max-width: none;
-    padding-bottom: var(--my-space-2);
-    right: var(--my-space-4);
-    top: var(--my-space-3);
+    padding: var(--my-space-3) var(--my-space-4) var(--my-space-2);
+    right: 0;
+    top: 0;
     width: auto;
   }
 
