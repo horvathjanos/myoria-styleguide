@@ -265,6 +265,8 @@ Tokens/classes involved:
 - `.my-button--destructive`
 - `.my-button--disabled`
 - `.my-header-action`
+- `.my-local-action-row`
+- `.my-local-confirmation`
 
 Intended usage:
 
@@ -273,6 +275,7 @@ Intended usage:
 - Primary buttons are reserved for clear commit actions in forms/workflows.
 - Secondary buttons are for cancel/back-out choices when a visible button is needed.
 - Destructive buttons are rare and only for irreversible or hiding/removal flows.
+- Local confirmations stay inline near the affected detail/action area unless a separate modal contract exists.
 - Disabled state uses named opacity token.
 
 Forbidden patterns:
@@ -282,6 +285,7 @@ Forbidden patterns:
 - No plus icon unless the action grammar explicitly calls for it.
 - No shadows or pill buttons by default.
 - No fake disabled state that remains focusable without semantic disabled handling.
+- No toast/snackbar/undo as the default confirmation or delete feedback pattern.
 
 React Native migration notes:
 
@@ -390,6 +394,38 @@ React Native migration notes:
 - Use explicit formatters for daily read models.
 - Keep display formatting close to UI/presentation helpers, not domain persistence.
 
+## 10a. Snapshot Detail Facts
+
+Tokens/classes involved:
+
+- `.my-snapshot-detail`
+- `.my-snapshot-summary`
+- `.my-snapshot-title`
+- `.my-snapshot-meta`
+- `.my-fact-list`
+- `.my-fact-row`
+- `.my-fact-label`
+- `.my-fact-value`
+
+Intended usage:
+
+- Immutable saved-entry snapshots can render as calm read-only detail facts.
+- Summary first: saved display name and concise logged context.
+- Facts use line-separated label/value rows.
+- Numeric snapshot values use mono fact values.
+- Detail facts are review data, not editable form fields.
+
+Forbidden patterns:
+
+- No cards, badges, or decorative status colors for saved-entry review.
+- No edit controls inside the delete-first nutrition correction slice.
+- No fake mutable inputs for immutable snapshot fields.
+
+React Native migration notes:
+
+- Use read models/snapshots as display input.
+- Keep correction commands separate from snapshot display formatting.
+
 ## 11. State Grammar
 
 Tokens/classes involved:
@@ -428,6 +464,7 @@ Tokens/classes involved:
 
 - `screens/today.html`
 - `screens/food-drink-library.html`
+- `screens/nutrition-entry-correction.html`
 - `.my-phone`
 - `.my-screen`
 - screen-specific classes in `screens.css`
@@ -436,6 +473,7 @@ Intended usage:
 
 - Today preview anchors root daily measurement grammar.
 - Food & Drink Library preview anchors secondary object-list grammar.
+- Nutrition Entry Correction preview anchors read-only snapshot correction grammar.
 - Screen previews use dummy data and links only.
 
 Forbidden patterns:

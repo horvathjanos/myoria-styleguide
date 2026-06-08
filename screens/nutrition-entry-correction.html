@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nutrition Entry Correction Preview</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../screens/today.html">Today</a>
+          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
+          <a href="../screens/nutrition-entry-correction.html" class="is-current" aria-current="page">Nutrition Entry Correction</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="../validation/compact-density.html">Compact density</a>
+          <a href="../validation/progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Nutrition Entry Correction</h1>
+          <p class="sg-description">
+            Static target for the first Nutrition correction surface. The
+            preview shows immutable food-log snapshot review, local Delete,
+            local confirmation, and local error state without edit, undo, or
+            restore controls.
+          </p>
+        </header>
+
+        <div class="sg-validation-stack">
+          <div class="sg-validation-pair">
+            <p class="sg-preview-label">Entry detail</p>
+            <div class="sg-phone-wrap">
+              <div class="my-phone">
+                <section class="my-screen" aria-label="Nutrition entry detail preview">
+                  <header class="my-screen-header">
+                    <a class="my-back-control" href="../screens/today.html" aria-label="Go back">
+                      <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                    </a>
+                    <h2 class="my-screen-title">Nutrition entry</h2>
+                  </header>
+
+                  <div class="my-snapshot-detail">
+                    <section class="my-snapshot-summary" aria-label="Selected food log snapshot">
+                      <p class="my-snapshot-title">Greek yogurt</p>
+                      <p class="my-snapshot-meta">Logged 12:42</p>
+                    </section>
+
+                    <div class="my-fact-list" aria-label="Nutrition snapshot facts">
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Amount</span>
+                        <span class="my-fact-value">250 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Calories</span>
+                        <span class="my-fact-value">320 kcal</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Protein</span>
+                        <span class="my-fact-value">31 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Carbs</span>
+                        <span class="my-fact-value">28 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Fat</span>
+                        <span class="my-fact-value">9 g</span>
+                      </div>
+                    </div>
+
+                    <div class="my-local-action-row">
+                      <a class="my-text-action" href="#">Delete</a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-validation-pair">
+            <p class="sg-preview-label">Delete confirmation</p>
+            <div class="sg-phone-wrap">
+              <div class="my-phone">
+                <section class="my-screen" aria-label="Nutrition entry delete confirmation preview">
+                  <header class="my-screen-header">
+                    <a class="my-back-control" href="../screens/today.html" aria-label="Go back">
+                      <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                    </a>
+                    <h2 class="my-screen-title">Nutrition entry</h2>
+                  </header>
+
+                  <div class="my-snapshot-detail">
+                    <section class="my-snapshot-summary" aria-label="Selected food log snapshot">
+                      <p class="my-snapshot-title">Greek yogurt</p>
+                      <p class="my-snapshot-meta">250 g · 320 kcal · Logged 12:42</p>
+                    </section>
+
+                    <div class="my-fact-list" aria-label="Nutrition snapshot facts">
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Protein</span>
+                        <span class="my-fact-value">31 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Carbs</span>
+                        <span class="my-fact-value">28 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Fat</span>
+                        <span class="my-fact-value">9 g</span>
+                      </div>
+                    </div>
+
+                    <section class="my-local-confirmation" aria-label="Delete confirmation">
+                      <p class="my-local-confirmation-title">Delete this entry?</p>
+                      <p class="my-local-confirmation-body">
+                        This item will be deleted from the day and totals.
+                      </p>
+                      <div class="my-local-confirmation-actions">
+                        <a class="my-text-action" href="#">Keep entry</a>
+                        <a class="my-text-action" href="#">Delete</a>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-validation-pair">
+            <p class="sg-preview-label">Local delete error</p>
+            <div class="sg-phone-wrap">
+              <div class="my-phone">
+                <section class="my-screen" aria-label="Nutrition entry delete error preview">
+                  <header class="my-screen-header">
+                    <a class="my-back-control" href="../screens/today.html" aria-label="Go back">
+                      <span class="my-chevron my-chevron--left" aria-hidden="true"></span>
+                    </a>
+                    <h2 class="my-screen-title">Nutrition entry</h2>
+                  </header>
+
+                  <div class="my-snapshot-detail">
+                    <section class="my-snapshot-summary" aria-label="Selected food log snapshot">
+                      <p class="my-snapshot-title">Greek yogurt</p>
+                      <p class="my-snapshot-meta">250 g · 320 kcal · Logged 12:42</p>
+                    </section>
+
+                    <div class="my-fact-list" aria-label="Nutrition snapshot facts">
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Protein</span>
+                        <span class="my-fact-value">31 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Carbs</span>
+                        <span class="my-fact-value">28 g</span>
+                      </div>
+                      <div class="my-fact-row">
+                        <span class="my-fact-label">Fat</span>
+                        <span class="my-fact-value">9 g</span>
+                      </div>
+                    </div>
+
+                    <div class="my-error-panel">
+                      <strong>Could not delete entry</strong>
+                      <span>Keep the entry visible and try again.</span>
+                    </div>
+
+                    <div class="my-local-action-row">
+                      <a class="my-text-action" href="#">Delete</a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

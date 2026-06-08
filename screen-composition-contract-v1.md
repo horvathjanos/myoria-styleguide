@@ -619,3 +619,63 @@ Selection/current state requires a separate approved selection-list pattern late
 - Do not use cards, surfaces, or shadows to separate list management zones.
 - Do not add divider lines decoratively; use them only when they mark a functional boundary.
 - Do not add skeleton rows, grouped-list headers, result counts, hover states, selected states, swipe actions, long-press actions, or inline row action toolbars to default object-list screens without a separate approved pattern.
+
+## Read-only snapshot detail pattern
+
+Use this pattern for saved entry review surfaces where structured snapshot data is immutable and the available correction action is separate from the facts.
+
+Approved structure:
+
+```text
+[back chevron] Screen Title
+
+SUMMARY
+saved display name
+logged context
+
+FACT LIST
+Amount                         250 g
+Calories                       320 kcal
+Protein                        31 g
+Carbs                          28 g
+Fat                             9 g
+
+LOCAL ACTION
+Delete
+```
+
+Rules:
+
+- Use the normal secondary screen header.
+- Keep the detail read-only; do not render snapshot facts as inputs.
+- Use a concise summary before facts when it helps identify the selected entry.
+- Facts use reusable line-separated label/value rows.
+- Fact labels use section-label grammar.
+- Fact values use mono fact-value grammar.
+- Local correction actions sit below the relevant detail facts.
+- Destructive/correction actions should be explicit but visually calm.
+- Do not use cards, badges, warning banners, decorative colors, or modal chrome for read-only detail facts.
+
+## Local confirmation pattern
+
+Use this pattern for confirmation that belongs to a specific detail or row action and should not take over the whole screen.
+
+Approved structure:
+
+```text
+Delete this entry?
+This item will be deleted from the day and totals.
+
+Keep entry    Delete
+```
+
+Rules:
+
+- The confirmation appears inline near the action it confirms.
+- Use short, factual copy.
+- Explain the user-visible effect, not persistence internals.
+- Use explicit actions such as `Keep entry` and `Delete`.
+- Keep pending/error state local to the affected row/detail action area.
+- Use existing error primitives for local failures when possible.
+- Do not use modal confirmation as the first pattern unless a separate modal contract requires it.
+- Do not use snackbar, toast, undo, restore, or long-press-only behavior as the first delete correction pattern.
