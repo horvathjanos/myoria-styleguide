@@ -66,8 +66,8 @@ Approved header axes:
 screen content-left axis
 │
 ├─ 44px back-control touch target
-│  └─ visible back chevron centered inside the touch target
-├──── visible header lane: 44px - one 8px spacing step
+│  └─ visible back chevron starts on the content-left axis
+├──── visible header lane: 24px chevron zone + one 8px spacing step
 └──── header-title axis
       Screen Title starts after the visible header lane
 ```
@@ -78,11 +78,11 @@ Rules:
 - Back control uses a 44px touch target.
 - Back control does not use negative margin.
 - Header geometry is defined by the reusable header primitive, not screen-local offsets.
-- The header title starts after the reusable visible header lane:
-  `calc(var(--my-touch-target) - var(--my-space-2))`.
+- The visible back chevron starts on the same content-left axis as object-list controls and list-row content.
+- The header title starts after the reusable visible header lane: a 24px chevron zone plus one 8px spacing step.
 - The visible back chevron stays inside the 44px touch target.
 - The visible back chevron and screen title should read as one precise header group.
-- The header-title axis is intentionally separate from the object-list content-left axis in v1, but it should not be pushed inward by the full visual weight of a detached 44px slot.
+- The header-title axis is intentionally separate from the object-list content-left axis in v1, but the visible back affordance is not.
 - Do not place placeholder overflow menus in the header.
 - Do not move object creation into the header by default.
 - Do not move the title left with negative margins, transforms, absolute-position offsets, or screen-local pixel nudges.

@@ -30,8 +30,9 @@
   align-items: center;
   display: grid;
   grid-template-columns:
-    calc(var(--my-touch-target) - var(--my-space-2))
+    var(--my-row-chevron-zone-width)
     minmax(0, 1fr);
+  column-gap: var(--my-space-2);
   margin-bottom: var(--my-header-content-gap);
 }
 
@@ -54,8 +55,9 @@
   align-items: center;
   display: grid;
   grid-template-columns:
-    calc(var(--my-touch-target) - var(--my-space-2))
+    var(--my-row-chevron-zone-width)
     minmax(0, 1fr);
+  column-gap: var(--my-space-2);
   min-width: 0;
 }
 
@@ -80,7 +82,7 @@
   align-items: center;
   display: inline-flex;
   height: var(--my-touch-target);
-  justify-content: center;
+  justify-content: flex-start;
   margin-left: 0;
   width: var(--my-touch-target);
 }

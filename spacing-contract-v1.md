@@ -390,12 +390,17 @@ Approved header title axis:
 ```css
 .my-screen-header {
   grid-template-columns:
-    calc(var(--my-touch-target) - var(--my-space-2))
+    var(--my-row-chevron-zone-width)
     minmax(0, 1fr);
+  column-gap: var(--my-space-2);
+}
+
+.my-back-control {
+  justify-content: flex-start;
 }
 ```
 
-Reason: the back control keeps the 44px touch target, but the title starts after the reusable visible header lane instead of after the full detached touch-target width. This keeps the visible chevron and title in one precise header group without negative margins or screen-local offsets.
+Reason: the back control keeps the 44px touch target, but the visible chevron starts on the content-left axis and the title starts after the reusable 24px chevron zone plus one 8px spacing step. This keeps the visible chevron and title in one precise header group without negative margins or screen-local offsets.
 
 Do not use magic-number negative offsets for back controls. If header alignment feels wrong, adjust the header/grid contract instead.
 
