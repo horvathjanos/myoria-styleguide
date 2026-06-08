@@ -514,6 +514,19 @@
   justify-self: flex-start;
 }
 
+.my-list-state-title,
+.my-list-state-body {
+  margin: 0;
+}
+
+.my-list-state-title {
+  color: var(--my-color-text-secondary);
+}
+
+.my-list-state-body {
+  color: var(--my-color-text-secondary);
+}
+
 .my-empty-state {
   color: var(--my-color-text-secondary);
   font-family: var(--my-font-sans);

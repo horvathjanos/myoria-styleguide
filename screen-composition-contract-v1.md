@@ -325,6 +325,8 @@ Rules:
 - The list top boundary remains visible before the state message when the list region exists.
 - State text is left-aligned to the list grid.
 - State text uses the dedicated list-state typography role.
+- A state may use a short title plus one short body line when product copy requires more context.
+- State title and body use the same list-state typography role and secondary color.
 - Empty/no-results/loading states use secondary text color.
 - Error states use the error token.
 - The state message uses density-based top padding after the list boundary: compact 24px, comfortable 32px.
@@ -345,8 +347,8 @@ Approved default wording:
 
 Food & Drink Library uses:
 
-- active scope empty: `No active items`
-- archived scope empty: `No archived items`
+- active scope empty: `No items yet` / `Create reusable foods and drinks for logging.`
+- archived scope empty: `No archived items` / `Items hidden from logging will appear here.`
 - search no-results: `No matching items`
 
 Domain-specific wording is allowed only when it improves clarity without becoming narrower than the actual object model.

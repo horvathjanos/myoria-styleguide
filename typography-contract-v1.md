@@ -155,6 +155,8 @@ Rules:
 Use for list-level empty/loading/error state messages inside object-list regions, such as:
 
 - `No active items`
+- `No items yet`
+- `Create reusable foods and drinks for logging.`
 - `No matching items`
 - `Loading items`
 - `Could not load items`
@@ -173,6 +175,7 @@ Reason: list-state text is more important than inline help text, but should not 
 Rules:
 
 - List-state text is left-aligned to the list grid.
+- List-state title/body pairs use the same role for both lines.
 - Empty/loading states use secondary text color.
 - Error states use the error token.
 - Do not use centered hero empty-state typography for normal object-list states.
