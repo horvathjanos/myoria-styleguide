@@ -402,16 +402,20 @@ Tokens/classes involved:
 - `.my-snapshot-summary`
 - `.my-snapshot-title`
 - `.my-snapshot-meta`
+- `.my-snapshot-primary`
 - `.my-fact-list`
 - `.my-fact-row`
 - `.my-fact-label`
 - `.my-fact-value`
+- `.my-local-correction`
 
 Intended usage:
 
 - Immutable saved-entry snapshots can render as calm read-only detail facts.
 - Summary first: saved display name and concise logged context.
-- Facts use line-separated label/value rows.
+- Promote the primary saved measurement before secondary facts when a detail surface has a natural measurement hierarchy.
+- Amount and logged time are metadata when the primary question is nutrition contribution.
+- Secondary facts use line-separated label/value rows.
 - Numeric snapshot values use mono fact values.
 - Detail facts are review data, not editable form fields.
 

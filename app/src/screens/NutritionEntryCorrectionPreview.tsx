@@ -8,14 +8,6 @@ type NutritionFact = Readonly<{
   value: string;
 }>;
 
-const entryDetailFacts: readonly NutritionFact[] = [
-  { label: 'Amount', value: '250 g' },
-  { label: 'Calories', value: '320 kcal' },
-  { label: 'Protein', value: '31 g' },
-  { label: 'Carbs', value: '28 g' },
-  { label: 'Fat', value: '9 g' },
-];
-
 const macroFacts: readonly NutritionFact[] = [
   { label: 'Protein', value: '31 g' },
   { label: 'Carbs', value: '28 g' },
@@ -27,32 +19,28 @@ export function NutritionEntryCorrectionPreview() {
     <PreviewStack>
       <PhonePreview label="Entry detail">
         <NutritionEntryScreen ariaLabel="Nutrition entry detail React preview">
-          <SnapshotSummary name="Greek yogurt" meta="Logged 12:42" />
-          <FactList facts={entryDetailFacts} />
-          <LocalAction label="Delete" />
+          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+          <PrimaryNutritionSnapshot value="320" unit="kcal" />
+          <FactList facts={macroFacts} />
+          <CorrectionAction />
         </NutritionEntryScreen>
       </PhonePreview>
 
       <PhonePreview label="Delete confirmation">
         <NutritionEntryScreen ariaLabel="Nutrition entry delete confirmation React preview">
-          <SnapshotSummary
-            name="Greek yogurt"
-            meta="250 g · 320 kcal · Logged 12:42"
-          />
+          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+          <PrimaryNutritionSnapshot value="320" unit="kcal" />
           <FactList facts={macroFacts} />
-          <LocalConfirmation />
+          <CorrectionConfirmation />
         </NutritionEntryScreen>
       </PhonePreview>
 
       <PhonePreview label="Local delete error">
         <NutritionEntryScreen ariaLabel="Nutrition entry delete error React preview">
-          <SnapshotSummary
-            name="Greek yogurt"
-            meta="250 g · 320 kcal · Logged 12:42"
-          />
+          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+          <PrimaryNutritionSnapshot value="320" unit="kcal" />
           <FactList facts={macroFacts} />
-          <ErrorPanel />
-          <LocalAction label="Delete" />
+          <CorrectionError />
         </NutritionEntryScreen>
       </PhonePreview>
     </PreviewStack>
@@ -103,6 +91,29 @@ function SnapshotSummary({ meta, name }: SnapshotSummaryProps) {
   );
 }
 
+type PrimaryNutritionSnapshotProps = Readonly<{
+  unit: string;
+  value: string;
+}>;
+
+function PrimaryNutritionSnapshot({
+  unit,
+  value,
+}: PrimaryNutritionSnapshotProps) {
+  return (
+    <section
+      className="my-snapshot-primary"
+      aria-label="Primary nutrition snapshot"
+    >
+      <span className="my-section-label">Calories</span>
+      <span className="my-measurement">
+        <span className="my-measurement-value">{value}</span>
+        <span className="my-measurement-unit">{unit}</span>
+      </span>
+    </section>
+  );
+}
+
 function FactList({ facts }: { facts: readonly NutritionFact[] }) {
   return (
     <div className="my-fact-list" aria-label="Nutrition snapshot facts">
@@ -116,40 +127,53 @@ function FactList({ facts }: { facts: readonly NutritionFact[] }) {
   );
 }
 
-function LocalAction({ label }: { label: string }) {
+function CorrectionAction() {
   return (
-    <div className="my-local-action-row">
+    <section className="my-local-correction" aria-label="Correction">
+      <p className="my-section-label">Correction</p>
       <a className="my-text-action" href="#">
-        {label}
+        Delete entry
       </a>
-    </div>
-  );
-}
-
-function LocalConfirmation() {
-  return (
-    <section className="my-local-confirmation" aria-label="Delete confirmation">
-      <p className="my-local-confirmation-title">Delete this entry?</p>
-      <p className="my-local-confirmation-body">
-        This item will be deleted from the day and totals.
-      </p>
-      <div className="my-local-confirmation-actions">
-        <a className="my-text-action" href="#">
-          Keep entry
-        </a>
-        <a className="my-text-action" href="#">
-          Delete
-        </a>
-      </div>
     </section>
   );
 }
 
-function ErrorPanel() {
+function CorrectionConfirmation() {
   return (
-    <div className="my-error-panel">
-      <strong>Could not delete entry</strong>
-      <span>Keep the entry visible and try again.</span>
-    </div>
+    <section className="my-local-correction" aria-label="Correction">
+      <p className="my-section-label">Correction</p>
+      <section
+        className="my-local-confirmation"
+        aria-label="Delete confirmation"
+      >
+        <p className="my-local-confirmation-title">Delete this entry?</p>
+        <p className="my-local-confirmation-body">
+          This removes it from today's nutrition totals.
+        </p>
+        <div className="my-local-confirmation-actions">
+          <a className="my-text-action" href="#">
+            Keep entry
+          </a>
+          <a className="my-text-action" href="#">
+            Delete
+          </a>
+        </div>
+      </section>
+    </section>
+  );
+}
+
+function CorrectionError() {
+  return (
+    <section className="my-local-correction" aria-label="Correction">
+      <p className="my-section-label">Correction</p>
+      <div className="my-error-panel">
+        <strong>Could not delete entry</strong>
+        <span>Try again.</span>
+      </div>
+      <a className="my-text-action" href="#">
+        Delete entry
+      </a>
+    </section>
   );
 }

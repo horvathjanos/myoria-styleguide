@@ -278,6 +278,13 @@
   min-width: 0;
 }
 
+.my-snapshot-primary {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-2);
+  padding-top: var(--my-space-3);
+}
+
 .my-fact-list {
   border-top: var(--my-line-hairline) solid var(--my-color-divider);
 }
@@ -360,6 +367,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--my-space-3);
+}
+
+.my-local-correction {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-3);
+  padding-top: var(--my-space-3);
+}
+
+.my-local-correction > .my-local-confirmation,
+.my-local-correction > .my-error-panel {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .my-object-list-control {
