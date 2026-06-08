@@ -28,24 +28,52 @@
 
 .my-screen-header {
   align-items: center;
-  display: flex;
-  gap: var(--my-back-title-gap);
+  display: grid;
+  grid-template-columns:
+    calc(var(--my-touch-target) - var(--my-space-2))
+    minmax(0, 1fr);
   margin-bottom: var(--my-header-content-gap);
 }
 
+.my-screen-header > .my-back-control {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.my-screen-header > .my-screen-title {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
 .my-screen-header--with-action {
-  justify-content: space-between;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .my-screen-header-title-group {
   align-items: center;
-  display: flex;
-  gap: var(--my-back-title-gap);
+  display: grid;
+  grid-template-columns:
+    calc(var(--my-touch-target) - var(--my-space-2))
+    minmax(0, 1fr);
+  min-width: 0;
+}
+
+.my-screen-header-title-group > .my-back-control {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.my-screen-header-title-group > .my-screen-title {
+  grid-column: 2;
+  grid-row: 1;
   min-width: 0;
 }
 
 .my-header-action {
   flex: 0 0 auto;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .my-back-control {

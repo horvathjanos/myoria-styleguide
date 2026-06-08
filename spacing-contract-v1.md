@@ -385,13 +385,17 @@ Approved back control rule:
 
 The visual chevron stays inside the normal screen padding grid.
 
-Approved back-control-to-title gap:
+Approved header title axis:
 
 ```css
---my-back-title-gap: 0;
+.my-screen-header {
+  grid-template-columns:
+    calc(var(--my-touch-target) - var(--my-space-2))
+    minmax(0, 1fr);
+}
 ```
 
-Reason: the 44px back control already owns enough physical space. Extra gap pushes titles unnecessarily inward and feels more generic app-like.
+Reason: the back control keeps the 44px touch target, but the title starts after the reusable visible header lane instead of after the full detached touch-target width. This keeps the visible chevron and title in one precise header group without negative margins or screen-local offsets.
 
 Do not use magic-number negative offsets for back controls. If header alignment feels wrong, adjust the header/grid contract instead.
 
