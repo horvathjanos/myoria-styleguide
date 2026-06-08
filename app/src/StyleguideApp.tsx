@@ -1,4 +1,5 @@
 import { FoodDrinkLibraryPreview } from './screens/FoodDrinkLibraryPreview';
+import { NutritionEntryCorrectionPreview } from './screens/NutritionEntryCorrectionPreview';
 import { TodayPreview } from './screens/TodayPreview';
 import { StyleguidePage } from './shell/StyleguidePage';
 import { StyleguideShell } from './shell/StyleguideShell';
@@ -12,6 +13,7 @@ export function StyleguideApp() {
       >
         <TodayPreview />
         <FoodDrinkLibraryPreview />
+        <NutritionEntryCorrectionPreview />
       </StyleguidePage>
     </StyleguideShell>
   );
