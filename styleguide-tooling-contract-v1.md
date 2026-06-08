@@ -12,18 +12,59 @@ These controls are tooling only. They do not introduce production components or 
 
 ## Tooling direction
 
-The styleguide remains static HTML/CSS/JS for now.
+The styleguide remains a static published preview, but the preferred authoring
+surface for new screen previews is now the small React TypeScript app:
+
+```text
+docs/styleguide/react.html
+docs/styleguide/app/**
+```
+
+The app is built with the minimal esbuild script:
+
+```text
+scripts/build-styleguide-app.mjs
+```
 
 Reasons:
 
-- the current styleguide is a design-system reference, not a production React Native component workbench
-- static HTML keeps the Rams/Braun reference shell browser-openable and lightweight
-- no framework or build step is required for the current preview contract
+- the styleguide is still a design-system reference, not a production React Native component workbench
+- React TS removes duplicated shell/navigation markup for new previews
+- static HTML output keeps the preview browser-openable and publishable as plain files
+- existing CSS/tokens remain the visual source of truth
 - shell consistency can be protected with repository checks instead of a new catalog framework
 
-Storybook may be reconsidered later, but only after reusable React Native components exist and can be rendered through React Native Web with acceptable fidelity. A Storybook spike should supplement the static styleguide first; it should not replace this reference by default.
+Storybook may be reconsidered later, but only after reusable React Native components exist and can be rendered through React Native Web with acceptable fidelity. A Storybook spike should supplement this styleguide first; it should not replace this reference by default.
 
-Histoire, Fractal, Astro, 11ty, and similar catalog/static-site frameworks are out of scope for the current styleguide direction.
+Vite, Histoire, Fractal, Astro, 11ty, Docusaurus, Next, and similar catalog/static-site frameworks are out of scope for the current styleguide direction.
+
+## React migration policy
+
+Canonical for new screen preview authoring:
+
+```text
+docs/styleguide/app/**
+```
+
+Legacy references during migration:
+
+```text
+docs/styleguide/screens/*.html
+docs/styleguide/components/*.html
+docs/styleguide/validation/*.html
+```
+
+Rules:
+
+- Add new screen previews in React TS by default.
+- Existing static HTML previews remain valid design references until migrated.
+- Migrate incrementally; do not mass-rewrite legacy HTML.
+- Keep legacy HTML pages working while equivalent React previews are introduced.
+- Do not create new standalone HTML screen previews under `docs/styleguide/screens/**` unless a documented exception is added.
+- Component catalog and validation HTML pages may remain static until a specific migration slice approves moving them.
+- React preview components are styleguide-only. They must not import production React Native UI, application use cases, persistence adapters, or app navigation.
+- Existing CSS classes and tokens may be reused directly from React markup.
+- Do not introduce production-ready shared UI primitives in the styleguide app unless a separate production migration decision exists.
 
 ## Hosted public preview
 
@@ -129,6 +170,11 @@ The check verifies that every browser-openable styleguide HTML page:
 - has exactly one `aria-current="page"` marker
 - points relative `href` and `src` values at existing files
 - uses the canonical sidebar navigation groups and link targets
+
+The check also verifies that:
+
+- `docs/styleguide/app/src/navigation.ts` matches the canonical navigation
+- no new legacy HTML screen preview is added under `docs/styleguide/screens/**` without an intentional exception
 
 This check is the preferred way to prevent duplicated navigation and page-local shell drift.
 
