@@ -59,7 +59,8 @@ Rules:
 - Add new screen previews in React TS by default.
 - Existing static HTML previews remain valid design references until migrated.
 - Migrate incrementally; do not mass-rewrite legacy HTML.
-- Keep legacy HTML pages working while equivalent React previews are introduced.
+- Once a screen is migrated and approved in React, retire its static HTML rendering so React is the only visual source of truth.
+- A retired static URL may remain as a minimal notice linking to the canonical React preview.
 - Do not create new standalone HTML screen previews under `docs/styleguide/screens/**` unless a documented exception is added.
 - Component catalog and validation HTML pages may remain static until a specific migration slice approves moving them.
 - React preview components are styleguide-only. They must not import production React Native UI, application use cases, persistence adapters, or app navigation.
@@ -175,6 +176,7 @@ The check also verifies that:
 
 - `docs/styleguide/app/src/navigation.ts` matches the canonical navigation
 - no new legacy HTML screen preview is added under `docs/styleguide/screens/**` without an intentional exception
+- retired migrated screen URLs contain only a canonical-source notice, not phone or screen preview markup
 
 This check is the preferred way to prevent duplicated navigation and page-local shell drift.
 

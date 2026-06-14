@@ -46,10 +46,6 @@ export const styleguideNavGroups = [
         href: './screens/food-drink-library.html',
         label: 'Food & Drink Library',
       },
-      {
-        href: './screens/nutrition-entry-correction.html',
-        label: 'Nutrition Entry Correction',
-      },
       { href: './react.html', label: 'React TS Preview' },
     ],
   },
