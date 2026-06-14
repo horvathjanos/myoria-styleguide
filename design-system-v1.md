@@ -415,13 +415,16 @@ Intended usage:
 - Summary first: saved display name and concise logged context.
 - Promote the primary saved measurement before secondary facts when a detail surface has a natural measurement hierarchy.
 - Amount and logged time are metadata when the primary question is nutrition contribution.
-- Secondary facts use line-separated label/value rows.
+- Secondary facts form one compact, aligned label/value snapshot.
+- Use typography, alignment, and whitespace instead of per-fact dividers.
 - Numeric snapshot values use mono fact values.
 - Detail facts are review data, not editable form fields.
 
 Forbidden patterns:
 
 - No cards, badges, or decorative status colors for saved-entry review.
+- No object-list row grammar or divider after every snapshot attribute.
+- No vertical dividers between related snapshot facts.
 - No edit controls inside the delete-first nutrition correction slice.
 - No fake mutable inputs for immutable snapshot fields.
 

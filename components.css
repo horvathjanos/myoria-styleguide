@@ -248,22 +248,20 @@
 
 .my-snapshot-detail {
   display: grid;
-  gap: var(--my-space-5);
+  gap: var(--my-space-6);
 }
 
 .my-snapshot-summary {
-  border-top: var(--my-line-hairline) solid var(--my-color-divider);
   display: grid;
   gap: var(--my-space-2);
-  padding-top: var(--my-space-3);
 }
 
 .my-snapshot-title {
   color: var(--my-color-text-primary);
   font-family: var(--my-font-sans);
-  font-size: var(--my-type-row-title-size);
+  font-size: var(--my-type-screen-title-size);
   font-weight: 400;
-  line-height: var(--my-type-row-title-line);
+  line-height: var(--my-type-screen-title-line);
   margin: 0;
   min-width: 0;
 }
@@ -279,14 +277,12 @@
 }
 
 .my-snapshot-primary {
-  border-top: var(--my-line-hairline) solid var(--my-color-divider);
-  display: grid;
-  gap: var(--my-space-2);
-  padding-top: var(--my-space-3);
+  display: block;
 }
 
 .my-fact-list {
-  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-2);
 }
 
 .my-fact-row {
@@ -294,12 +290,6 @@
   display: grid;
   gap: var(--my-space-4);
   grid-template-columns: minmax(0, 1fr) auto;
-  min-height: var(--my-touch-target);
-  padding: var(--my-space-2) 0;
-}
-
-.my-fact-row + .my-fact-row {
-  border-top: var(--my-line-hairline) solid var(--my-color-divider);
 }
 
 .my-fact-label {

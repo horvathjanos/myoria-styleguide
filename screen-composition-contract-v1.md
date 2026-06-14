@@ -634,10 +634,9 @@ saved display name
 metadata context
 
 PRIMARY SNAPSHOT
-Calories
 320 kcal
 
-SECONDARY FACT LIST
+SECONDARY SNAPSHOT
 Protein                        31 g
 Carbs                          28 g
 Fat                             9 g
@@ -653,14 +652,16 @@ Rules:
 - Keep the detail read-only; do not render snapshot facts as inputs.
 - Use a concise summary before facts when it helps identify the selected entry.
 - Amount, logged time, and similar context are metadata unless they are the screen's primary measurement.
-- A detail surface may promote one saved snapshot value into a primary measurement before the secondary fact list.
-- Facts use reusable line-separated label/value rows for secondary immutable data.
+- A detail surface may promote one saved snapshot value into a primary measurement before the secondary snapshot.
+- Secondary facts use a compact reusable label/value group for related immutable data.
 - Fact labels use section-label grammar.
 - Fact values use mono fact-value grammar.
+- Use alignment, typography, and whitespace instead of object-list row separators.
 - Local correction actions sit below the relevant detail facts.
 - Local correction actions live in a clearly labeled correction area when the screen has multiple review sections.
 - Destructive/correction actions should be explicit but visually calm.
 - Do not use cards, badges, warning banners, decorative colors, or modal chrome for read-only detail facts.
+- Do not add per-fact dividers or vertical dividers within a related snapshot group.
 
 ## Local confirmation pattern
 

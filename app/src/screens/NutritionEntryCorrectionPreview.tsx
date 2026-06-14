@@ -101,11 +101,7 @@ function PrimaryNutritionSnapshot({
   value,
 }: PrimaryNutritionSnapshotProps) {
   return (
-    <section
-      className="my-snapshot-primary"
-      aria-label="Primary nutrition snapshot"
-    >
-      <span className="my-section-label">Calories</span>
+    <section className="my-snapshot-primary" aria-label={`${value} ${unit}`}>
       <span className="my-measurement">
         <span className="my-measurement-value">{value}</span>
         <span className="my-measurement-unit">{unit}</span>
