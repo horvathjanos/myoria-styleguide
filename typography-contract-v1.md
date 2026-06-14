@@ -18,6 +18,34 @@ Use a small number of roles. Avoid marketing titles, hero headings, card titles,
 --my-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 ```
 
+The styleguide loads these approved families from local static assets:
+
+```text
+assets/fonts/IBMPlexSans-Regular.ttf
+assets/fonts/IBMPlexSansCondensed-SemiBold.ttf
+assets/fonts/IBMPlexMono-Regular.ttf
+```
+
+The production assets are copied into the generated styleguide output by
+`scripts/build-styleguide-app.mjs`. `docs/styleguide/fonts.css` owns the
+corresponding `@font-face` declarations, and every canonical styleguide route
+loads that stylesheet before the typography tokens and component CSS.
+
+Font-loading rules:
+
+- Use the exact CSS family names `IBM Plex Sans`,
+  `IBM Plex Sans Condensed`, and `IBM Plex Mono`.
+- Load only local files published under `docs/styleguide/assets/fonts/`.
+- Do not use a remote font CDN.
+- Keep the existing fallback stacks after the approved family name.
+- Use `font-display: swap` so fallback text remains available while local
+  fonts load.
+- The existing production condensed SemiBold binary supplies the approved
+  condensed control-label role at CSS weight 500. Do not replace it or add
+  another weight without a separate typography decision.
+- The font software is distributed under SIL Open Font License 1.1. The
+  published notice lives at `docs/styleguide/assets/fonts/OFL.txt`.
+
 Approved family roles:
 
 - Sans: explanatory copy, input text, help text, inline feedback, units, list-state text.
@@ -294,6 +322,9 @@ Reason: numeric inputs are measurement-adjacent and should align with the readou
 
 ## Must-not-do rules
 
+- Do not remove or bypass the local `@font-face` definitions.
+- Do not load IBM Plex from Google Fonts or another remote CDN.
+- Do not rename the CSS families away from the approved token names.
 - Do not show an explicit `Today` title on the root screen.
 - Do not add extra title roles such as `heroTitle`, `cardTitle`, `formTitle`, or `modalTitle` in v1.
 - Do not use viewport-scaled font sizes.

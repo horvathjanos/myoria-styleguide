@@ -101,6 +101,13 @@ Tokens/classes involved:
 
 Approved role summary:
 
+- Canonical styleguide routes load local IBM Plex font assets through
+  `docs/styleguide/fonts.css`.
+- Sans roles use `"IBM Plex Sans"` first, condensed roles use
+  `"IBM Plex Sans Condensed"` first, and mono roles use `"IBM Plex Mono"`
+  first.
+- Existing system fallback stacks remain after the approved family names.
+- Remote font CDNs are forbidden.
 - Today/root screen does not display an explicit `Today` title.
 - Today/root uses one quiet date line only: `Tuesday, 2 June`.
 - Root date: 14px / 18px, sans, 400, secondary text.
@@ -117,6 +124,9 @@ Approved role summary:
 
 Forbidden patterns:
 
+- No missing, remote, or route-local font loading that bypasses
+  `docs/styleguide/fonts.css`.
+- No alternate CSS family names for the approved IBM Plex assets.
 - No explicit `Today` title on the root screen.
 - No extra title roles such as `heroTitle`, `cardTitle`, `formTitle`, or `modalTitle` in v1.
 - No viewport-scaled font sizes.

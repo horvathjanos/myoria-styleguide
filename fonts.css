@@ -1,0 +1,30 @@
+/*
+ * IBM Plex font files are copied from the existing production assets by
+ * scripts/build-styleguide-app.mjs. They are distributed under SIL OFL 1.1;
+ * the published license is available at assets/fonts/OFL.txt.
+ */
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Sans Condensed";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/IBMPlexSansCondensed-SemiBold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+}
