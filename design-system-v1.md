@@ -469,9 +469,9 @@ React Native migration notes:
 
 Tokens/classes involved:
 
-- React Today screen page in `react.html`
-- React Food & Drink Library screen page in `react.html`
-- React Nutrition Entry Detail screen page in `react.html`
+- React Today screen page at `screens/today/`
+- React Food & Drink Library screen page at `screens/food-drink-library/`
+- React Nutrition Entry Detail screen page at `screens/nutrition-entry-detail/`
 - `.my-phone`
 - `.my-screen`
 - screen-specific classes in `screens.css`

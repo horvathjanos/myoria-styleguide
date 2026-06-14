@@ -12,11 +12,10 @@ These controls are tooling only. They do not introduce production components or 
 
 ## Tooling direction
 
-The styleguide remains a static published preview, but the preferred authoring
-surface for new screen previews is now the small React TypeScript app:
+The styleguide remains a static published preview, with React TypeScript as the
+single canonical authoring surface:
 
 ```text
-docs/styleguide/react.html
 docs/styleguide/app/**
 ```
 
@@ -29,7 +28,7 @@ scripts/build-styleguide-app.mjs
 Reasons:
 
 - the styleguide is still a design-system reference, not a production React Native component workbench
-- React TS removes duplicated shell/navigation markup for new previews
+- React TS removes duplicated shell/navigation and preview implementations
 - static HTML output keeps the preview browser-openable and publishable as plain files
 - existing CSS/tokens remain the visual source of truth
 - shell consistency can be protected with repository checks instead of a new catalog framework
@@ -38,33 +37,30 @@ Storybook may be reconsidered later, but only after reusable React Native compon
 
 Vite, Histoire, Fractal, Astro, 11ty, Docusaurus, Next, and similar catalog/static-site frameworks are out of scope for the current styleguide direction.
 
-## React migration policy
+## React route policy
 
-Canonical for new screen preview authoring:
+Canonical authoring:
 
 ```text
 docs/styleguide/app/**
 ```
 
-Legacy references during migration:
+Canonical route registry:
 
 ```text
-docs/styleguide/screens/*.html
-docs/styleguide/components/*.html
-docs/styleguide/validation/*.html
+docs/styleguide/app/src/styleguideRoutes.tsx
 ```
 
 Rules:
 
-- Add new screen previews in React TS by default.
-- Organize the React app navigation around Foundations, Components, and Screens, never around implementation technology.
-- Each migrated screen owns one typed `react.html` anchor and contains its relevant states or variants.
-- Existing static HTML previews remain valid design references until migrated.
-- Migrate incrementally; do not mass-rewrite legacy HTML.
-- Once a screen is migrated and approved in React, retire its static HTML rendering so React is the only visual source of truth.
-- A retired static URL may remain as a minimal notice linking to the canonical React preview.
-- Do not create new standalone HTML screen previews under `docs/styleguide/screens/**` unless a documented exception is added.
-- Component catalog and validation HTML pages may remain static until a specific migration slice approves moving them.
+- Add rendered pages in React TS and register them in the typed route registry.
+- Generate navigation from the same registry.
+- Organize navigation around Foundations, Components, Screens, and Validation, never around implementation technology.
+- Each screen owns one real route and contains its relevant states or variants.
+- Component pages and screen pages import the same styleguide primitives.
+- Validation pages remain internal regression surfaces on their own routes.
+- Do not create standalone hand-authored HTML preview pages.
+- A retired `.html` URL may remain only as a generated minimal redirect notice.
 - React preview components are styleguide-only. They must not import production React Native UI, application use cases, persistence adapters, or app navigation.
 - Existing CSS classes and tokens may be reused directly from React markup.
 - Do not introduce production-ready shared UI primitives in the styleguide app unless a separate production migration decision exists.
@@ -167,18 +163,15 @@ The static shell is protected by:
 pnpm styleguide:check
 ```
 
-The check verifies that every browser-openable styleguide HTML page:
+The check verifies:
 
-- loads `styleguide-controls.js`
-- has exactly one `aria-current="page"` marker
-- points relative `href` and `src` values at existing files
-- uses the canonical sidebar navigation groups and link targets
-
-The check also verifies that:
-
-- `docs/styleguide/app/src/navigation.ts` matches the canonical navigation
-- no new legacy HTML screen preview is added under `docs/styleguide/screens/**` without an intentional exception
-- retired migrated screen URLs contain only a canonical-source notice, not phone or screen preview markup
+- route IDs and paths are unique, readable, and stable
+- navigation contains every navigable route exactly once
+- every registered route has generated React entry HTML
+- route assets and relative references resolve under local and GitHub Pages paths
+- every legacy URL is a minimal generated notice without competing preview markup
+- no unregistered standalone HTML preview page exists
+- React styleguide imports remain styleguide-local
 
 This check is the preferred way to prevent duplicated navigation and page-local shell drift.
 
@@ -326,9 +319,9 @@ Reason:
 
 Current implementation:
 
-- validation pages remain static HTML
+- validation pages are React-rendered static routes
 - `validation/` is the stable overview URL
-- `validation/compact-density.html` and `validation/progress-scale.html` are linked consistently from every sidebar
+- `validation/compact-density/` and `validation/progress-scale/` are linked from the shared registry-driven sidebar
 
 Current content order:
 
@@ -389,7 +382,7 @@ Progress scale validation is a separate validation page, not the canonical Today
 Path:
 
 ```text
-docs/styleguide/validation/progress-scale.html
+docs/styleguide/validation/progress-scale/
 ```
 
 Purpose:

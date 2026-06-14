@@ -1,143 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" data-density="comfortable">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="./" />
     <title>Myoria UI Styleguide</title>
-    <script src="./styleguide-controls.js"></script>
-    <link rel="stylesheet" href="./tokens.css" />
-    <link rel="stylesheet" href="./base.css" />
-    <link rel="stylesheet" href="./components.css" />
-    <link rel="stylesheet" href="./screens.css" />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="components.css" />
+    <link rel="stylesheet" href="screens.css" />
+    <script src="styleguide-controls.js?v=c6fc74ac6e2d"></script>
   </head>
-  <body>
-    <main class="sg-page">
-      <nav class="sg-nav" aria-label="Styleguide navigation">
-        <strong class="sg-brand is-current" aria-current="page">Myoria UI Styleguide</strong>
-        <div class="sg-nav-group">
-          <span class="sg-nav-title">Foundations</span>
-          <a href="./design-system-v1.md">Design-system v1 draft</a>
-          <a href="./styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
-          <a href="./readout-contract-v1.md">Readout contract</a>
-          <a href="./progress-scale-contract-v1.md">Progress scale contract</a>
-          <a href="./components/typography.html">Typography</a>
-          <a href="./components/colors.html">Colors</a>
-          <a href="./components/spacing.html">Spacing</a>
-          <a href="./components/chevrons.html">Chevrons</a>
-        </div>
-        <div class="sg-nav-group">
-          <span class="sg-nav-title">Components</span>
-          <a href="./components/list-rows.html">List rows</a>
-          <a href="./components/inputs.html">Inputs</a>
-          <a href="./components/actions.html">Actions</a>
-          <a href="./components/measurements.html">Measurements</a>
-          <a href="./components/states.html">States</a>
-        </div>
-        <div class="sg-nav-group">
-          <span class="sg-nav-title">Screens</span>
-          <a href="./react.html#today">Today</a>
-          <a href="./react.html#food-drink-library">Food & Drink Library</a>
-          <a href="./react.html#nutrition-entry-detail">Nutrition Entry Detail</a>
-        </div>
-        <div class="sg-nav-group">
-          <span class="sg-nav-title">Validation</span>
-          <a href="./validation/compact-density.html">Compact density</a>
-          <a href="./validation/progress-scale.html">Progress scale</a>
-        </div>
-      </nav>
-
-      <section class="sg-content">
-        <header class="sg-header">
-          <h1 class="sg-title">Static Myoria UI Styleguide</h1>
-          <p class="sg-description">
-            A browser-openable HTML/CSS mirror app for the Rams/Braun-inspired
-            measurement-instrument grammar. This is a design contract preview,
-            not production app logic.
-          </p>
-        </header>
-
-        <div class="sg-grid">
-          <article class="sg-card">
-            <h2>Design-System V1 Draft</h2>
-            <p class="sg-note">
-              The written contract for colors, type, spacing, headers,
-              chevrons, rows, actions, inputs, states, screens, migration, and
-              must-not-do rules.
-            </p>
-            <a class="my-text-action" href="./design-system-v1.md">Read draft</a>
-          </article>
-          <article class="sg-card">
-            <h2>Foundation Tokens</h2>
-            <p class="sg-note">
-              Colors, spacing, type roles, line weights, touch targets, and the
-              shared chevron geometry are exposed as CSS variables.
-            </p>
-            <a class="my-text-action" href="./components/colors.html">View tokens</a>
-          </article>
-          <article class="sg-card">
-            <h2>Component Grammar</h2>
-            <p class="sg-note">
-              Rows, line inputs, text actions, measurements, empty states,
-              readouts, and chevrons are represented with reusable classes.
-            </p>
-            <a class="my-text-action" href="./components/list-rows.html">View rows</a>
-          </article>
-          <article class="sg-card">
-            <h2>Readout Contract</h2>
-            <p class="sg-note">
-              Reusable root measurement/readout grammar for Today and future
-              measurement-style surfaces.
-            </p>
-            <a class="my-text-action" href="./readout-contract-v1.md">Read contract</a>
-          </article>
-          <article class="sg-card">
-            <h2>Progress Scale Contract</h2>
-            <p class="sg-note">
-              Open measurement-scale progress grammar, including ticks, fixed
-              target length, and over-target marker rules.
-            </p>
-            <a class="my-text-action" href="./progress-scale-contract-v1.md">Read contract</a>
-          </article>
-          <article class="sg-card">
-            <h2>Screen Mirrors</h2>
-            <p class="sg-note">
-              Fake phone previews show intended layout behavior with dummy data,
-              including Food & Drink Library, Nutrition correction, and a
-              readout-based Today surface.
-            </p>
-            <a class="my-text-action" href="./react.html#food-drink-library">View screen</a>
-          </article>
-          <article class="sg-card">
-            <h2>Nutrition Correction</h2>
-            <p class="sg-note">
-              Read-only nutrition food-log snapshot review with local Delete,
-              local confirmation, and local error state.
-            </p>
-            <a class="my-text-action" href="./react.html#nutrition-entry-detail"
-              >View correction</a
-            >
-          </article>
-          <article class="sg-card">
-            <h2>Validation</h2>
-            <p class="sg-note">
-              Internal regression and stress-test surfaces for approved modes
-              and primitives. They are not product screens or component
-              contract pages.
-            </p>
-            <a class="my-text-action" href="./validation/"
-              >View validation</a
-            >
-          </article>
-          <article class="sg-card">
-            <h2>Migration Path</h2>
-            <p class="sg-note">
-              Future production work should reference this contract first, then
-              migrate one token, primitive, or screen pattern at a time.
-            </p>
-            <a class="my-text-action" href="./components/actions.html">View actions</a>
-          </article>
-        </div>
-      </section>
-    </main>
+  <body data-styleguide-route-id="home">
+    <div id="styleguide-root"></div>
+    <script type="module" src="assets/styleguide-app.js?v=c6fc74ac6e2d"></script>
   </body>
 </html>

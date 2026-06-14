@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 type MeasurementProps = {
   className?: string;
   supportingUnit?: boolean;
@@ -28,4 +30,3 @@ export function Measurement({
     </span>
   );
 }
-import type { ReactElement } from 'react';

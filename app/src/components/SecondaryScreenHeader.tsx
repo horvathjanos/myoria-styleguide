@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 type SecondaryScreenHeaderProps = {
   backHref: string;
   title: string;
@@ -16,4 +18,3 @@ export function SecondaryScreenHeader({
     </header>
   );
 }
-import type { ReactElement } from 'react';

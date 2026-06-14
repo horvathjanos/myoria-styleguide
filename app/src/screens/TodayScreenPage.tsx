@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import {
   Measurement,
   PhonePreview,
@@ -15,7 +17,6 @@ type ProgressScaleProps = {
 export function TodayScreenPage(): ReactElement {
   return (
     <ScreenPreviewPage
-      id="today"
       title="Today"
       description="Root daily readouts for nutrition, fluid, bodyweight, and workout status."
     >
@@ -205,4 +206,3 @@ function ProgressScale({
     </span>
   );
 }
-import type { ReactElement } from 'react';

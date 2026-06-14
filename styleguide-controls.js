@@ -127,6 +127,11 @@ function initialiseStyleguideControls() {
   updateActiveButtons('density', density);
 
   document.querySelectorAll('[data-sg-control]').forEach((button) => {
+    if (button.dataset.sgControlBound === 'true') {
+      return;
+    }
+
+    button.dataset.sgControlBound = 'true';
     button.addEventListener('click', () => {
       if (
         button.dataset.sgControl === 'theme' &&
@@ -156,3 +161,4 @@ function initialiseWhenReady() {
 
 applyStoredPreviewModes();
 initialiseWhenReady();
+document.addEventListener('styleguide:rendered', initialiseStyleguideControls);

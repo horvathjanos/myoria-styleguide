@@ -22,7 +22,6 @@ const macroFacts: readonly NutritionFact[] = [
 export function NutritionEntryDetailScreenPage(): ReactElement {
   return (
     <ScreenPreviewPage
-      id="nutrition-entry-detail"
       title="Nutrition Entry Detail"
       description="Read-only nutrition snapshot with local correction, confirmation, and error states."
     >
@@ -70,7 +69,7 @@ function NutritionEntryScreen({
   return (
     <section className="my-screen" aria-label={ariaLabel}>
       <SecondaryScreenHeader
-        backHref="./react.html#today"
+        backHref="screens/today/"
         title="Nutrition entry"
       />
 

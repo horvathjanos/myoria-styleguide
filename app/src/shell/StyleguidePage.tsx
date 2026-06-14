@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 type StyleguidePageProps = {
   children: ReactNode;
@@ -10,7 +10,7 @@ export function StyleguidePage({
   children,
   description,
   title,
-}: StyleguidePageProps) {
+}: StyleguidePageProps): ReactElement {
   return (
     <section className="sg-content">
       <header className="sg-header">

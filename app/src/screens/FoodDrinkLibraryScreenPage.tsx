@@ -1,4 +1,7 @@
+import type { ReactElement } from 'react';
+
 import {
+  ListRow,
   PhonePreview,
   PreviewStack,
   ScreenPreviewPage,
@@ -67,7 +70,6 @@ const archivedRows: LibraryRow[] = [
 export function FoodDrinkLibraryScreenPage(): ReactElement {
   return (
     <ScreenPreviewPage
-      id="food-drink-library"
       title="Food & Drink Library"
       description="Object-list states for active, archived, and empty library scopes."
     >
@@ -135,10 +137,7 @@ function FoodDrinkLibraryScreen({
 }: FoodDrinkLibraryScreenProps) {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <SecondaryScreenHeader
-        backHref="./index.html"
-        title="Food & Drink Library"
-      />
+      <SecondaryScreenHeader backHref="" title="Food & Drink Library" />
 
       <div className="my-object-list-control">
         <label className="my-section-label" htmlFor={searchId}>
@@ -161,7 +160,13 @@ function FoodDrinkLibraryScreen({
 
       <div className="my-list">
         {rows.map((row) => (
-          <LibraryListRow key={row.title} row={row} />
+          <ListRow
+            archived={row.archived}
+            key={row.title}
+            label={row.label}
+            meta={row.meta}
+            title={row.title}
+          />
         ))}
 
         {rows.length === 0 && emptyTitle && emptyBody ? (
@@ -191,24 +196,3 @@ function ScopeSelector({ scope }: { scope: Scope }) {
     </div>
   );
 }
-
-function LibraryListRow({ row }: { row: LibraryRow }) {
-  const className = row.archived
-    ? 'my-list-row my-list-row--archived'
-    : 'my-list-row';
-
-  return (
-    <a className={className} href="#" aria-label={row.label}>
-      <span className="my-list-row-main">
-        <span className="my-list-row-content">
-          <span className="my-list-row-title">{row.title}</span>
-          <span className="my-list-row-meta">{row.meta}</span>
-        </span>
-        <span className="my-list-row-chevron-zone" aria-hidden="true">
-          <span className="my-chevron" />
-        </span>
-      </span>
-    </a>
-  );
-}
-import type { ReactElement } from 'react';

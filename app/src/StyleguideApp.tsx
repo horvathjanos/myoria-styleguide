@@ -1,21 +1,19 @@
-import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
-import { NutritionEntryDetailScreenPage } from './screens/NutritionEntryDetailScreenPage';
-import { TodayScreenPage } from './screens/TodayScreenPage';
-import { StyleguidePage } from './shell/StyleguidePage';
-import { StyleguideShell } from './shell/StyleguideShell';
+import type { ReactElement } from 'react';
 
-export function StyleguideApp(): ReactElement {
+import { StyleguideShell } from './shell/StyleguideShell';
+import { getStyleguideRoute, type StyleguideRouteId } from './styleguideRoutes';
+
+type StyleguideAppProps = {
+  routeId: StyleguideRouteId;
+};
+
+export function StyleguideApp({ routeId }: StyleguideAppProps): ReactElement {
+  const route = getStyleguideRoute(routeId);
+  const Page = route.page;
+
   return (
-    <StyleguideShell>
-      <StyleguidePage
-        title="Myoria UI Styleguide"
-        description="Canonical screen previews and reusable interface grammar for Myoria."
-      >
-        <TodayScreenPage />
-        <FoodDrinkLibraryScreenPage />
-        <NutritionEntryDetailScreenPage />
-      </StyleguidePage>
+    <StyleguideShell currentRouteId={routeId}>
+      <Page />
     </StyleguideShell>
   );
 }
-import type { ReactElement } from 'react';

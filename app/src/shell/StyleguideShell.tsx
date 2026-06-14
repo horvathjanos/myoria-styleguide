@@ -1,62 +1,43 @@
-import { useEffect, useState, type ReactElement, type ReactNode } from 'react';
+import { useEffect, type ReactElement, type ReactNode } from 'react';
 
 import {
-  DEFAULT_STYLEGUIDE_SCREEN_ID,
-  isStyleguideScreenId,
+  getStyleguideRouteHref,
   styleguideNavGroups,
-  type StyleguideHref,
-} from '../navigation';
+  type StyleguideRouteId,
+} from '../styleguideRoutes';
 
 type StyleguideShellProps = {
   children: ReactNode;
+  currentRouteId: StyleguideRouteId;
 };
-
-function resolveCurrentHref(): StyleguideHref {
-  const hash = window.location.hash.slice(1);
-  const screenId = isStyleguideScreenId(hash)
-    ? hash
-    : DEFAULT_STYLEGUIDE_SCREEN_ID;
-
-  return `./react.html#${screenId}`;
-}
 
 export function StyleguideShell({
   children,
+  currentRouteId,
 }: StyleguideShellProps): ReactElement {
-  const [currentHref, setCurrentHref] =
-    useState<StyleguideHref>(resolveCurrentHref);
-
   useEffect(() => {
-    function updateCurrentHref() {
-      setCurrentHref(resolveCurrentHref());
-    }
-
-    window.addEventListener('hashchange', updateCurrentHref);
-
-    return () => {
-      window.removeEventListener('hashchange', updateCurrentHref);
-    };
+    document.dispatchEvent(new Event('styleguide:rendered'));
   }, []);
 
   return (
     <main className="sg-page">
       <nav className="sg-nav" aria-label="Styleguide navigation">
         <strong className="sg-brand">
-          <a href="./index.html">Myoria UI Styleguide</a>
+          <a href={getStyleguideRouteHref('home')}>Myoria UI Styleguide</a>
         </strong>
 
         {styleguideNavGroups.map((group) => (
           <div className="sg-nav-group" key={group.title}>
             <span className="sg-nav-title">{group.title}</span>
             {group.links.map((link) => {
-              const isCurrent = link.href === currentHref;
+              const isCurrent = link.routeId === currentRouteId;
 
               return (
                 <a
                   aria-current={isCurrent ? 'page' : undefined}
                   className={isCurrent ? 'is-current' : undefined}
-                  href={link.href}
-                  key={link.href}
+                  href={getStyleguideRouteHref(link.routeId)}
+                  key={link.routeId}
                 >
                   {link.label}
                 </a>

@@ -275,7 +275,7 @@ The progress scale has a canonical Today implementation and a validation page.
 Validation page:
 
 ```text
-docs/styleguide/validation/progress-scale.html
+docs/styleguide/validation/progress-scale/
 ```
 
 Required validation cases:
