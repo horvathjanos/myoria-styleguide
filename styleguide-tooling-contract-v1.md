@@ -307,7 +307,7 @@ Rules:
 
 ## Validation section
 
-The static styleguide has a section named:
+The styleguide navigation has an always-visible section named:
 
 ```text
 Validation
@@ -315,12 +315,20 @@ Validation
 
 Placement:
 
-- at the end of the static styleguide
+- after Screens in both the canonical React shell and static shell
 
 Reason:
 
 - canonical previews remain separate from verification previews
+- validation pages are internal regression/stress surfaces, not product screens
+- validation pages are not reusable component contract pages
 - compact density, progress-scale experiments, and future dark-mode / edge-case validation can live there without duplicating every preview throughout the styleguide
+
+Current implementation:
+
+- validation pages remain static HTML
+- `validation/` is the stable overview URL
+- `validation/compact-density.html` and `validation/progress-scale.html` are linked consistently from every sidebar
 
 Current content order:
 

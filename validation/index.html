@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Validation · Myoria Styleguide</title>
+    <script src="../styleguide-controls.js"></script>
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <link rel="stylesheet" href="../screens.css" />
+  </head>
+  <body>
+    <main class="sg-page">
+      <nav class="sg-nav" aria-label="Styleguide navigation">
+        <strong class="sg-brand is-current" aria-current="page"
+          ><a href="../index.html">Myoria UI Styleguide</a></strong
+        >
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Foundations</span>
+          <a href="../design-system-v1.md">Design-system v1 draft</a>
+          <a href="../styleguide-tooling-contract-v1.md"
+            >Styleguide tooling contract</a
+          >
+          <a href="../readout-contract-v1.md">Readout contract</a>
+          <a href="../progress-scale-contract-v1.md"
+            >Progress scale contract</a
+          >
+          <a href="../components/typography.html">Typography</a>
+          <a href="../components/colors.html">Colors</a>
+          <a href="../components/spacing.html">Spacing</a>
+          <a href="../components/chevrons.html">Chevrons</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Components</span>
+          <a href="../components/list-rows.html">List rows</a>
+          <a href="../components/inputs.html">Inputs</a>
+          <a href="../components/actions.html">Actions</a>
+          <a href="../components/measurements.html">Measurements</a>
+          <a href="../components/states.html">States</a>
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Screens</span>
+          <a href="../react.html#today">Today</a>
+          <a href="../react.html#food-drink-library"
+            >Food & Drink Library</a
+          >
+          <a href="../react.html#nutrition-entry-detail"
+            >Nutrition Entry Detail</a
+          >
+        </div>
+        <div class="sg-nav-group">
+          <span class="sg-nav-title">Validation</span>
+          <a href="./compact-density.html">Compact density</a>
+          <a href="./progress-scale.html">Progress scale</a>
+        </div>
+      </nav>
+
+      <section class="sg-content">
+        <header class="sg-header">
+          <h1 class="sg-title">Validation</h1>
+          <p class="sg-description">
+            Internal regression and stress-test surfaces for styleguide modes,
+            primitives, edge cases, and layout behavior. These pages are not
+            product screens or component contract pages.
+          </p>
+        </header>
+
+        <div class="sg-grid">
+          <article class="sg-card">
+            <h2>Compact density</h2>
+            <p class="sg-note">
+              Compares comfortable and compact density using identical content
+              and preview geometry.
+            </p>
+            <a class="my-text-action" href="./compact-density.html"
+              >Open density validation</a
+            >
+          </article>
+          <article class="sg-card">
+            <h2>Progress scale</h2>
+            <p class="sg-note">
+              Exercises tick density, fill behavior, and over-target progress
+              states against the shared scale grammar.
+            </p>
+            <a class="my-text-action" href="./progress-scale.html"
+              >Open progress validation</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

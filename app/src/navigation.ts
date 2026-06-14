@@ -55,6 +55,19 @@ export const styleguideNavGroups = [
       },
     ],
   },
+  {
+    title: 'Validation',
+    links: [
+      {
+        href: './validation/compact-density.html',
+        label: 'Compact density',
+      },
+      {
+        href: './validation/progress-scale.html',
+        label: 'Progress scale',
+      },
+    ],
+  },
 ] as const satisfies readonly StyleguideNavGroup[];
 
 export type StyleguideHref =
