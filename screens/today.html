@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Today Preview</title>
+    <title>Today · Myoria Styleguide</title>
     <script src="../styleguide-controls.js"></script>
     <link rel="stylesheet" href="../tokens.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -11,15 +11,21 @@
     <link rel="stylesheet" href="../screens.css" />
   </head>
   <body>
-    <main class="sg-page">
+    <main class="sg-page" data-sg-retired-screen="true">
       <nav class="sg-nav" aria-label="Styleguide navigation">
-        <strong class="sg-brand"><a href="../index.html">Myoria UI Styleguide</a></strong>
+        <strong class="sg-brand"
+          ><a href="../index.html">Myoria UI Styleguide</a></strong
+        >
         <div class="sg-nav-group">
           <span class="sg-nav-title">Foundations</span>
           <a href="../design-system-v1.md">Design-system v1 draft</a>
-          <a href="../styleguide-tooling-contract-v1.md">Styleguide tooling contract</a>
+          <a href="../styleguide-tooling-contract-v1.md"
+            >Styleguide tooling contract</a
+          >
           <a href="../readout-contract-v1.md">Readout contract</a>
-          <a href="../progress-scale-contract-v1.md">Progress scale contract</a>
+          <a href="../progress-scale-contract-v1.md"
+            >Progress scale contract</a
+          >
           <a href="../components/typography.html">Typography</a>
           <a href="../components/colors.html">Colors</a>
           <a href="../components/spacing.html">Spacing</a>
@@ -35,9 +41,18 @@
         </div>
         <div class="sg-nav-group">
           <span class="sg-nav-title">Screens</span>
-          <a href="../screens/today.html" class="is-current" aria-current="page">Today</a>
-          <a href="../screens/food-drink-library.html">Food & Drink Library</a>
-          <a href="../react.html">React TS Preview</a>
+          <a
+            href="../react.html#today"
+            class="is-current"
+            aria-current="page"
+            >Today</a
+          >
+          <a href="../react.html#food-drink-library"
+            >Food & Drink Library</a
+          >
+          <a href="../react.html#nutrition-entry-detail"
+            >Nutrition Entry Detail</a
+          >
         </div>
         <div class="sg-nav-group">
           <span class="sg-nav-title">Validation</span>
@@ -48,162 +63,18 @@
 
       <section class="sg-content">
         <header class="sg-header">
-          <h1 class="sg-title">Today</h1>
+          <h1 class="sg-title">Today moved to the canonical styleguide</h1>
           <p class="sg-description">
-            Minimal root measurement preview built from shared readout primitives,
-            standard typography roles, open measurement-scale progress, muted
-            chevrons, and app-wide spacing tokens.
+            This legacy static screen preview has been retired. The Today
+            screen page in the canonical styleguide owns the current preview.
           </p>
+          <a
+            class="my-text-action"
+            href="../react.html#today"
+            data-sg-canonical-preview="../react.html#today"
+            >Open Today screen page</a
+          >
         </header>
-
-        <div class="sg-phone-wrap">
-          <div class="my-phone">
-            <section class="my-screen" aria-label="Today preview">
-              <header class="my-root-header">
-                <p class="my-root-date">Tuesday, 2 June</p>
-              </header>
-
-              <div class="my-readout-stack">
-                <a class="my-readout-block" href="#" aria-label="Nutrition, 861 of 2300 kcal">
-                  <span class="my-section-label">Nutrition</span>
-                  <span class="my-readout-main">
-                    <span class="my-readout-content">
-                      <span class="my-measurement">
-                        <span class="my-measurement-value">861 / 2300</span>
-                        <span class="my-measurement-unit">kcal</span>
-                      </span>
-                    </span>
-                    <span class="my-list-row-chevron-zone" aria-hidden="true">
-                      <span class="my-chevron"></span>
-                    </span>
-                  </span>
-                  <span class="my-progress-scale my-progress-scale--emphasized" aria-hidden="true">
-                    <span class="my-progress-scale-track">
-                      <span class="my-progress-scale-line"></span>
-                      <span class="my-progress-scale-fill" style="width: 37%"></span>
-                      <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
-                      <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
-                      <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
-                    </span>
-                  </span>
-
-                  <span class="my-readout-secondary-stack" aria-label="Nutrition macro targets">
-                    <span class="my-readout-secondary" aria-label="Protein, 156 of 180 grams">
-                      <span class="my-readout-secondary-main">
-                        <span class="my-section-label">Protein</span>
-                        <span class="my-readout-secondary-value my-measurement my-measurement--supporting-unit">
-                          <span class="my-measurement-value">156 / 180</span>
-                          <span class="my-measurement-unit">g</span>
-                        </span>
-                      </span>
-                      <span class="my-progress-scale" aria-hidden="true">
-                        <span class="my-progress-scale-track">
-                          <span class="my-progress-scale-line"></span>
-                          <span class="my-progress-scale-fill" style="width: 87%"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <span class="my-readout-secondary" aria-label="Carbs, 210 of 250 grams">
-                      <span class="my-readout-secondary-main">
-                        <span class="my-section-label">Carbs</span>
-                        <span class="my-readout-secondary-value my-measurement my-measurement--supporting-unit">
-                          <span class="my-measurement-value">210 / 250</span>
-                          <span class="my-measurement-unit">g</span>
-                        </span>
-                      </span>
-                      <span class="my-progress-scale" aria-hidden="true">
-                        <span class="my-progress-scale-track">
-                          <span class="my-progress-scale-line"></span>
-                          <span class="my-progress-scale-fill" style="width: 84%"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <span class="my-readout-secondary" aria-label="Fat, 92 of 70 grams, 22 grams over">
-                      <span class="my-readout-secondary-main">
-                        <span class="my-section-label">Fat</span>
-                        <span class="my-readout-secondary-value my-measurement my-measurement--supporting-unit">
-                          <span class="my-measurement-value">92 / 70</span>
-                          <span class="my-measurement-unit">g</span>
-                        </span>
-                      </span>
-                      <span class="my-progress-scale" aria-hidden="true">
-                        <span class="my-progress-scale-track">
-                          <span class="my-progress-scale-line"></span>
-                          <span class="my-progress-scale-fill" style="width: 100%"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
-                          <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
-                          <span class="my-progress-scale-overrun"></span>
-                        </span>
-                        <span class="my-progress-scale-over-detail">22 g over</span>
-                      </span>
-                    </span>
-                  </span>
-                </a>
-
-                <div class="my-readout-pair">
-                  <a class="my-readout-pair-item" href="#" aria-label="Fluid, 0.6 of 3 liters">
-                    <span class="my-section-label">Fluid</span>
-                    <span class="my-readout-pair-main">
-                      <span class="my-readout-pair-value my-measurement my-measurement--supporting-unit">
-                        <span class="my-measurement-value">0.6 / 3</span>
-                        <span class="my-measurement-unit">L</span>
-                      </span>
-                      <span class="my-list-row-chevron-zone" aria-hidden="true">
-                        <span class="my-chevron"></span>
-                      </span>
-                    </span>
-                    <span class="my-progress-scale" aria-hidden="true">
-                      <span class="my-progress-scale-track">
-                        <span class="my-progress-scale-line"></span>
-                        <span class="my-progress-scale-fill" style="width: 18%"></span>
-                        <span class="my-progress-scale-tick my-progress-scale-tick--start"></span>
-                        <span class="my-progress-scale-tick my-progress-scale-tick--middle"></span>
-                        <span class="my-progress-scale-tick my-progress-scale-tick--end"></span>
-                      </span>
-                    </span>
-                  </a>
-
-                  <a class="my-readout-pair-item" href="#" aria-label="Bodyweight, 73.5 kg, logged 07:12">
-                    <span class="my-section-label">Bodyweight</span>
-                    <span class="my-readout-pair-main">
-                      <span class="my-readout-pair-value my-measurement my-measurement--supporting-unit">
-                        <span class="my-measurement-value">73.5</span>
-                        <span class="my-measurement-unit">kg</span>
-                      </span>
-                      <span class="my-list-row-chevron-zone" aria-hidden="true">
-                        <span class="my-chevron"></span>
-                      </span>
-                    </span>
-                    <span class="my-readout-detail">Logged 07:12</span>
-                  </a>
-                </div>
-
-                <a class="my-readout-block" href="#" aria-label="Workout active, push session, 42 min">
-                  <span class="my-section-label">Workout</span>
-                  <span class="my-readout-main">
-                    <span class="my-readout-content">
-                      <span class="my-operational-marker" aria-hidden="true"></span>
-                      <span class="my-operational-status">Active</span>
-                    </span>
-                    <span class="my-list-row-chevron-zone" aria-hidden="true">
-                      <span class="my-chevron"></span>
-                    </span>
-                  </span>
-                  <span class="my-readout-detail">Push session · 42 min</span>
-                </a>
-              </div>
-            </section>
-          </div>
-        </div>
       </section>
     </main>
   </body>

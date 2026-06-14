@@ -1,5 +1,9 @@
-import { PhonePreview } from '../shell/PhonePreview';
-import { PreviewStack } from '../shell/PreviewStack';
+import {
+  PhonePreview,
+  PreviewStack,
+  ScreenPreviewPage,
+  SecondaryScreenHeader,
+} from '../components';
 
 type Scope = 'active' | 'archived';
 
@@ -60,49 +64,55 @@ const archivedRows: LibraryRow[] = [
   },
 ];
 
-export function FoodDrinkLibraryPreview() {
+export function FoodDrinkLibraryScreenPage(): ReactElement {
   return (
-    <PreviewStack>
-      <PhonePreview label="Active scope">
-        <FoodDrinkLibraryScreen
-          ariaLabel="Food and drink library React active preview"
-          rows={activeRows}
-          searchId="react-food-search-active"
-          scope="active"
-        />
-      </PhonePreview>
+    <ScreenPreviewPage
+      id="food-drink-library"
+      title="Food & Drink Library"
+      description="Object-list states for active, archived, and empty library scopes."
+    >
+      <PreviewStack>
+        <PhonePreview label="Active">
+          <FoodDrinkLibraryScreen
+            ariaLabel="Food and drink library active preview"
+            rows={activeRows}
+            searchId="react-food-search-active"
+            scope="active"
+          />
+        </PhonePreview>
 
-      <PhonePreview label="Archived scope">
-        <FoodDrinkLibraryScreen
-          ariaLabel="Food and drink library React archived preview"
-          rows={archivedRows}
-          searchId="react-food-search-archived"
-          scope="archived"
-        />
-      </PhonePreview>
+        <PhonePreview label="Archived">
+          <FoodDrinkLibraryScreen
+            ariaLabel="Food and drink library archived preview"
+            rows={archivedRows}
+            searchId="react-food-search-archived"
+            scope="archived"
+          />
+        </PhonePreview>
 
-      <PhonePreview label="Empty active scope">
-        <FoodDrinkLibraryScreen
-          ariaLabel="Food and drink library React empty active preview"
-          emptyBody="Create reusable foods and drinks for logging."
-          emptyTitle="No items yet"
-          rows={[]}
-          searchId="react-food-search-empty-active"
-          scope="active"
-        />
-      </PhonePreview>
+        <PhonePreview label="Empty active">
+          <FoodDrinkLibraryScreen
+            ariaLabel="Food and drink library empty active preview"
+            emptyBody="Create reusable foods and drinks for logging."
+            emptyTitle="No items yet"
+            rows={[]}
+            searchId="react-food-search-empty-active"
+            scope="active"
+          />
+        </PhonePreview>
 
-      <PhonePreview label="Empty archived scope">
-        <FoodDrinkLibraryScreen
-          ariaLabel="Food and drink library React empty archived preview"
-          emptyBody="Items hidden from logging will appear here."
-          emptyTitle="No archived items"
-          rows={[]}
-          searchId="react-food-search-empty-archived"
-          scope="archived"
-        />
-      </PhonePreview>
-    </PreviewStack>
+        <PhonePreview label="Empty archived">
+          <FoodDrinkLibraryScreen
+            ariaLabel="Food and drink library empty archived preview"
+            emptyBody="Items hidden from logging will appear here."
+            emptyTitle="No archived items"
+            rows={[]}
+            searchId="react-food-search-empty-archived"
+            scope="archived"
+          />
+        </PhonePreview>
+      </PreviewStack>
+    </ScreenPreviewPage>
   );
 }
 
@@ -125,12 +135,10 @@ function FoodDrinkLibraryScreen({
 }: FoodDrinkLibraryScreenProps) {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <header className="my-screen-header">
-        <a className="my-back-control" href="./index.html" aria-label="Go back">
-          <span className="my-chevron my-chevron--left" aria-hidden="true" />
-        </a>
-        <h2 className="my-screen-title">Food & Drink Library</h2>
-      </header>
+      <SecondaryScreenHeader
+        backHref="./index.html"
+        title="Food & Drink Library"
+      />
 
       <div className="my-object-list-control">
         <label className="my-section-label" htmlFor={searchId}>
@@ -203,3 +211,4 @@ function LibraryListRow({ row }: { row: LibraryRow }) {
     </a>
   );
 }
+import type { ReactElement } from 'react';

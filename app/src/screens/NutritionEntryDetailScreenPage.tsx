@@ -1,7 +1,12 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
-import { PhonePreview } from '../shell/PhonePreview';
-import { PreviewStack } from '../shell/PreviewStack';
+import {
+  Measurement,
+  PhonePreview,
+  PreviewStack,
+  ScreenPreviewPage,
+  SecondaryScreenHeader,
+} from '../components';
 
 type NutritionFact = Readonly<{
   label: string;
@@ -14,36 +19,42 @@ const macroFacts: readonly NutritionFact[] = [
   { label: 'Fat', value: '9 g' },
 ];
 
-export function NutritionEntryCorrectionPreview() {
+export function NutritionEntryDetailScreenPage(): ReactElement {
   return (
-    <PreviewStack>
-      <PhonePreview label="Entry detail">
-        <NutritionEntryScreen ariaLabel="Nutrition entry detail React preview">
-          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-          <PrimaryNutritionSnapshot value="320" unit="kcal" />
-          <FactList facts={macroFacts} />
-          <CorrectionAction />
-        </NutritionEntryScreen>
-      </PhonePreview>
+    <ScreenPreviewPage
+      id="nutrition-entry-detail"
+      title="Nutrition Entry Detail"
+      description="Read-only nutrition snapshot with local correction, confirmation, and error states."
+    >
+      <PreviewStack>
+        <PhonePreview label="Normal detail">
+          <NutritionEntryScreen ariaLabel="Nutrition entry detail preview">
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+            <PrimaryNutritionSnapshot value="320" unit="kcal" />
+            <FactList facts={macroFacts} />
+            <CorrectionAction />
+          </NutritionEntryScreen>
+        </PhonePreview>
 
-      <PhonePreview label="Delete confirmation">
-        <NutritionEntryScreen ariaLabel="Nutrition entry delete confirmation React preview">
-          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-          <PrimaryNutritionSnapshot value="320" unit="kcal" />
-          <FactList facts={macroFacts} />
-          <CorrectionConfirmation />
-        </NutritionEntryScreen>
-      </PhonePreview>
+        <PhonePreview label="Delete confirmation">
+          <NutritionEntryScreen ariaLabel="Nutrition entry delete confirmation preview">
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+            <PrimaryNutritionSnapshot value="320" unit="kcal" />
+            <FactList facts={macroFacts} />
+            <CorrectionConfirmation />
+          </NutritionEntryScreen>
+        </PhonePreview>
 
-      <PhonePreview label="Local delete error">
-        <NutritionEntryScreen ariaLabel="Nutrition entry delete error React preview">
-          <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-          <PrimaryNutritionSnapshot value="320" unit="kcal" />
-          <FactList facts={macroFacts} />
-          <CorrectionError />
-        </NutritionEntryScreen>
-      </PhonePreview>
-    </PreviewStack>
+        <PhonePreview label="Delete error">
+          <NutritionEntryScreen ariaLabel="Nutrition entry delete error preview">
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
+            <PrimaryNutritionSnapshot value="320" unit="kcal" />
+            <FactList facts={macroFacts} />
+            <CorrectionError />
+          </NutritionEntryScreen>
+        </PhonePreview>
+      </PreviewStack>
+    </ScreenPreviewPage>
   );
 }
 
@@ -58,16 +69,10 @@ function NutritionEntryScreen({
 }: NutritionEntryScreenProps) {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <header className="my-screen-header">
-        <a
-          className="my-back-control"
-          href="./screens/today.html"
-          aria-label="Go back"
-        >
-          <span className="my-chevron my-chevron--left" aria-hidden="true" />
-        </a>
-        <h2 className="my-screen-title">Nutrition entry</h2>
-      </header>
+      <SecondaryScreenHeader
+        backHref="./react.html#today"
+        title="Nutrition entry"
+      />
 
       <div className="my-snapshot-detail">{children}</div>
     </section>
@@ -102,10 +107,7 @@ function PrimaryNutritionSnapshot({
 }: PrimaryNutritionSnapshotProps) {
   return (
     <section className="my-snapshot-primary" aria-label={`${value} ${unit}`}>
-      <span className="my-measurement">
-        <span className="my-measurement-value">{value}</span>
-        <span className="my-measurement-unit">{unit}</span>
-      </span>
+      <Measurement value={value} unit={unit} />
     </section>
   );
 }

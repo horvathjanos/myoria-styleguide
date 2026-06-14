@@ -57,6 +57,8 @@ docs/styleguide/validation/*.html
 Rules:
 
 - Add new screen previews in React TS by default.
+- Organize the React app navigation around Foundations, Components, and Screens, never around implementation technology.
+- Each migrated screen owns one typed `react.html` anchor and contains its relevant states or variants.
 - Existing static HTML previews remain valid design references until migrated.
 - Migrate incrementally; do not mass-rewrite legacy HTML.
 - Once a screen is migrated and approved in React, retire its static HTML rendering so React is the only visual source of truth.

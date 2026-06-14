@@ -469,18 +469,18 @@ React Native migration notes:
 
 Tokens/classes involved:
 
-- `screens/today.html`
-- `screens/food-drink-library.html`
-- React Nutrition Entry Correction preview in `react.html`
+- React Today screen page in `react.html`
+- React Food & Drink Library screen page in `react.html`
+- React Nutrition Entry Detail screen page in `react.html`
 - `.my-phone`
 - `.my-screen`
 - screen-specific classes in `screens.css`
 
 Intended usage:
 
-- Today preview anchors root daily measurement grammar.
-- Food & Drink Library preview anchors secondary object-list grammar.
-- React Nutrition Entry Correction preview anchors read-only snapshot correction grammar.
+- Today screen page anchors root daily measurement grammar.
+- Food & Drink Library screen page anchors secondary object-list grammar.
+- Nutrition Entry Detail screen page anchors read-only snapshot correction grammar.
 - Screen previews use dummy data and links only.
 
 Forbidden patterns:

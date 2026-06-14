@@ -1,20 +1,21 @@
-import { FoodDrinkLibraryPreview } from './screens/FoodDrinkLibraryPreview';
-import { NutritionEntryCorrectionPreview } from './screens/NutritionEntryCorrectionPreview';
-import { TodayPreview } from './screens/TodayPreview';
+import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
+import { NutritionEntryDetailScreenPage } from './screens/NutritionEntryDetailScreenPage';
+import { TodayScreenPage } from './screens/TodayScreenPage';
 import { StyleguidePage } from './shell/StyleguidePage';
 import { StyleguideShell } from './shell/StyleguideShell';
 
-export function StyleguideApp() {
+export function StyleguideApp(): ReactElement {
   return (
-    <StyleguideShell currentHref="./react.html">
+    <StyleguideShell>
       <StyleguidePage
-        title="React TS Preview"
-        description="Small React and TypeScript styleguide shell proof. These previews reuse the existing static CSS/tokens while migrating screens incrementally."
+        title="Myoria UI Styleguide"
+        description="Canonical screen previews and reusable interface grammar for Myoria."
       >
-        <TodayPreview />
-        <FoodDrinkLibraryPreview />
-        <NutritionEntryCorrectionPreview />
+        <TodayScreenPage />
+        <FoodDrinkLibraryScreenPage />
+        <NutritionEntryDetailScreenPage />
       </StyleguidePage>
     </StyleguideShell>
   );
 }
+import type { ReactElement } from 'react';

@@ -1,17 +1,43 @@
-import type { ReactNode } from 'react';
+import { useEffect, useState, type ReactElement, type ReactNode } from 'react';
 
-import type { StyleguideHref } from '../navigation';
-import { styleguideNavGroups } from '../navigation';
+import {
+  DEFAULT_STYLEGUIDE_SCREEN_ID,
+  isStyleguideScreenId,
+  styleguideNavGroups,
+  type StyleguideHref,
+} from '../navigation';
 
 type StyleguideShellProps = {
   children: ReactNode;
-  currentHref: StyleguideHref;
 };
+
+function resolveCurrentHref(): StyleguideHref {
+  const hash = window.location.hash.slice(1);
+  const screenId = isStyleguideScreenId(hash)
+    ? hash
+    : DEFAULT_STYLEGUIDE_SCREEN_ID;
+
+  return `./react.html#${screenId}`;
+}
 
 export function StyleguideShell({
   children,
-  currentHref,
-}: StyleguideShellProps) {
+}: StyleguideShellProps): ReactElement {
+  const [currentHref, setCurrentHref] =
+    useState<StyleguideHref>(resolveCurrentHref);
+
+  useEffect(() => {
+    function updateCurrentHref() {
+      setCurrentHref(resolveCurrentHref());
+    }
+
+    window.addEventListener('hashchange', updateCurrentHref);
+
+    return () => {
+      window.removeEventListener('hashchange', updateCurrentHref);
+    };
+  }, []);
+
   return (
     <main className="sg-page">
       <nav className="sg-nav" aria-label="Styleguide navigation">

@@ -104,6 +104,37 @@ input {
   max-width: 720px;
 }
 
+.sg-screen-page {
+  display: grid;
+  gap: var(--my-space-6);
+  scroll-margin-top: var(--my-space-6);
+}
+
+.sg-screen-page + .sg-screen-page {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  padding-top: var(--my-space-7);
+}
+
+.sg-screen-page-header {
+  display: grid;
+  gap: var(--my-space-2);
+}
+
+.sg-screen-page-title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0;
+}
+
+.sg-screen-page-description {
+  color: var(--my-color-text-secondary);
+  font-size: 15px;
+  line-height: 22px;
+  margin: 0;
+  max-width: 720px;
+}
+
 .sg-global-controls {
   border-top: var(--my-line-hairline) solid var(--my-color-divider);
   display: grid;
