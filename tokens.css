@@ -93,6 +93,10 @@
   --my-create-action-padding-y: 16px;
   --my-list-state-action-gap: 8px;
 
+  /* Content-sized fact table composition tokens. */
+  --my-fact-column-gap: var(--my-space-6);
+  --my-fact-row-gap: var(--my-space-1);
+
   /* Typography. */
   --my-font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --my-font-condensed: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
