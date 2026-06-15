@@ -110,7 +110,7 @@ function FactList({
 function CorrectionAction(): ReactElement {
   return (
     <section className="my-local-correction" aria-label="Entry action">
-      <a className="my-text-action" href="#">
+      <a className="my-text-action my-text-action--destructive" href="#">
         Delete entry
       </a>
     </section>
@@ -132,7 +132,7 @@ function CorrectionConfirmation(): ReactElement {
           <a className="my-text-action" href="#">
             Keep entry
           </a>
-          <a className="my-text-action" href="#">
+          <a className="my-text-action my-text-action--destructive" href="#">
             Delete
           </a>
         </div>
@@ -148,7 +148,7 @@ function CorrectionError(): ReactElement {
         <strong>Could not delete entry</strong>
         <span>Try again.</span>
       </div>
-      <a className="my-text-action" href="#">
+      <a className="my-text-action my-text-action--destructive" href="#">
         Delete entry
       </a>
     </section>
