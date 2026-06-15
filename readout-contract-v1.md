@@ -95,20 +95,29 @@ Readout measurement units use the global measurement primitive. Unit strength is
 semantic, not screen-local.
 
 Primary measurement units remain visually primary by default. In v1, `kcal`
-stays primary because it is part of the headline Nutrition measurement identity.
+stays primary because it is part of the headline Nutrition measurement identity
+on root/daily readouts.
 
 Supporting measurement units clarify lower-priority readout values without
 competing with the number. Supporting units include `g`, `kg`, `L`, and `ml`
 when they appear in readout measurements.
+
+Logged-entry snapshot readouts are a narrower detail-review context, not root
+daily headlines. In that context, every measurement unit is subordinate to the
+number, including `kcal`, because the entry is a strict saved contribution
+rather than a dashboard KPI.
 
 Rules:
 
 - Numeric values remain the primary visual element.
 - Supporting units use `my-measurement my-measurement--supporting-unit`.
 - Supporting units are visually quieter than the numeric value.
+- Entry snapshot readouts use subordinate units consistently for calories and
+  grams.
 - Value/unit spacing is controlled by the measurement primitive, not local CSS.
 - Do not add Today-only unit styling.
-- Do not make `kcal` secondary without a separate design-system decision.
+- Do not make root/daily `kcal` secondary without a separate design-system
+  decision.
 - List row metadata remains unchanged in this slice; strings such as
   `100 g · NUTRITION` and `350 ml · NUTRITION + FLUID` keep the row-meta
   contract.

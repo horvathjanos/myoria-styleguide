@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import {
+  Measurement,
   PhonePreview,
   PreviewStack,
   ScreenPreviewPage,
@@ -8,16 +9,24 @@ import {
   TextAction,
 } from '../components';
 
-type NutritionFact = Readonly<{
+type NutritionReadout = Readonly<{
+  ariaLabel: string;
   label: string;
+  unit: string;
   value: string;
 }>;
 
-const nutritionFacts: readonly NutritionFact[] = [
-  { label: 'Calories', value: '320 kcal' },
-  { label: 'Protein', value: '31 g' },
-  { label: 'Carbs', value: '28 g' },
-  { label: 'Fat', value: '9 g' },
+const energyReadout: NutritionReadout = {
+  ariaLabel: 'Energy, 320 kilocalories',
+  label: 'Energy',
+  unit: 'kcal',
+  value: '320',
+};
+
+const macroReadouts: readonly NutritionReadout[] = [
+  { ariaLabel: 'Protein, 31 grams', label: 'Protein', unit: 'g', value: '31' },
+  { ariaLabel: 'Carbs, 28 grams', label: 'Carbs', unit: 'g', value: '28' },
+  { ariaLabel: 'Fat, 9 grams', label: 'Fat', unit: 'g', value: '9' },
 ];
 
 export function NutritionEntryDetailScreenPage(): ReactElement {
@@ -29,24 +38,33 @@ export function NutritionEntryDetailScreenPage(): ReactElement {
       <PreviewStack>
         <PhonePreview label="Normal detail">
           <NutritionEntryScreen ariaLabel="Nutrition entry detail preview">
-            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <FactList facts={nutritionFacts} />
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Today 12:42" />
+            <NutritionSnapshotReadouts
+              energy={energyReadout}
+              macros={macroReadouts}
+            />
             <CorrectionAction />
           </NutritionEntryScreen>
         </PhonePreview>
 
         <PhonePreview label="Delete confirmation">
           <NutritionEntryScreen ariaLabel="Nutrition entry delete confirmation preview">
-            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <FactList facts={nutritionFacts} />
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Today 12:42" />
+            <NutritionSnapshotReadouts
+              energy={energyReadout}
+              macros={macroReadouts}
+            />
             <CorrectionConfirmation />
           </NutritionEntryScreen>
         </PhonePreview>
 
         <PhonePreview label="Delete error">
           <NutritionEntryScreen ariaLabel="Nutrition entry delete error preview">
-            <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <FactList facts={nutritionFacts} />
+            <SnapshotSummary name="Greek yogurt" meta="250 g · Today 12:42" />
+            <NutritionSnapshotReadouts
+              energy={energyReadout}
+              macros={macroReadouts}
+            />
             <CorrectionError />
           </NutritionEntryScreen>
         </PhonePreview>
@@ -93,17 +111,51 @@ function SnapshotSummary({ meta, name }: SnapshotSummaryProps): ReactElement {
   );
 }
 
-function FactList({
-  facts,
-}: Readonly<{ facts: readonly NutritionFact[] }>): ReactElement {
+function NutritionSnapshotReadouts({
+  energy,
+  macros,
+}: Readonly<{
+  energy: NutritionReadout;
+  macros: readonly NutritionReadout[];
+}>): ReactElement {
   return (
-    <div className="my-fact-list" aria-label="Nutrition snapshot facts">
-      {facts.map((fact) => (
-        <div className="my-fact-row" key={fact.label}>
-          <span className="my-fact-label">{fact.label}</span>
-          <span className="my-fact-value">{fact.value}</span>
-        </div>
-      ))}
+    <section
+      className="my-snapshot-readout-stack"
+      aria-label="Nutrition snapshot readouts"
+    >
+      <SnapshotReadout readout={energy} priority="primary" />
+
+      <div className="my-snapshot-readout-group" aria-label="Macro readouts">
+        {macros.map((macro) => (
+          <SnapshotReadout key={macro.label} readout={macro} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SnapshotReadout({
+  priority = 'supporting',
+  readout,
+}: Readonly<{
+  priority?: 'primary' | 'supporting';
+  readout: NutritionReadout;
+}>): ReactElement {
+  const classNames = ['my-snapshot-readout'];
+
+  if (priority === 'primary') {
+    classNames.push('my-snapshot-readout--primary');
+  }
+
+  return (
+    <div className={classNames.join(' ')} aria-label={readout.ariaLabel}>
+      <Measurement
+        className="my-snapshot-readout-value"
+        supportingUnit
+        unit={readout.unit}
+        value={readout.value}
+      />
+      <span className="my-snapshot-readout-label">{readout.label}</span>
     </div>
   );
 }

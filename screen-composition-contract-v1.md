@@ -641,10 +641,11 @@ Approved structure:
 saved display name
 metadata context
 
-Calories      320 kcal
-Protein          31 g
-Carbs            28 g
-Fat               9 g
+320 kcal
+Energy
+
+31 g      28 g      9 g
+Protein   Carbs     Fat
 
                          DELETE ENTRY
 ```
@@ -656,18 +657,28 @@ Rules:
 - Keep the detail read-only; do not render snapshot facts as inputs.
 - Use a concise summary before facts when it helps identify the selected entry.
 - Amount, logged time, and similar context are metadata unless they are the screen's primary measurement.
-- Secondary facts use a compact reusable label/value group for related immutable data.
-- The fact table and related summary/actions form a compact, content-sized object-detail rail.
-- The fact table is content-sized. It must not stretch to the screen width.
-- Fact columns and rows use `--my-fact-column-gap` and `--my-fact-row-gap`;
-  never fixed pixel columns.
-- Fact labels use section-label grammar.
-- Fact values use mono fact-value grammar.
+- Snapshot facts use value-first readouts: measurement first, readable Title Case
+  label below.
+- Energy renders as its own value-first readout above the macro group.
+- Energy may be slightly more important than macro readouts, but must not use
+  dashboard KPI or root readout scale.
+- Macro readouts form one compact reusable group for related immutable data.
+- The readout group and related summary/actions form one controlled
+  object-detail rail.
+- The detail rail uses `--my-detail-rail-width` and must not use
+  `width: fit-content` for the full snapshot.
+- The macro group is content-sized inside the rail. It must not stretch to the
+  screen width.
+- Macro columns use token spacing and content-sized tracks; never fixed pixel
+  columns.
+- Snapshot labels use readable Title Case, not uppercase section-label grammar.
+- Snapshot numeric values use mono measurement grammar.
 - Prefer zero separators if spacing and hierarchy are enough.
-- Use at most one functional separator between the food identity summary and the fact table.
+- Use at most one functional separator between the food identity summary and
+  the readout group.
 - Do not use a separator after the header.
 - Do not use a separator after the action.
-- Do not add row dividers inside the fact table.
+- Do not add row dividers inside the readout group.
 - Local correction actions sit below the relevant detail facts and align within the same rail.
 - Destructive correction uses `.my-text-action--destructive` inside the shared
   right-aligned action row.

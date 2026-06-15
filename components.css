@@ -253,7 +253,7 @@
 .my-snapshot-detail {
   display: grid;
   gap: var(--my-space-5);
-  width: fit-content;
+  width: min(100%, var(--my-detail-rail-width));
 }
 
 .my-snapshot-summary {
@@ -309,6 +309,46 @@
   line-height: var(--my-type-row-meta-line);
   text-align: right;
   white-space: nowrap;
+}
+
+.my-snapshot-readout-stack {
+  display: grid;
+  gap: var(--my-space-4);
+}
+
+.my-snapshot-readout-group {
+  align-items: start;
+  display: grid;
+  gap: var(--my-space-4);
+  grid-template-columns: repeat(3, max-content);
+}
+
+.my-snapshot-readout {
+  display: grid;
+  gap: var(--my-space-1);
+  justify-items: start;
+  min-width: 0;
+}
+
+.my-snapshot-readout-value {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+}
+
+.my-snapshot-readout--primary .my-snapshot-readout-value {
+  font-size: var(--my-type-row-title-size);
+  line-height: var(--my-type-row-title-line);
+}
+
+.my-snapshot-readout-label {
+  color: var(--my-color-text-secondary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
 }
 
 .my-action-row {

@@ -93,7 +93,8 @@
   --my-create-action-padding-y: 16px;
   --my-list-state-action-gap: 8px;
 
-  /* Content-sized fact table composition tokens. */
+  /* Detail snapshot composition tokens. */
+  --my-detail-rail-width: 240px;
   --my-fact-column-gap: var(--my-space-6);
   --my-fact-row-gap: var(--my-space-1);
 

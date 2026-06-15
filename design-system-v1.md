@@ -390,10 +390,13 @@ Intended usage:
 - Ratios should display exact values and units together.
 - Today fluid should display exact ml values, such as `550 / 3000 ml`.
 - Numeric values use mono type; units are smaller sans labels.
-- `kcal` remains a primary measurement unit in v1.
+- `kcal` remains a primary measurement unit on root/daily readouts in v1.
 - Supporting readout units such as `g`, `kg`, `L`, and `ml` use
   `.my-measurement--supporting-unit`.
 - Supporting units are visually quieter, but numeric values remain primary.
+- Logged-entry snapshot readouts use subordinate units consistently for
+  calories and grams because the saved entry is a review snapshot, not a
+  dashboard KPI.
 - Value/unit spacing is owned by `.my-measurement`, not screen-local CSS.
 - List row metadata remains unchanged in this slice and keeps the row-meta
   grammar.
@@ -406,7 +409,8 @@ Forbidden patterns:
 - No decorative charts when a line/progress readout is clearer.
 - No detached unit that makes the value ambiguous.
 - No Today-only or screen-local measurement unit styling.
-- No secondary `kcal` styling without a separate design-system decision.
+- No secondary root/daily `kcal` styling without a separate design-system
+  decision.
 
 React Native migration notes:
 
@@ -421,6 +425,12 @@ Tokens/classes involved:
 - `.my-snapshot-summary`
 - `.my-snapshot-title`
 - `.my-snapshot-meta`
+- `.my-snapshot-readout-stack`
+- `.my-snapshot-readout-group`
+- `.my-snapshot-readout`
+- `.my-snapshot-readout--primary`
+- `.my-snapshot-readout-value`
+- `.my-snapshot-readout-label`
 - `.my-fact-list`
 - `.my-fact-row`
 - `.my-fact-label`
@@ -432,14 +442,21 @@ Intended usage:
 - Immutable saved-entry snapshots can render as calm read-only detail facts.
 - Summary first: saved display name and concise logged context.
 - Amount and logged time are metadata when the primary question is nutrition contribution.
-- Secondary facts form one compact, aligned label/value snapshot.
-- The fact table and related summary/actions form a compact, content-sized object-detail rail.
+- Nutrition entry snapshots use value-first readouts: measurement first, readable
+  Title Case label below.
+- Energy is a separate value-first readout above macros and may be slightly
+  more important without becoming a dashboard KPI.
+- Macro readouts form one compact, aligned group inside the same detail rail.
+- The readout group and related summary/actions form one controlled
+  object-detail rail.
+- The full snapshot rail uses `--my-detail-rail-width` and does not use
+  `width: fit-content`.
 - Compact fact tables are content-sized and use `--my-fact-column-gap` and
   `--my-fact-row-gap`, never fixed pixel columns.
 - Prefer zero separators if spacing and hierarchy are enough.
 - Use at most one functional separator between the food identity summary and the fact table.
 - Do not use a separator after the header or after the final action.
-- Numeric snapshot values use mono fact values.
+- Numeric snapshot values use mono measurement values with a subordinate unit.
 - Detail facts are review data, not editable form fields.
 
 Forbidden patterns:
