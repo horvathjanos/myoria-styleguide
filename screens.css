@@ -109,3 +109,34 @@
   min-width: 0;
   white-space: nowrap;
 }
+
+/*
+ * Snapshot/detail surfaces are not object lists. They use quieter typography
+ * and whitespace rather than repeated row chrome or uppercase attribute labels.
+ */
+.my-snapshot-title {
+  font-size: var(--my-type-row-title-size);
+  line-height: var(--my-type-row-title-line);
+}
+
+.my-snapshot-primary .my-measurement-value {
+  font-size: var(--my-type-screen-title-size);
+  line-height: var(--my-type-screen-title-line);
+}
+
+.my-fact-label {
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+  text-transform: none;
+}
+
+.my-local-correction > .my-section-label {
+  display: none;
+}
+
+.my-local-correction .my-text-action {
+  font-family: var(--my-font-sans);
+  text-transform: none;
+}
