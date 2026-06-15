@@ -30,6 +30,43 @@ Feature/domain code may provide different content, labels, values, metadata, act
 
 This is the main mechanism for homogeneous Myoria UI/UX.
 
+## Logged-entry snapshot pattern
+
+Use this pattern for immutable saved-entry detail screens that review one
+logged contribution and expose a local correction/delete action:
+
+```text
+[back chevron] Domain entry
+
+Object name
+amount/context · logged time
+
+value unit
+Readable Label
+
+DELETE ENTRY
+```
+
+Nutrition Entry Detail and Fluid Entry Detail are the approved examples of the
+same logged-entry snapshot grammar. Domain content changes, but the controlled
+detail rail, immutable summary, value-first readouts, subordinate measurement
+units, and local destructive action composition stay reusable.
+
+Rules:
+
+- Use `.my-snapshot-detail` as the controlled rail.
+- Put the saved identity/context summary before readouts.
+- Use value-first readouts with Title Case labels.
+- Numeric value and unit are separate `Measurement` parts.
+- Units use the supporting-unit measurement modifier.
+- Lone destructive `TextAction` controls align to the snapshot rail start.
+- Inline delete confirmation and delete error states stay local to the entry
+  action area.
+- Do not use full-width measurement rows, cards, separators, shadows, icons,
+  gradients, decorative lines, dashboard KPI treatment, or screen-local
+  visual exceptions.
+- Do not make a single logged amount a hero metric.
+
 ## Full-screen object list pattern
 
 Use this pattern for full-screen object-management lists unless there is a clear domain-specific reason not to:

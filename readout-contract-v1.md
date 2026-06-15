@@ -104,16 +104,16 @@ when they appear in readout measurements.
 
 Logged-entry snapshot readouts are a narrower detail-review context, not root
 daily headlines. In that context, every measurement unit is subordinate to the
-number, including `kcal`, because the entry is a strict saved contribution
-rather than a dashboard KPI.
+number, including `kcal`, `g`, and `ml`, because the entry is a strict saved
+contribution rather than a dashboard KPI.
 
 Rules:
 
 - Numeric values remain the primary visual element.
 - Supporting units use `my-measurement my-measurement--supporting-unit`.
 - Supporting units are visually quieter than the numeric value.
-- Entry snapshot readouts use subordinate units consistently for calories and
-  grams.
+- Entry snapshot readouts use subordinate units consistently for calories,
+  grams, and milliliters.
 - Value/unit spacing is controlled by the measurement primitive, not local CSS.
 - Do not add Today-only unit styling.
 - Do not make root/daily `kcal` secondary without a separate design-system
@@ -209,6 +209,34 @@ Rules:
 - Bodyweight does not show a progress scale unless target/range tracking exists.
 - No card, surface, border, separator, or background is introduced around the pair.
 - The pair remains whitespace-based and uses standard spacing tokens.
+
+## Logged-entry snapshot readouts
+
+Logged-entry snapshot readouts are value-first detail facts inside the
+controlled snapshot rail. Nutrition Entry Detail and Fluid Entry Detail are the
+approved examples of this grammar.
+
+Approved examples:
+
+```text
+320 kcal
+Energy
+```
+
+```text
+330 ml
+Amount
+```
+
+Rules:
+
+- The visible order is measurement first, readable Title Case label second.
+- Numeric value and unit must be separate `Measurement` parts.
+- Units use the supporting-unit measurement modifier.
+- Readouts stay inside `.my-snapshot-detail`; they do not become full-width
+  measurement rows.
+- A single fluid amount readout should remain a logged-entry receipt fact, not
+  a hero metric, KPI, card, or dashboard treatment.
 
 ## Paired readout geometry
 

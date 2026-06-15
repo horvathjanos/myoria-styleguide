@@ -402,8 +402,8 @@ Intended usage:
   `.my-measurement--supporting-unit`.
 - Supporting units are visually quieter, but numeric values remain primary.
 - Logged-entry snapshot readouts use subordinate units consistently for
-  calories and grams because the saved entry is a review snapshot, not a
-  dashboard KPI.
+  calories, grams, and milliliters because the saved entry is a review
+  snapshot, not a dashboard KPI.
 - Value/unit spacing is owned by `.my-measurement`, not screen-local CSS.
 - List row metadata remains unchanged in this slice and keeps the row-meta
   grammar.
@@ -424,7 +424,7 @@ React Native migration notes:
 - Use explicit formatters for daily read models.
 - Keep display formatting close to UI/presentation helpers, not domain persistence.
 
-## 10a. Snapshot Detail Facts
+## 10a. Logged-Entry Snapshot Detail
 
 Tokens/classes involved:
 
@@ -448,11 +448,14 @@ Intended usage:
 
 - Immutable saved-entry snapshots can render as calm read-only detail facts.
 - Summary first: saved display name and concise logged context.
-- Amount and logged time are metadata when the primary question is nutrition contribution.
-- Nutrition entry snapshots use value-first readouts: measurement first, readable
+- Amount and logged time can be metadata when the primary question is a
+  contribution summary, as in Nutrition Entry Detail.
+- The amount can also be the only value-first readout when that is the saved
+  contribution, as in Fluid Entry Detail.
+- Logged-entry snapshots use value-first readouts: measurement first, readable
   Title Case label below.
 - Energy is a separate value-first readout above macros and may be slightly
-  more important without becoming a dashboard KPI.
+  more important in nutrition snapshots without becoming a dashboard KPI.
 - Macro readouts form one compact, aligned group inside the same detail rail.
 - The readout group and related summary/actions form one controlled
   object-detail rail.
@@ -464,10 +467,14 @@ Intended usage:
 - Right-aligned correction controls are reserved for paired confirmation
   controls, trailing list actions, or explicit action bars.
 - Prefer zero separators if spacing and hierarchy are enough.
-- Use at most one functional separator between the food identity summary and the fact table.
+- Use at most one functional separator between the identity summary and fact
+  table/readouts.
 - Do not use a separator after the header or after the final action.
 - Numeric snapshot values use mono measurement values with a subordinate unit.
 - Detail facts are review data, not editable form fields.
+- Nutrition Entry Detail and Fluid Entry Detail are the approved examples of
+  the same logged-entry snapshot grammar. Domain content changes; rail,
+  readout, measurement, and destructive-action composition do not.
 
 Forbidden patterns:
 
@@ -523,6 +530,7 @@ Tokens/classes involved:
 - React Today screen page at `screens/today/`
 - React Food & Drink Library screen page at `screens/food-drink-library/`
 - React Nutrition Entry Detail screen page at `screens/nutrition-entry-detail/`
+- React Fluid Entry Detail screen page at `screens/fluid-entry-detail/`
 - `.my-phone`
 - `.my-screen`
 - screen-specific classes in `screens.css`
@@ -531,7 +539,8 @@ Intended usage:
 
 - Today screen page anchors root daily measurement grammar.
 - Food & Drink Library screen page anchors secondary object-list grammar.
-- Nutrition Entry Detail screen page anchors read-only snapshot correction grammar.
+- Nutrition Entry Detail and Fluid Entry Detail screen pages anchor read-only
+  logged-entry snapshot correction grammar across domains.
 - Screen previews use dummy data and links only.
 
 Forbidden patterns:

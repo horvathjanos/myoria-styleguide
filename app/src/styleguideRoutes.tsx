@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { CompactDensityPage } from './pages/validation/CompactDensityPage';
 import { ProgressScalePage } from './pages/validation/ProgressScalePage';
 import { ValidationOverviewPage } from './pages/validation/ValidationOverviewPage';
+import { FluidEntryDetailScreenPage } from './screens/FluidEntryDetailScreenPage';
 import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
 import { NutritionEntryDetailScreenPage } from './screens/NutritionEntryDetailScreenPage';
 import { TodayScreenPage } from './screens/TodayScreenPage';
@@ -143,6 +144,14 @@ export const styleguideRoutes = [
     path: 'screens/nutrition-entry-detail/',
     title: 'Nutrition Entry Detail',
     page: NutritionEntryDetailScreenPage,
+  },
+  {
+    group: 'Screens',
+    id: 'fluid-entry-detail',
+    navLabel: 'Fluid Entry Detail',
+    path: 'screens/fluid-entry-detail/',
+    title: 'Fluid Entry Detail',
+    page: FluidEntryDetailScreenPage,
   },
   {
     group: 'Validation',
