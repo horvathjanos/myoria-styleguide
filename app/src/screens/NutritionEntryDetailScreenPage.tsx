@@ -5,6 +5,7 @@ import {
   PreviewStack,
   ScreenPreviewPage,
   SecondaryScreenHeader,
+  TextAction,
 } from '../components';
 
 type NutritionFact = Readonly<{
@@ -110,9 +111,11 @@ function FactList({
 function CorrectionAction(): ReactElement {
   return (
     <section className="my-local-correction" aria-label="Entry action">
-      <a className="my-text-action my-text-action--destructive" href="#">
-        Delete entry
-      </a>
+      <div className="my-action-row">
+        <TextAction href="#" tone="destructive">
+          Delete entry
+        </TextAction>
+      </div>
     </section>
   );
 }
@@ -129,12 +132,10 @@ function CorrectionConfirmation(): ReactElement {
           This removes it from today's nutrition totals.
         </p>
         <div className="my-local-confirmation-actions">
-          <a className="my-text-action" href="#">
-            Keep entry
-          </a>
-          <a className="my-text-action my-text-action--destructive" href="#">
+          <TextAction href="#">Keep entry</TextAction>
+          <TextAction href="#" tone="destructive">
             Delete
-          </a>
+          </TextAction>
         </div>
       </section>
     </section>
@@ -148,9 +149,11 @@ function CorrectionError(): ReactElement {
         <strong>Could not delete entry</strong>
         <span>Try again.</span>
       </div>
-      <a className="my-text-action my-text-action--destructive" href="#">
-        Delete entry
-      </a>
+      <div className="my-action-row">
+        <TextAction href="#" tone="destructive">
+          Delete entry
+        </TextAction>
+      </div>
     </section>
   );
 }

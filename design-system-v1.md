@@ -88,7 +88,8 @@ The typography source of truth is `docs/styleguide/typography-contract-v1.md`.
 
 Tokens/classes involved:
 
-- `--my-type-screen-title-*`, `.my-screen-title`
+- `--my-type-screen-title-*`, `.my-snapshot-title`
+- `--my-type-secondary-screen-title-*`, `.my-secondary-screen-title`
 - `--my-type-root-date-*`, `.my-root-date`
 - `--my-type-section-label-*`, `.my-section-label`, `.my-field-label`
 - `--my-type-row-title-*`, `.my-list-row-title`
@@ -111,7 +112,8 @@ Approved role summary:
 - Today/root screen does not display an explicit `Today` title.
 - Today/root uses one quiet date line only: `Tuesday, 2 June`.
 - Root date: 14px / 18px, sans, 400, secondary text.
-- Secondary/domain/workflow screen title: 22px / 26px, sans, 400.
+- Secondary screen navigation context: 14px / 18px, sans, 400, secondary text.
+- Primary detail object name: 18px / 22px, sans, 400.
 - Section labels: 14px / 18px, condensed, 500, uppercase.
 - Row titles: 16px / 20px, sans, 400.
 - Row metadata: 13px / 17px, mono, 400.
@@ -187,7 +189,8 @@ Tokens/classes involved:
 Intended usage:
 
 - Today root header: one quiet date/context line only, no explicit `Today` title, no back control.
-- Secondary screen header: quiet left chevron plus title.
+- Secondary screen header: quiet left chevron plus context label.
+- Secondary header text is navigation context, not a hero/page heading.
 - Action-bearing header: title/back cluster on the left and a text action on the right when the action is truly screen-level.
 - No overflow menu unless real functionality exists.
 
@@ -269,18 +272,23 @@ React Native migration notes:
 Tokens/classes involved:
 
 - `.my-text-action`
+- `.my-text-action--destructive`
+- `.my-action-row`
 - `.my-button`
 - `.my-button--primary`
 - `.my-button--secondary`
 - `.my-button--destructive`
 - `.my-button--disabled`
 - `.my-header-action`
-- `.my-local-action-row`
 - `.my-local-confirmation`
 
 Intended usage:
 
 - Underlined text actions are preferred for quiet object-management actions like `CREATE ITEM`.
+- Text action rows provide one shared right-aligned placement grammar for
+  create and correction actions.
+- Destructive text actions use the shared action primitive with
+  `.my-text-action--destructive`.
 - Normal actions use primary text color, not a generic action token.
 - Primary buttons are reserved for clear commit actions in forms/workflows.
 - Secondary buttons are for cancel/back-out choices when a visible button is needed.
@@ -291,6 +299,7 @@ Intended usage:
 Forbidden patterns:
 
 - No generic action color token.
+- No screen-local destructive link styling.
 - No filled action button on Food & Drink Library list for create.
 - No plus icon unless the action grammar explicitly calls for it.
 - No shadows or pill buttons by default.
@@ -412,7 +421,6 @@ Tokens/classes involved:
 - `.my-snapshot-summary`
 - `.my-snapshot-title`
 - `.my-snapshot-meta`
-- `.my-snapshot-primary`
 - `.my-fact-list`
 - `.my-fact-row`
 - `.my-fact-label`
@@ -423,9 +431,10 @@ Intended usage:
 
 - Immutable saved-entry snapshots can render as calm read-only detail facts.
 - Summary first: saved display name and concise logged context.
-- Promote the primary saved measurement before secondary facts when a detail surface has a natural measurement hierarchy.
 - Amount and logged time are metadata when the primary question is nutrition contribution.
 - Secondary facts form one compact, aligned label/value snapshot.
+- Compact fact tables are content-sized and use `--my-fact-column-gap` and
+  `--my-fact-row-gap`, never fixed pixel columns.
 - Use typography, alignment, and whitespace instead of per-fact dividers.
 - Numeric snapshot values use mono fact values.
 - Detail facts are review data, not editable form fields.
@@ -435,6 +444,7 @@ Forbidden patterns:
 - No cards, badges, or decorative status colors for saved-entry review.
 - No object-list row grammar or divider after every snapshot attribute.
 - No vertical dividers between related snapshot facts.
+- No full-width fact table when the content does not require it.
 - No edit controls inside the delete-first nutrition correction slice.
 - No fake mutable inputs for immutable snapshot fields.
 

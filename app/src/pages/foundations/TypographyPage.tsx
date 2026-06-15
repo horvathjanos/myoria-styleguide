@@ -15,8 +15,10 @@ export function TypographyPage(): ReactElement {
           <p className="sg-note">Root date only; no explicit Today title</p>
         </div>
         <div className="sg-card">
-          <h2 className="my-screen-title">Food &amp; Drink Library</h2>
-          <p className="sg-note">Secondary screen title · 22 / 26 · sans 400</p>
+          <p className="my-secondary-screen-title">Food &amp; Drink Library</p>
+          <p className="sg-note">
+            Secondary screen context · 14 / 18 · sans 400
+          </p>
         </div>
         <div className="sg-card">
           <span className="my-section-label">SEARCH</span>

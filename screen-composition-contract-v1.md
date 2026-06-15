@@ -81,7 +81,10 @@ Rules:
 - The visible back chevron starts on the same content-left axis as object-list controls and list-row content.
 - The header title starts after the reusable visible header lane: a 24px chevron zone plus one 8px spacing step.
 - The visible back chevron stays inside the 44px touch target.
-- The visible back chevron and screen title should read as one precise header group.
+- The visible back chevron and secondary context label should read as one
+  precise navigation group.
+- The secondary context label is quiet orientation, not the page's primary
+  content or hero heading.
 - The header-title axis is intentionally separate from the object-list content-left axis in v1, but the visible back affordance is not.
 - Do not place placeholder overflow menus in the header.
 - Do not move object creation into the header by default.
@@ -145,9 +148,11 @@ Rules:
 
 Inactive does not mean disabled. Inactive scope options remain selectable unless explicitly disabled.
 
-## Create action row
+## Text action row
 
-For object-list screens with a create/new-item action, use a quiet text action row after the relevant control group and before the list.
+Use the shared right-aligned text action row for quiet object-management
+actions. Object-list create actions and detail correction actions use the same
+placement grammar.
 
 Food & Drink Library baseline:
 
@@ -169,6 +174,8 @@ Approved behavior:
 - `CREATE ITEM` is right-aligned inside its own action row.
 - Right alignment is allowed because this is an operational object-management action, not a section label.
 - Right alignment improves mobile thumb ergonomics while keeping the action visually quiet.
+- Destructive actions use the same action primitive and row alignment with the
+  destructive semantic modifier.
 
 Approved visual constraints:
 
@@ -179,6 +186,7 @@ Approved visual constraints:
 - No card/surface.
 - No floating action button behavior.
 - No local CTA styling.
+- No screen-local destructive link styling.
 
 Approved wording:
 
@@ -210,7 +218,8 @@ Visibility rules:
 - The create action belongs to the library/object-management surface, not directly to the current list read state.
 - If a future concrete technical/domain condition makes create genuinely impossible, that screen may explicitly disable or hide it as a separate use-case decision.
 
-The create action row does not own a bottom divider. It only owns action placement, vertical padding, touch target, and action state.
+The shared action row does not own a divider. Object-list composition may add
+its approved vertical padding through the object-list action-row modifier.
 
 ## List boundary ownership
 
@@ -627,38 +636,38 @@ Use this pattern for saved entry review surfaces where structured snapshot data 
 Approved structure:
 
 ```text
-[back chevron] Screen Title
+[back chevron] Navigation context
 
-SUMMARY
 saved display name
 metadata context
 
-PRIMARY SNAPSHOT
-320 kcal
+Calories      320 kcal
+Protein          31 g
+Carbs            28 g
+Fat               9 g
 
-SECONDARY SNAPSHOT
-Protein                        31 g
-Carbs                          28 g
-Fat                             9 g
-
-LOCAL CORRECTION
-Correction
-Delete entry
+                         DELETE ENTRY
 ```
 
 Rules:
 
-- Use the normal secondary screen header.
+- Use the shared secondary screen header as quiet navigation context.
+- The saved display name is the primary object name.
 - Keep the detail read-only; do not render snapshot facts as inputs.
 - Use a concise summary before facts when it helps identify the selected entry.
 - Amount, logged time, and similar context are metadata unless they are the screen's primary measurement.
-- A detail surface may promote one saved snapshot value into a primary measurement before the secondary snapshot.
 - Secondary facts use a compact reusable label/value group for related immutable data.
+- The fact table is content-sized. It must not stretch to the screen width.
+- Fact columns and rows use `--my-fact-column-gap` and `--my-fact-row-gap`;
+  do not introduce fixed column widths.
 - Fact labels use section-label grammar.
 - Fact values use mono fact-value grammar.
 - Use alignment, typography, and whitespace instead of object-list row separators.
 - Local correction actions sit below the relevant detail facts.
-- Local correction actions live in a clearly labeled correction area when the screen has multiple review sections.
+- Destructive correction uses `.my-text-action--destructive` inside the shared
+  right-aligned action row.
+- Destructive text action is a shared action primitive variant, not a
+  nutrition-specific exception.
 - Destructive/correction actions should be explicit but visually calm.
 - Do not use cards, badges, warning banners, decorative colors, or modal chrome for read-only detail facts.
 - Do not add per-fact dividers or vertical dividers within a related snapshot group.

@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { Action } from '../../components';
+import { Action, TextAction } from '../../components';
 import { StyleguidePage } from '../../shell/StyleguidePage';
 
 export function ActionsPage(): ReactElement {
@@ -11,10 +11,21 @@ export function ActionsPage(): ReactElement {
     >
       <div className="catalog-stack">
         <div className="sg-card">
-          <h2>Text action</h2>
-          <a className="my-text-action" href="#">
-            CREATE ITEM
-          </a>
+          <h2>Text action roles</h2>
+          <div className="my-button-row">
+            <TextAction href="#">Create item</TextAction>
+            <TextAction href="#" tone="destructive">
+              Delete entry
+            </TextAction>
+          </div>
+        </div>
+        <div className="sg-card">
+          <h2>Right-aligned action row</h2>
+          <div className="my-action-row">
+            <TextAction href="#" tone="destructive">
+              Delete entry
+            </TextAction>
+          </div>
         </div>
         <div className="sg-card">
           <h2>Button roles</h2>
@@ -37,7 +48,7 @@ export function ActionsPage(): ReactElement {
               <a className="my-back-control" href="#">
                 <span className="my-chevron my-chevron--left" />
               </a>
-              <span className="my-screen-title">Edit item</span>
+              <span className="my-secondary-screen-title">Edit item</span>
             </span>
             <a className="my-text-action my-header-action" href="#">
               SAVE

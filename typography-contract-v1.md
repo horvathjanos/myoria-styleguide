@@ -82,9 +82,9 @@ Rules:
 - Do not add `Today`, `TODAY ·`, `Daily readout`, `Local day`, `Vienna`, or a second helper line.
 - Do not use `rootTitle` for Today.
 
-## Secondary screen title
+## Secondary screen context
 
-Use for secondary/domain/workflow screens:
+Use inside the shared secondary screen header for navigation context:
 
 - Food & Drink Library
 - Create item
@@ -94,15 +94,22 @@ Use for secondary/domain/workflow screens:
 Approved role:
 
 ```css
---my-type-screen-title-size: 22px;
---my-type-screen-title-line: 26px;
+--my-type-secondary-screen-title-size: 14px;
+--my-type-secondary-screen-title-line: 18px;
 font-family: var(--my-font-sans);
 font-weight: 400;
+color: var(--my-color-text-secondary);
 ```
 
-Reason: 22/26 remains clearly a screen title, but avoids the looser and more generic app feel of 24/30.
+The back chevron and context label form a quiet navigation group. They orient
+the user but do not compete with the main object name or workflow content.
 
-Do not add separate `formTitle`, `modalTitle`, `cardTitle`, or `heroTitle` roles in v1.
+The selected object name may use the existing 18 / 22 primary title role when
+the detail hierarchy needs it. Do not make the secondary header label behave
+like a page hero.
+
+Do not add separate `formTitle`, `modalTitle`, `cardTitle`, or `heroTitle`
+roles in v1.
 
 ## Section labels
 
@@ -325,6 +332,7 @@ Reason: numeric inputs are measurement-adjacent and should align with the readou
 - Do not remove or bypass the local `@font-face` definitions.
 - Do not load IBM Plex from Google Fonts or another remote CDN.
 - Do not rename the CSS families away from the approved token names.
+- Do not use the primary 18 / 22 title role for secondary navigation context.
 - Do not show an explicit `Today` title on the root screen.
 - Do not add extra title roles such as `heroTitle`, `cardTitle`, `formTitle`, or `modalTitle` in v1.
 - Do not use viewport-scaled font sizes.

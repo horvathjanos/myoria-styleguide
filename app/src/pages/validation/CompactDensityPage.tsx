@@ -1,6 +1,11 @@
 import type { ReactElement } from 'react';
 
-import { ListRow, Measurement, SecondaryScreenHeader } from '../../components';
+import {
+  ListRow,
+  Measurement,
+  SecondaryScreenHeader,
+  TextAction,
+} from '../../components';
 import { StyleguidePage } from '../../shell/StyleguidePage';
 
 type Density = 'comfortable' | 'compact';
@@ -105,10 +110,8 @@ function ObjectListPreview({ density }: { density: Density }): ReactElement {
           </a>
         </div>
       </div>
-      <div className="my-object-list-action-row">
-        <a className="my-text-action" href="#">
-          CREATE ITEM
-        </a>
+      <div className="my-action-row my-object-list-action-row">
+        <TextAction href="#">Create item</TextAction>
       </div>
       <div className="my-list">
         {densityRows.map(([title, meta]) => (

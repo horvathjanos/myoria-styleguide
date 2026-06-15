@@ -6,6 +6,7 @@ import {
   PreviewStack,
   ScreenPreviewPage,
   SecondaryScreenHeader,
+  TextAction,
 } from '../components';
 
 type Scope = 'active' | 'archived';
@@ -152,10 +153,8 @@ function FoodDrinkLibraryScreen({
         <ScopeSelector scope={scope} />
       </div>
 
-      <div className="my-object-list-action-row">
-        <a className="my-text-action" href="#">
-          CREATE ITEM
-        </a>
+      <div className="my-action-row my-object-list-action-row">
+        <TextAction href="#">Create item</TextAction>
       </div>
 
       <div className="my-list">

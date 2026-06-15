@@ -14,7 +14,7 @@ export function SecondaryScreenHeader({
       <a className="my-back-control" href={backHref} aria-label="Go back">
         <span className="my-chevron my-chevron--left" aria-hidden="true" />
       </a>
-      <h2 className="my-screen-title">{title}</h2>
+      <p className="my-secondary-screen-title">{title}</p>
     </header>
   );
 }
