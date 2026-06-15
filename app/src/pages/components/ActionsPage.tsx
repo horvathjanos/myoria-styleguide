@@ -7,7 +7,7 @@ export function ActionsPage(): ReactElement {
   return (
     <StyleguidePage
       title="Actions"
-      description="Underlined text actions and quiet primary, secondary, destructive, and disabled button roles."
+      description="Quiet text actions and primary, secondary, destructive, and disabled button roles."
     >
       <div className="catalog-stack">
         <div className="sg-card">

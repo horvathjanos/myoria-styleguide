@@ -198,6 +198,11 @@
   text-transform: uppercase;
 }
 
+.my-text-action:focus-visible {
+  outline: var(--my-line-hairline) solid currentColor;
+  outline-offset: var(--my-space-1);
+}
+
 .my-text-action.is-disabled,
 .my-text-action:disabled {
   color: var(--my-color-control-disabled);
@@ -211,6 +216,12 @@
 
 .my-text-action--destructive {
   color: var(--my-color-destructive);
+  text-decoration: none;
+}
+
+.my-text-action--destructive:hover,
+.my-text-action--destructive:focus-visible {
+  text-decoration: underline;
 }
 
 .my-button {

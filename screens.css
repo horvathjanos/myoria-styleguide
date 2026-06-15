@@ -135,7 +135,3 @@
 .my-local-correction > .my-section-label {
   display: none;
 }
-
-.my-local-correction .my-text-action {
-  color: var(--my-color-destructive);
-}
