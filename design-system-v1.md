@@ -450,6 +450,9 @@ Intended usage:
 - Summary first: saved display name and concise logged context.
 - Amount and logged time can be metadata when the primary question is a
   contribution summary, as in Nutrition Entry Detail.
+- Measurement-owned entries can use the saved measurement as the snapshot
+  title/object value with logged time as metadata, as in Body Weight Entry
+  Detail.
 - A logged-entry snapshot may include a readout stack when it presents distinct
   captured values beyond the identity/meta line.
 - Do not add readouts only to satisfy a visual template.
@@ -483,6 +486,11 @@ Intended usage:
   nutrition contribution values beyond the logged amount.
 - Plain Fluid Entry Detail does not need an Amount readout because the logged
   fluid amount is already the entry amount in the identity/meta line.
+- Body Weight Entry Detail does not need a readout stack because the body
+  weight measurement is the logged object value.
+- For measurement-owned snapshots, numeric value and unit remain separate
+  `Measurement` parts, and the unit is visually subordinate when the measurement
+  functions as a quiet saved-entry object value.
 
 Forbidden patterns:
 
@@ -539,6 +547,8 @@ Tokens/classes involved:
 - React Food & Drink Library screen page at `screens/food-drink-library/`
 - React Nutrition Entry Detail screen page at `screens/nutrition-entry-detail/`
 - React Fluid Entry Detail screen page at `screens/fluid-entry-detail/`
+- React Body Weight Entry Detail screen page at
+  `screens/body-weight-entry-detail/`
 - `.my-phone`
 - `.my-screen`
 - screen-specific classes in `screens.css`
@@ -547,8 +557,9 @@ Intended usage:
 
 - Today screen page anchors root daily measurement grammar.
 - Food & Drink Library screen page anchors secondary object-list grammar.
-- Nutrition Entry Detail and Fluid Entry Detail screen pages anchor read-only
-  logged-entry snapshot correction grammar across domains.
+- Nutrition Entry Detail, Fluid Entry Detail, and Body Weight Entry Detail
+  screen pages anchor read-only logged-entry snapshot correction grammar across
+  domains.
 - Screen previews use dummy data and links only.
 
 Forbidden patterns:

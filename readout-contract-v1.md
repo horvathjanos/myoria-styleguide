@@ -233,6 +233,11 @@ Rules:
   nutrition contribution values.
 - Plain Fluid Entry Detail does not need an Amount readout because the logged
   fluid amount is already the entry amount.
+- Body Weight Entry Detail does not need a readout stack because the primary
+  body weight measurement is the logged object value, not an additional
+  captured contribution.
+- Do not add fake labels such as `Amount`, `Weight`, or `Measurement` to
+  measurement-owned snapshots just to satisfy a readout template.
 - When readouts are present, the visible order is measurement first, readable
   Title Case label second.
 - When readouts are present, numeric value and unit must be separate

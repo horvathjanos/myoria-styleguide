@@ -58,6 +58,18 @@ Water
 DELETE ENTRY
 ```
 
+Measurement-owned entries can use the measurement itself as the snapshot
+title/object value:
+
+```text
+[back chevron] Body weight entry
+
+72.8 kg
+Today 07:12
+
+DELETE ENTRY
+```
+
 Nutrition entries keep readouts when they present distinct captured nutrition
 values beyond the logged amount:
 
@@ -68,10 +80,11 @@ Readable Label
 DELETE ENTRY
 ```
 
-Nutrition Entry Detail and Fluid Entry Detail are the approved examples of the
-same logged-entry snapshot grammar. Domain content changes, but the controlled
-detail rail, immutable summary, value-first readouts, subordinate measurement
-units, and local destructive action composition stay reusable.
+Nutrition Entry Detail, Fluid Entry Detail, and Body Weight Entry Detail are
+the approved examples of the same logged-entry snapshot grammar. Domain content
+changes, but the controlled detail rail, immutable summary, optional
+content-driven readouts, subordinate measurement units, and local destructive
+action composition stay reusable.
 
 Rules:
 
@@ -98,6 +111,11 @@ Rules:
   nutrition contribution values.
 - Plain Fluid Entry Detail does not need an Amount readout because the logged
   fluid amount is already the entry amount.
+- Body Weight Entry Detail does not need a readout stack or fake `Amount`,
+  `Weight`, or `Measurement` label because the body weight measurement is the
+  logged object value.
+- Measurement-owned snapshot values still use separate `Measurement` value and
+  unit parts, with the unit visually subordinate when appropriate.
 
 ## Full-screen object list pattern
 

@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { CompactDensityPage } from './pages/validation/CompactDensityPage';
 import { ProgressScalePage } from './pages/validation/ProgressScalePage';
 import { ValidationOverviewPage } from './pages/validation/ValidationOverviewPage';
+import { BodyWeightEntryDetailScreenPage } from './screens/BodyWeightEntryDetailScreenPage';
 import { FluidEntryDetailScreenPage } from './screens/FluidEntryDetailScreenPage';
 import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
 import { NutritionEntryDetailScreenPage } from './screens/NutritionEntryDetailScreenPage';
@@ -152,6 +153,14 @@ export const styleguideRoutes = [
     path: 'screens/fluid-entry-detail/',
     title: 'Fluid Entry Detail',
     page: FluidEntryDetailScreenPage,
+  },
+  {
+    group: 'Screens',
+    id: 'body-weight-entry-detail',
+    navLabel: 'Body Weight Entry Detail',
+    path: 'screens/body-weight-entry-detail/',
+    title: 'Body Weight Entry Detail',
+    page: BodyWeightEntryDetailScreenPage,
   },
   {
     group: 'Validation',
