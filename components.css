@@ -363,6 +363,15 @@
   text-align: right;
 }
 
+.my-local-correction > .my-action-row {
+  justify-content: flex-start;
+}
+
+.my-local-correction > .my-action-row .my-text-action {
+  justify-content: flex-start;
+  text-align: left;
+}
+
 .my-local-confirmation {
   display: grid;
   gap: var(--my-space-3);

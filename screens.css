@@ -138,7 +138,4 @@
 
 .my-local-correction .my-text-action {
   color: var(--my-color-destructive);
-  justify-content: flex-end;
-  justify-self: end;
-  text-align: right;
 }

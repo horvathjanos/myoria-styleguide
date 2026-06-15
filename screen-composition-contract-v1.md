@@ -647,7 +647,7 @@ Energy
 31 g      28 g      9 g
 Protein   Carbs     Fat
 
-                         DELETE ENTRY
+DELETE ENTRY
 ```
 
 Rules:
@@ -679,9 +679,14 @@ Rules:
 - Do not use a separator after the header.
 - Do not use a separator after the action.
 - Do not add row dividers inside the readout group.
-- Local correction actions sit below the relevant detail facts and align within the same rail.
+- Local correction actions sit below the relevant detail facts and align within
+  the same rail.
+- A lone destructive correction action aligns to the snapshot rail start. It
+  must not float on the invisible rail end.
+- Right alignment is reserved for paired action rows, confirmation controls,
+  trailing list actions, or explicit action bars.
 - Destructive correction uses `.my-text-action--destructive` inside the shared
-  right-aligned action row.
+  action row.
 - Destructive/correction actions should be explicit but visually calm.
 - Do not use cards, badges, warning banners, decorative colors, or modal chrome for read-only detail facts.
 - Do not add per-fact dividers or vertical dividers within a related snapshot group.

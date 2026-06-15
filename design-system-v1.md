@@ -453,6 +453,9 @@ Intended usage:
   `width: fit-content`.
 - Compact fact tables are content-sized and use `--my-fact-column-gap` and
   `--my-fact-row-gap`, never fixed pixel columns.
+- Lone destructive correction actions align to the snapshot rail start.
+- Right-aligned correction controls are reserved for paired confirmation
+  controls, trailing list actions, or explicit action bars.
 - Prefer zero separators if spacing and hierarchy are enough.
 - Use at most one functional separator between the food identity summary and the fact table.
 - Do not use a separator after the header or after the final action.
