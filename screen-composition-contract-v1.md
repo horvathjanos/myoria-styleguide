@@ -120,7 +120,19 @@ Rules:
 - Right alignment is reserved for paired actions, confirmation controls,
   trailing list actions, or explicit action bars.
 - Inline delete confirmation and delete error states stay local to the entry
-  action area.
+  action area. They must preserve the visible identity/meta block and any
+  optional readout stack so the screen still reads as an immutable logged-entry
+  snapshot.
+- Delete confirmation copy is quiet, direct, and factual. Avoid dramatic
+  warning language, warning icons, modal chrome, or over-explaining persistence
+  internals.
+- Delete confirmation controls use existing action primitives. Paired
+  `Keep entry` / destructive `Delete` controls may use the confirmation action
+  alignment; lone destructive actions remain rail-start aligned.
+- Delete errors use the shared error primitive when possible, explain that
+  deletion failed, and leave a retryable destructive action local to the same
+  rail. Do not invent red blocks, alert banners, icons, cards, shadows, or
+  screen-only error chrome for logged-entry delete failures.
 - Do not use full-width measurement rows, cards, separators, shadows, icons,
   gradients, decorative lines, dashboard KPI treatment, or screen-local
   visual exceptions.
@@ -822,6 +834,9 @@ Rules:
 - Explain the user-visible effect, not persistence internals.
 - Use explicit actions such as `Keep entry` and `Delete`.
 - Keep pending/error state local to the affected row/detail action area.
-- Use existing error primitives for local failures when possible.
+- Use existing error primitives for local failures when possible. For
+  logged-entry delete failures, state that deletion failed and keep the retry
+  action nearby; do not escalate to a modal, toast, banner, or screen-level
+  alert treatment.
 - Do not use modal confirmation as the first pattern unless a separate modal contract requires it.
 - Do not use snackbar, toast, undo, restore, or long-press-only behavior as the first delete correction pattern.

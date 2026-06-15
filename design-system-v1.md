@@ -301,6 +301,8 @@ Intended usage:
 - Secondary buttons are for cancel/back-out choices when a visible button is needed.
 - Destructive buttons are rare and only for irreversible or hiding/removal flows.
 - Local confirmations stay inline near the affected detail/action area unless a separate modal contract exists.
+- Logged-entry delete confirmations and retryable delete failures stay local to
+  the snapshot rail and preserve the identity/meta block.
 - Disabled state uses named opacity token.
 
 Forbidden patterns:
@@ -364,6 +366,8 @@ Intended usage:
 
 - Inline errors belong under fields/controls.
 - Error panels can represent screen-level load failures.
+- Error panels can also represent local retryable failures when they stay
+  inside the affected detail/action area, such as a logged-entry delete failure.
 - Non-critical warnings/cautions are neutral structure + copy by default.
 - Signal Red is used only for error, destructive, or critical states.
 - Function Yellow is used only for active, operational, or in-progress states.
