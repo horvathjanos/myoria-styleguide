@@ -215,7 +215,9 @@ Rules:
 Logged-entry snapshot readout stacks are optional value-first detail facts
 inside the controlled snapshot rail. A logged-entry snapshot may contain a
 readout stack when it presents distinct captured values beyond the identity/meta
-line.
+line. The complete Logged Entry Snapshot grammar lives in
+`screen-composition-contract-v1.md`; this section only defines the readout
+portion of that grammar.
 
 Approved Nutrition Entry Detail example:
 
@@ -248,6 +250,8 @@ Rules:
   measurement rows.
 - A logged amount must not become a hero metric, KPI, card, or dashboard
   treatment just because the readout stack is omitted.
+- Do not add cards, shadows, decorative dividers, icons, gradients, or
+  screen-local exceptions around snapshot readouts.
 
 ## Paired readout geometry
 

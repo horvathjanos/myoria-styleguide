@@ -30,7 +30,7 @@ Feature/domain code may provide different content, labels, values, metadata, act
 
 This is the main mechanism for homogeneous Myoria UI/UX.
 
-## Logged-entry snapshot pattern
+## Logged Entry Snapshot Pattern
 
 Use this pattern for immutable saved-entry detail screens that review one
 logged contribution and expose a local correction/delete action:
@@ -82,14 +82,24 @@ DELETE ENTRY
 
 Nutrition Entry Detail, Fluid Entry Detail, and Body Weight Entry Detail are
 the approved examples of the same logged-entry snapshot grammar. Domain content
-changes, but the controlled detail rail, immutable summary, optional
-content-driven readouts, subordinate measurement units, and local destructive
-action composition stay reusable.
+changes, but the controlled detail rail, quiet secondary header, identity/meta
+block, optional content-driven readouts, subordinate measurement units, and
+local destructive action composition stay reusable.
 
 Rules:
 
-- Use `.my-snapshot-detail` as the controlled rail.
-- Put the saved identity/context summary before readouts.
+- Use `.my-snapshot-detail` as the controlled rail. It uses
+  `--my-detail-rail-width`, not `width: fit-content`, and logged-entry detail
+  content must not stretch to the full screen width unless a later contract
+  explicitly introduces a full-width snapshot pattern.
+- Use the shared secondary screen header as quiet navigation/context. The
+  screen title is not the saved entry object, and logged-entry detail screens
+  must not use a hero header treatment.
+- Put the saved identity/meta summary before readouts.
+- Nutrition identity/meta is the food name plus logged amount/date-time.
+- Fluid identity/meta is the fluid item name plus logged amount/date-time.
+- Body Weight identity/meta is measurement-owned: the measurement value is the
+  entry object, and date-time is metadata.
 - Treat the readout stack as optional.
 - Use value-first readouts with Title Case labels only when the snapshot
   presents distinct captured values beyond the identity/meta line.
@@ -100,7 +110,15 @@ Rules:
   parts.
 - When readouts are present, units use the supporting-unit measurement
   modifier.
+- Root/daily kcal behavior remains separate from logged-entry snapshot kcal
+  behavior. Logged-entry snapshot readouts use subordinate units consistently,
+  including `kcal`.
 - Lone destructive `TextAction` controls align to the snapshot rail start.
+- Destructive `TextAction` styling follows the shared action contract: Signal
+  Red, no underline at rest or hover, and the existing clear focus-visible
+  outline.
+- Right alignment is reserved for paired actions, confirmation controls,
+  trailing list actions, or explicit action bars.
 - Inline delete confirmation and delete error states stay local to the entry
   action area.
 - Do not use full-width measurement rows, cards, separators, shadows, icons,
@@ -716,9 +734,12 @@ Selection/current state requires a separate approved selection-list pattern late
 - Do not add divider lines decoratively; use them only when they mark a functional boundary.
 - Do not add skeleton rows, grouped-list headers, result counts, hover states, selected states, swipe actions, long-press actions, or inline row action toolbars to default object-list screens without a separate approved pattern.
 
-## Read-only snapshot detail pattern
+## Read-only Snapshot Detail Pattern
 
-Use this pattern for saved entry review surfaces where structured snapshot data is immutable and the available correction action is separate from the facts.
+Use the Logged Entry Snapshot Pattern above as the canonical contract for saved
+entry review surfaces where structured snapshot data is immutable and the
+available correction action is separate from the facts. This section shows the
+nutrition readout shape inside that shared grammar.
 
 Approved structure:
 
@@ -740,12 +761,14 @@ DELETE ENTRY
 Rules:
 
 - Use the shared secondary screen header as quiet navigation context.
-- The saved display name is the primary object name.
+- The identity/meta block names the saved object or measurement and its logged
+  context.
 - Keep the detail read-only; do not render snapshot facts as inputs.
 - Use a concise summary before facts when it helps identify the selected entry.
 - Amount, logged time, and similar context are metadata unless they are the screen's primary measurement.
-- Snapshot facts use value-first readouts: measurement first, readable Title Case
-  label below.
+- Snapshot facts use optional value-first readouts only when they present
+  distinct captured values beyond identity/meta: measurement first, readable
+  Title Case label below.
 - Energy renders as its own value-first readout above the macro group.
 - Energy may be slightly more important than macro readouts, but must not use
   dashboard KPI or root readout scale.
@@ -766,8 +789,8 @@ Rules:
 - Do not use a separator after the header.
 - Do not use a separator after the action.
 - Do not add row dividers inside the readout group.
-- Local correction actions sit below the relevant detail facts and align within
-  the same rail.
+- Local correction actions sit below the relevant identity/meta and optional
+  readout facts and align within the same rail.
 - A lone destructive correction action aligns to the snapshot rail start. It
   must not float on the invisible rail end.
 - Right alignment is reserved for paired action rows, confirmation controls,

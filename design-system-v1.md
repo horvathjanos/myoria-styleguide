@@ -479,8 +479,9 @@ Intended usage:
 - Numeric snapshot readout values use mono measurement values with a
   subordinate unit.
 - Detail facts are review data, not editable form fields.
-- Nutrition Entry Detail and Fluid Entry Detail are the approved examples of
-  the same logged-entry snapshot grammar. Domain content changes; rail,
+- Nutrition Entry Detail, Fluid Entry Detail, and Body Weight Entry Detail are
+  the approved examples of the same logged-entry snapshot grammar. Domain
+  content changes; rail, quiet secondary header, identity/meta block, optional
   readout, measurement, and destructive-action composition do not.
 - Nutrition Entry Detail keeps readouts because energy and macros are distinct
   nutrition contribution values beyond the logged amount.
@@ -491,6 +492,9 @@ Intended usage:
 - For measurement-owned snapshots, numeric value and unit remain separate
   `Measurement` parts, and the unit is visually subordinate when the measurement
   functions as a quiet saved-entry object value.
+- Root/daily kcal behavior remains separate from logged-entry snapshot kcal
+  behavior. Snapshot readout units are subordinate, including `kcal`, because
+  the entry is a saved contribution rather than a dashboard KPI.
 
 Forbidden patterns:
 
