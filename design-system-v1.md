@@ -433,9 +433,12 @@ Intended usage:
 - Summary first: saved display name and concise logged context.
 - Amount and logged time are metadata when the primary question is nutrition contribution.
 - Secondary facts form one compact, aligned label/value snapshot.
+- The fact table and related summary/actions form a compact, content-sized object-detail rail.
 - Compact fact tables are content-sized and use `--my-fact-column-gap` and
   `--my-fact-row-gap`, never fixed pixel columns.
-- Use typography, alignment, and whitespace instead of per-fact dividers.
+- Prefer zero separators if spacing and hierarchy are enough.
+- Use at most one functional separator between the food identity summary and the fact table.
+- Do not use a separator after the header or after the final action.
 - Numeric snapshot values use mono fact values.
 - Detail facts are review data, not editable form fields.
 
@@ -445,6 +448,7 @@ Forbidden patterns:
 - No object-list row grammar or divider after every snapshot attribute.
 - No vertical dividers between related snapshot facts.
 - No full-width fact table when the content does not require it.
+- No separators that make the screen feel like a divided form.
 - No edit controls inside the delete-first nutrition correction slice.
 - No fake mutable inputs for immutable snapshot fields.
 

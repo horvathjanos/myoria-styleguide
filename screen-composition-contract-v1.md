@@ -657,20 +657,24 @@ Rules:
 - Use a concise summary before facts when it helps identify the selected entry.
 - Amount, logged time, and similar context are metadata unless they are the screen's primary measurement.
 - Secondary facts use a compact reusable label/value group for related immutable data.
+- The fact table and related summary/actions form a compact, content-sized object-detail rail.
 - The fact table is content-sized. It must not stretch to the screen width.
 - Fact columns and rows use `--my-fact-column-gap` and `--my-fact-row-gap`;
-  do not introduce fixed column widths.
+  never fixed pixel columns.
 - Fact labels use section-label grammar.
 - Fact values use mono fact-value grammar.
-- Use alignment, typography, and whitespace instead of object-list row separators.
-- Local correction actions sit below the relevant detail facts.
+- Prefer zero separators if spacing and hierarchy are enough.
+- Use at most one functional separator between the food identity summary and the fact table.
+- Do not use a separator after the header.
+- Do not use a separator after the action.
+- Do not add row dividers inside the fact table.
+- Local correction actions sit below the relevant detail facts and align within the same rail.
 - Destructive correction uses `.my-text-action--destructive` inside the shared
   right-aligned action row.
-- Destructive text action is a shared action primitive variant, not a
-  nutrition-specific exception.
 - Destructive/correction actions should be explicit but visually calm.
 - Do not use cards, badges, warning banners, decorative colors, or modal chrome for read-only detail facts.
 - Do not add per-fact dividers or vertical dividers within a related snapshot group.
+- Do not push correction actions to the bottom of the screen.
 
 ## Local confirmation pattern
 

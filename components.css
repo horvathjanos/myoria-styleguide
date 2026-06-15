@@ -253,6 +253,7 @@
 .my-snapshot-detail {
   display: grid;
   gap: var(--my-space-5);
+  width: fit-content;
 }
 
 .my-snapshot-summary {
@@ -281,16 +282,14 @@
 }
 
 .my-fact-list {
-  display: inline-grid;
-  gap: var(--my-fact-row-gap);
-  justify-self: start;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: var(--my-fact-column-gap);
+  row-gap: var(--my-fact-row-gap);
 }
 
 .my-fact-row {
-  align-items: baseline;
-  display: grid;
-  gap: var(--my-fact-column-gap);
-  grid-template-columns: max-content max-content;
+  display: contents;
 }
 
 .my-fact-label {
@@ -320,6 +319,7 @@
 
 .my-action-row .my-text-action {
   justify-content: flex-end;
+  min-width: 0;
   text-align: right;
 }
 
