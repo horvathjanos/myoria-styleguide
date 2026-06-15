@@ -41,6 +41,27 @@ logged contribution and expose a local correction/delete action:
 Object name
 amount/context · logged time
 
+optional distinct readout stack
+
+DELETE ENTRY
+```
+
+Fluid entries can omit the readout stack when the logged amount is already the
+complete entry value:
+
+```text
+[back chevron] Fluid entry
+
+Water
+330 ml · Today 14:20
+
+DELETE ENTRY
+```
+
+Nutrition entries keep readouts when they present distinct captured nutrition
+values beyond the logged amount:
+
+```text
 value unit
 Readable Label
 
@@ -56,9 +77,16 @@ Rules:
 
 - Use `.my-snapshot-detail` as the controlled rail.
 - Put the saved identity/context summary before readouts.
-- Use value-first readouts with Title Case labels.
-- Numeric value and unit are separate `Measurement` parts.
-- Units use the supporting-unit measurement modifier.
+- Treat the readout stack as optional.
+- Use value-first readouts with Title Case labels only when the snapshot
+  presents distinct captured values beyond the identity/meta line.
+- Do not add readouts only to satisfy a visual template.
+- Do not duplicate the logged amount as a separate readout when the same value
+  is already present in the identity/meta line.
+- When readouts are present, numeric value and unit are separate `Measurement`
+  parts.
+- When readouts are present, units use the supporting-unit measurement
+  modifier.
 - Lone destructive `TextAction` controls align to the snapshot rail start.
 - Inline delete confirmation and delete error states stay local to the entry
   action area.
@@ -66,6 +94,10 @@ Rules:
   gradients, decorative lines, dashboard KPI treatment, or screen-local
   visual exceptions.
 - Do not make a single logged amount a hero metric.
+- Nutrition Entry Detail keeps readouts because energy and macros are distinct
+  nutrition contribution values.
+- Plain Fluid Entry Detail does not need an Amount readout because the logged
+  fluid amount is already the entry amount.
 
 ## Full-screen object list pattern
 

@@ -1,27 +1,12 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import {
-  Measurement,
   PhonePreview,
   PreviewStack,
   ScreenPreviewPage,
   SecondaryScreenHeader,
   TextAction,
 } from '../components';
-
-type FluidReadout = Readonly<{
-  ariaLabel: string;
-  label: string;
-  unit: string;
-  value: string;
-}>;
-
-const amountReadout: FluidReadout = {
-  ariaLabel: 'Amount, 330 milliliters',
-  label: 'Amount',
-  unit: 'ml',
-  value: '330',
-};
 
 export function FluidEntryDetailScreenPage(): ReactElement {
   return (
@@ -33,7 +18,6 @@ export function FluidEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Normal detail">
           <FluidEntryScreen ariaLabel="Fluid entry detail preview">
             <SnapshotSummary name="Water" meta="330 ml · Today 14:20" />
-            <FluidSnapshotReadout readout={amountReadout} />
             <DeleteAction />
           </FluidEntryScreen>
         </PhonePreview>
@@ -41,7 +25,6 @@ export function FluidEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Delete confirmation">
           <FluidEntryScreen ariaLabel="Fluid entry delete confirmation preview">
             <SnapshotSummary name="Water" meta="330 ml · Today 14:20" />
-            <FluidSnapshotReadout readout={amountReadout} />
             <DeleteConfirmation />
           </FluidEntryScreen>
         </PhonePreview>
@@ -49,7 +32,6 @@ export function FluidEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Delete error">
           <FluidEntryScreen ariaLabel="Fluid entry delete error preview">
             <SnapshotSummary name="Water" meta="330 ml · Today 14:20" />
-            <FluidSnapshotReadout readout={amountReadout} />
             <DeleteError />
           </FluidEntryScreen>
         </PhonePreview>
@@ -89,27 +71,6 @@ function SnapshotSummary({ meta, name }: SnapshotSummaryProps): ReactElement {
     >
       <p className="my-snapshot-title">{name}</p>
       <p className="my-snapshot-meta">{meta}</p>
-    </section>
-  );
-}
-
-function FluidSnapshotReadout({
-  readout,
-}: Readonly<{ readout: FluidReadout }>): ReactElement {
-  return (
-    <section
-      className="my-snapshot-readout-stack"
-      aria-label="Fluid snapshot readouts"
-    >
-      <div className="my-snapshot-readout" aria-label={readout.ariaLabel}>
-        <Measurement
-          className="my-snapshot-readout-value"
-          supportingUnit
-          unit={readout.unit}
-          value={readout.value}
-        />
-        <span className="my-snapshot-readout-label">{readout.label}</span>
-      </div>
     </section>
   );
 }

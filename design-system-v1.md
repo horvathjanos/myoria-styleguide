@@ -450,10 +450,13 @@ Intended usage:
 - Summary first: saved display name and concise logged context.
 - Amount and logged time can be metadata when the primary question is a
   contribution summary, as in Nutrition Entry Detail.
-- The amount can also be the only value-first readout when that is the saved
-  contribution, as in Fluid Entry Detail.
-- Logged-entry snapshots use value-first readouts: measurement first, readable
-  Title Case label below.
+- A logged-entry snapshot may include a readout stack when it presents distinct
+  captured values beyond the identity/meta line.
+- Do not add readouts only to satisfy a visual template.
+- Do not duplicate the logged amount as a separate readout when the same value
+  is already present in the identity/meta line.
+- When a logged-entry snapshot uses value-first readouts, render measurement
+  first with a readable Title Case label below.
 - Energy is a separate value-first readout above macros and may be slightly
   more important in nutrition snapshots without becoming a dashboard KPI.
 - Macro readouts form one compact, aligned group inside the same detail rail.
@@ -470,11 +473,16 @@ Intended usage:
 - Use at most one functional separator between the identity summary and fact
   table/readouts.
 - Do not use a separator after the header or after the final action.
-- Numeric snapshot values use mono measurement values with a subordinate unit.
+- Numeric snapshot readout values use mono measurement values with a
+  subordinate unit.
 - Detail facts are review data, not editable form fields.
 - Nutrition Entry Detail and Fluid Entry Detail are the approved examples of
   the same logged-entry snapshot grammar. Domain content changes; rail,
   readout, measurement, and destructive-action composition do not.
+- Nutrition Entry Detail keeps readouts because energy and macros are distinct
+  nutrition contribution values beyond the logged amount.
+- Plain Fluid Entry Detail does not need an Amount readout because the logged
+  fluid amount is already the entry amount in the identity/meta line.
 
 Forbidden patterns:
 

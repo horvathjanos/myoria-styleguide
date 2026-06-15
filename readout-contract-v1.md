@@ -212,31 +212,37 @@ Rules:
 
 ## Logged-entry snapshot readouts
 
-Logged-entry snapshot readouts are value-first detail facts inside the
-controlled snapshot rail. Nutrition Entry Detail and Fluid Entry Detail are the
-approved examples of this grammar.
+Logged-entry snapshot readout stacks are optional value-first detail facts
+inside the controlled snapshot rail. A logged-entry snapshot may contain a
+readout stack when it presents distinct captured values beyond the identity/meta
+line.
 
-Approved examples:
+Approved Nutrition Entry Detail example:
 
 ```text
 320 kcal
 Energy
 ```
 
-```text
-330 ml
-Amount
-```
-
 Rules:
 
-- The visible order is measurement first, readable Title Case label second.
-- Numeric value and unit must be separate `Measurement` parts.
-- Units use the supporting-unit measurement modifier.
+- Do not add readouts only to satisfy a visual template.
+- Do not duplicate the logged amount as a separate readout when the same value
+  is already present in the identity/meta line.
+- Nutrition Entry Detail keeps readouts because energy and macros are distinct
+  nutrition contribution values.
+- Plain Fluid Entry Detail does not need an Amount readout because the logged
+  fluid amount is already the entry amount.
+- When readouts are present, the visible order is measurement first, readable
+  Title Case label second.
+- When readouts are present, numeric value and unit must be separate
+  `Measurement` parts.
+- When readouts are present, units use the supporting-unit measurement
+  modifier.
 - Readouts stay inside `.my-snapshot-detail`; they do not become full-width
   measurement rows.
-- A single fluid amount readout should remain a logged-entry receipt fact, not
-  a hero metric, KPI, card, or dashboard treatment.
+- A logged amount must not become a hero metric, KPI, card, or dashboard
+  treatment just because the readout stack is omitted.
 
 ## Paired readout geometry
 
