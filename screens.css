@@ -124,7 +124,16 @@
 }
 
 .my-fact-list {
-  gap: var(--my-space-1);
+  align-items: baseline;
+  column-gap: var(--my-fact-column-gap);
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+  row-gap: var(--my-fact-row-gap);
+}
+
+.my-fact-row {
+  display: contents;
 }
 
 .my-fact-label {
@@ -133,6 +142,10 @@
   font-weight: 400;
   line-height: var(--my-type-row-meta-line);
   text-transform: none;
+}
+
+.my-fact-value {
+  text-align: right;
 }
 
 .my-local-correction {
@@ -145,6 +158,8 @@
 }
 
 .my-local-correction .my-text-action {
-  font-family: var(--my-font-sans);
-  text-transform: none;
+  color: var(--my-color-destructive);
+  justify-content: flex-end;
+  justify-self: end;
+  text-align: right;
 }
