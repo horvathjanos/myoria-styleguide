@@ -1,7 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import {
-  Measurement,
   PhonePreview,
   PreviewStack,
   ScreenPreviewPage,
@@ -13,7 +12,8 @@ type NutritionFact = Readonly<{
   value: string;
 }>;
 
-const macroFacts: readonly NutritionFact[] = [
+const nutritionFacts: readonly NutritionFact[] = [
+  { label: 'Calories', value: '320 kcal' },
   { label: 'Protein', value: '31 g' },
   { label: 'Carbs', value: '28 g' },
   { label: 'Fat', value: '9 g' },
@@ -29,8 +29,7 @@ export function NutritionEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Normal detail">
           <NutritionEntryScreen ariaLabel="Nutrition entry detail preview">
             <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <PrimaryNutritionSnapshot value="320" unit="kcal" />
-            <FactList facts={macroFacts} />
+            <FactList facts={nutritionFacts} />
             <CorrectionAction />
           </NutritionEntryScreen>
         </PhonePreview>
@@ -38,8 +37,7 @@ export function NutritionEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Delete confirmation">
           <NutritionEntryScreen ariaLabel="Nutrition entry delete confirmation preview">
             <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <PrimaryNutritionSnapshot value="320" unit="kcal" />
-            <FactList facts={macroFacts} />
+            <FactList facts={nutritionFacts} />
             <CorrectionConfirmation />
           </NutritionEntryScreen>
         </PhonePreview>
@@ -47,8 +45,7 @@ export function NutritionEntryDetailScreenPage(): ReactElement {
         <PhonePreview label="Delete error">
           <NutritionEntryScreen ariaLabel="Nutrition entry delete error preview">
             <SnapshotSummary name="Greek yogurt" meta="250 g · Logged 12:42" />
-            <PrimaryNutritionSnapshot value="320" unit="kcal" />
-            <FactList facts={macroFacts} />
+            <FactList facts={nutritionFacts} />
             <CorrectionError />
           </NutritionEntryScreen>
         </PhonePreview>
@@ -65,7 +62,7 @@ type NutritionEntryScreenProps = Readonly<{
 function NutritionEntryScreen({
   ariaLabel,
   children,
-}: NutritionEntryScreenProps) {
+}: NutritionEntryScreenProps): ReactElement {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
       <SecondaryScreenHeader
@@ -83,7 +80,7 @@ type SnapshotSummaryProps = Readonly<{
   name: string;
 }>;
 
-function SnapshotSummary({ meta, name }: SnapshotSummaryProps) {
+function SnapshotSummary({ meta, name }: SnapshotSummaryProps): ReactElement {
   return (
     <section
       className="my-snapshot-summary"
@@ -95,23 +92,9 @@ function SnapshotSummary({ meta, name }: SnapshotSummaryProps) {
   );
 }
 
-type PrimaryNutritionSnapshotProps = Readonly<{
-  unit: string;
-  value: string;
-}>;
-
-function PrimaryNutritionSnapshot({
-  unit,
-  value,
-}: PrimaryNutritionSnapshotProps) {
-  return (
-    <section className="my-snapshot-primary" aria-label={`${value} ${unit}`}>
-      <Measurement value={value} unit={unit} />
-    </section>
-  );
-}
-
-function FactList({ facts }: { facts: readonly NutritionFact[] }) {
+function FactList({
+  facts,
+}: Readonly<{ facts: readonly NutritionFact[] }>): ReactElement {
   return (
     <div className="my-fact-list" aria-label="Nutrition snapshot facts">
       {facts.map((fact) => (
@@ -124,10 +107,9 @@ function FactList({ facts }: { facts: readonly NutritionFact[] }) {
   );
 }
 
-function CorrectionAction() {
+function CorrectionAction(): ReactElement {
   return (
-    <section className="my-local-correction" aria-label="Correction">
-      <p className="my-section-label">Correction</p>
+    <section className="my-local-correction" aria-label="Entry action">
       <a className="my-text-action" href="#">
         Delete entry
       </a>
@@ -135,10 +117,9 @@ function CorrectionAction() {
   );
 }
 
-function CorrectionConfirmation() {
+function CorrectionConfirmation(): ReactElement {
   return (
-    <section className="my-local-correction" aria-label="Correction">
-      <p className="my-section-label">Correction</p>
+    <section className="my-local-correction" aria-label="Entry action">
       <section
         className="my-local-confirmation"
         aria-label="Delete confirmation"
@@ -160,10 +141,9 @@ function CorrectionConfirmation() {
   );
 }
 
-function CorrectionError() {
+function CorrectionError(): ReactElement {
   return (
-    <section className="my-local-correction" aria-label="Correction">
-      <p className="my-section-label">Correction</p>
+    <section className="my-local-correction" aria-label="Entry action">
       <div className="my-error-panel">
         <strong>Could not delete entry</strong>
         <span>Try again.</span>
