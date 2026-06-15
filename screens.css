@@ -114,14 +114,17 @@
  * Snapshot/detail surfaces are not object lists. They use quieter typography
  * and whitespace rather than repeated row chrome or uppercase attribute labels.
  */
+.my-snapshot-detail {
+  gap: var(--my-space-5);
+}
+
 .my-snapshot-title {
   font-size: var(--my-type-row-title-size);
   line-height: var(--my-type-row-title-line);
 }
 
-.my-snapshot-primary .my-measurement-value {
-  font-size: var(--my-type-screen-title-size);
-  line-height: var(--my-type-screen-title-line);
+.my-fact-list {
+  gap: var(--my-space-1);
 }
 
 .my-fact-label {
@@ -130,6 +133,11 @@
   font-weight: 400;
   line-height: var(--my-type-row-meta-line);
   text-transform: none;
+}
+
+.my-local-correction {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .my-local-correction > .my-section-label {
