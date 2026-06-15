@@ -71,7 +71,11 @@ function NutritionEntryScreen({
         title="Nutrition entry"
       />
 
-      <div className="my-snapshot-detail">{children}</div>
+      <div className="my-snapshot-detail">
+        <div className="my-separator" />
+        {children}
+        <div className="my-separator" />
+      </div>
     </section>
   );
 }
@@ -89,6 +93,7 @@ function SnapshotSummary({ meta, name }: SnapshotSummaryProps): ReactElement {
     >
       <p className="my-snapshot-title">{name}</p>
       <p className="my-snapshot-meta">{meta}</p>
+      <div className="my-separator" />
     </section>
   );
 }
@@ -113,7 +118,7 @@ function CorrectionAction(): ReactElement {
     <section className="my-local-correction" aria-label="Entry action">
       <div className="my-action-row">
         <TextAction href="#" tone="destructive">
-          Delete entry
+          DELETE ENTRY
         </TextAction>
       </div>
     </section>
@@ -134,7 +139,7 @@ function CorrectionConfirmation(): ReactElement {
         <div className="my-local-confirmation-actions">
           <TextAction href="#">Keep entry</TextAction>
           <TextAction href="#" tone="destructive">
-            Delete
+            DELETE
           </TextAction>
         </div>
       </section>
@@ -151,7 +156,7 @@ function CorrectionError(): ReactElement {
       </div>
       <div className="my-action-row">
         <TextAction href="#" tone="destructive">
-          Delete entry
+          DELETE ENTRY
         </TextAction>
       </div>
     </section>

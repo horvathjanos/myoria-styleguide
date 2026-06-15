@@ -376,6 +376,13 @@
   border-top: var(--my-line-hairline) solid var(--my-color-divider);
 }
 
+.my-separator {
+  background: var(--my-color-divider);
+  height: var(--my-line-hairline);
+  margin: var(--my-space-4) 0;
+  width: 100%;
+}
+
 .my-list-row {
   display: grid;
   gap: var(--my-row-title-meta-gap);

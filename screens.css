@@ -115,20 +115,27 @@
  * and whitespace rather than repeated row chrome or uppercase attribute labels.
  */
 .my-snapshot-detail {
-  gap: var(--my-space-5);
+  display: flex;
+  flex-direction: column;
 }
 
 .my-snapshot-title {
   font-size: var(--my-type-row-title-size);
   line-height: var(--my-type-row-title-line);
+  margin-bottom: var(--my-space-1);
+}
+
+.my-snapshot-meta {
+  color: var(--my-color-text-secondary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-meta-size);
+  line-height: var(--my-type-row-meta-line);
 }
 
 .my-fact-list {
   align-items: baseline;
-  column-gap: var(--my-fact-column-gap);
   display: grid;
-  grid-template-columns: max-content max-content;
-  justify-content: start;
+  grid-template-columns: 1fr auto;
   row-gap: var(--my-fact-row-gap);
 }
 
@@ -145,6 +152,7 @@
 }
 
 .my-fact-value {
+  font-family: var(--my-font-mono);
   text-align: right;
 }
 
