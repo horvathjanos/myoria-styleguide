@@ -219,11 +219,6 @@
   text-decoration: none;
 }
 
-.my-text-action--destructive:hover,
-.my-text-action--destructive:focus-visible {
-  text-decoration: underline;
-}
-
 .my-button {
   align-items: center;
   border: var(--my-line-hairline) solid transparent;

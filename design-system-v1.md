@@ -286,9 +286,12 @@ Intended usage:
 
 - Normal text actions are underlined for quiet object-management actions like
   `CREATE ITEM`.
-- Destructive text actions remain Signal Red but are not underlined at rest.
-  Hover and focus-visible states may restore underline as an affordance.
-- Text actions use a clear focus-visible outline.
+- Destructive text actions remain Signal Red but are not underlined at rest or
+  on hover.
+- Destructive text actions communicate danger through color and placement, not
+  underline.
+- Text actions use a clear focus-visible outline; destructive focus-visible
+  does not rely on underline.
 - Text action rows provide one shared right-aligned placement grammar for
   create and correction actions.
 - Destructive text actions use the shared action primitive with
