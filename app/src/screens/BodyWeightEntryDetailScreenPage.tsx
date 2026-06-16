@@ -52,10 +52,7 @@ function BodyWeightEntryScreen({
 }: BodyWeightEntryScreenProps): ReactElement {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <SecondaryScreenHeader
-        backHref="screens/today/"
-        title="Body weight entry"
-      />
+      <SecondaryScreenHeader backHref="#" backLabel="Bodyweight report" />
 
       <div className="my-snapshot-detail">{children}</div>
     </section>

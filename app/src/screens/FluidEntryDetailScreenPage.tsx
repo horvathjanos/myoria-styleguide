@@ -51,7 +51,7 @@ function FluidEntryScreen({
 }: FluidEntryScreenProps): ReactElement {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <SecondaryScreenHeader backHref="screens/today/" title="Fluid entry" />
+      <SecondaryScreenHeader backHref="#" backLabel="Fluid report" />
 
       <div className="my-snapshot-detail">{children}</div>
     </section>
@@ -96,7 +96,7 @@ function DeleteConfirmation(): ReactElement {
       >
         <p className="my-local-confirmation-title">Delete this entry?</p>
         <p className="my-local-confirmation-body">
-          This removes it from today's fluid total.
+          This removes it from fluid totals for the selected day.
         </p>
         <div className="my-local-confirmation-actions">
           <TextAction href="#">Keep entry</TextAction>

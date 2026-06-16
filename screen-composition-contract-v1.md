@@ -36,7 +36,7 @@ Use this pattern for immutable saved-entry detail screens that review one
 logged contribution and expose a local correction/delete action:
 
 ```text
-[back chevron] Domain entry
+[back chevron] Parent report
 
 Object name
 amount/context · logged time
@@ -50,7 +50,7 @@ Fluid entries can omit the readout stack when the logged amount is already the
 complete entry value:
 
 ```text
-[back chevron] Fluid entry
+[back chevron] Fluid report
 
 Water
 330 ml · Today 14:20
@@ -62,7 +62,7 @@ Measurement-owned entries can use the measurement itself as the snapshot
 title/object value:
 
 ```text
-[back chevron] Body weight entry
+[back chevron] Bodyweight report
 
 72.8 kg
 Today 07:12
@@ -93,8 +93,14 @@ Rules:
   content must not stretch to the full screen width unless a later contract
   explicitly introduces a full-width snapshot pattern.
 - Use the shared secondary screen header as quiet navigation/context. The
-  screen title is not the saved entry object, and logged-entry detail screens
-  must not use a hero header treatment.
+- Use the shared secondary screen header as quiet back destination context.
+  The header label names where Back goes, such as `Nutrition report`,
+  `Fluid report`, or `Bodyweight report`.
+- Do not use generic current titles such as `Nutrition entry`, `Fluid entry`,
+  or `Body weight entry` in the secondary header or as a separate title when
+  the object/measurement summary already identifies the screen.
+- The saved entry object or measurement is the current screen identity, and
+  logged-entry detail screens must not use a hero header treatment.
 - Put the saved identity/meta summary before readouts.
 - Nutrition identity/meta is the food name plus logged amount/date-time.
 - Fluid identity/meta is the fluid item name plus logged amount/date-time.
@@ -152,7 +158,10 @@ Rules:
 Use this pattern for full-screen object-management lists unless there is a clear domain-specific reason not to:
 
 ```text
-[back chevron] Screen Title
+[back chevron] Back destination
+
+ScreenLead
+optional meta
 
 CONTROL GROUP
 input / filter / scope controls
@@ -173,8 +182,8 @@ Approved header structure:
 
 ```text
 [44px back control]
-├─ visible header lane
-└─ Screen Title
+├─ visible chevron
+└─ Back destination label
 ```
 
 Approved header axes:

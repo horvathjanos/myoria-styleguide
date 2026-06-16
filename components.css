@@ -81,6 +81,32 @@
   margin: 0;
 }
 
+.my-screen-lead {
+  display: grid;
+  gap: var(--my-space-1);
+  margin-bottom: var(--my-section-gap);
+}
+
+.my-screen-lead-title {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-screen-title-size);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: var(--my-type-screen-title-line);
+  margin: 0;
+}
+
+.my-screen-lead-meta {
+  color: var(--my-color-text-muted);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: var(--my-type-row-meta-line);
+  margin: 0;
+}
+
 .my-section-label {
   color: var(--my-color-text-primary);
   font-family: var(--my-font-condensed);

@@ -92,7 +92,7 @@ function ObjectListPreview({ density }: { density: Density }): ReactElement {
       className="my-screen"
       aria-label={`Object-list ${density} density preview`}
     >
-      <SecondaryScreenHeader backHref="#" title="Food & Drink Library" />
+      <SecondaryScreenHeader backHref="#" backLabel="Food & Drink Library" />
       <div className="my-object-list-control">
         <span className="my-section-label">SEARCH</span>
         <input

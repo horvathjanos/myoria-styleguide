@@ -84,10 +84,7 @@ function NutritionEntryScreen({
 }: NutritionEntryScreenProps): ReactElement {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <SecondaryScreenHeader
-        backHref="screens/today/"
-        title="Nutrition entry"
-      />
+      <SecondaryScreenHeader backHref="#" backLabel="Nutrition report" />
 
       <div className="my-snapshot-detail">{children}</div>
     </section>
@@ -181,7 +178,7 @@ function CorrectionConfirmation(): ReactElement {
       >
         <p className="my-local-confirmation-title">Delete this entry?</p>
         <p className="my-local-confirmation-body">
-          This removes it from today's nutrition totals.
+          This removes it from nutrition totals for the selected day.
         </p>
         <div className="my-local-confirmation-actions">
           <TextAction href="#">Keep entry</TextAction>

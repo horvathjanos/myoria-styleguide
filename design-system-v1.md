@@ -112,7 +112,7 @@ Approved role summary:
 - Today/root screen does not display an explicit `Today` title.
 - Today/root uses one quiet date line only: `Tuesday, 2 June`.
 - Root date: 14px / 18px, sans, 400, secondary text.
-- Secondary screen navigation context: 14px / 18px, sans, 400, secondary text.
+- Secondary screen back destination label: 14px / 18px, sans, 400, secondary text.
 - Primary detail object name: 18px / 22px, sans, 400.
 - Section labels: 14px / 18px, condensed, 500, uppercase.
 - Row titles: 16px / 20px, sans, 400.
@@ -189,8 +189,12 @@ Tokens/classes involved:
 Intended usage:
 
 - Today root header: one quiet date/context line only, no explicit `Today` title, no back control.
-- Secondary screen header: quiet left chevron plus context label.
-- Secondary header text is navigation context, not a hero/page heading.
+- Secondary screen header: quiet left chevron plus destination label.
+- Secondary header text names where Back goes, not the current screen identity
+  and not a hero/page heading.
+- Current secondary screen identity belongs to the first content block below
+  the header: `ScreenLead` for report/list/workflow screens, or
+  `ObjectSummary` for object/detail/logged-entry screens.
 - Action-bearing header: title/back cluster on the left and a text action on the right when the action is truly screen-level.
 - No overflow menu unless real functionality exists.
 

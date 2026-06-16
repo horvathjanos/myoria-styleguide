@@ -26,7 +26,10 @@ export function ChevronsPage(): ReactElement {
         <div className="sg-card">
           <h2>Back header usage</h2>
           <div style={{ marginBottom: 0 }}>
-            <SecondaryScreenHeader backHref="#" title="Food & Drink Library" />
+            <SecondaryScreenHeader
+              backHref="#"
+              backLabel="Food & Drink Library"
+            />
           </div>
         </div>
         <div className="sg-card">

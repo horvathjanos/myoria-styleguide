@@ -138,7 +138,14 @@ function FoodDrinkLibraryScreen({
 }: FoodDrinkLibraryScreenProps) {
   return (
     <section className="my-screen" aria-label={ariaLabel}>
-      <SecondaryScreenHeader backHref="" title="Food & Drink Library" />
+      <SecondaryScreenHeader backHref="" backLabel="Today" />
+
+      <section
+        className="my-screen-lead"
+        aria-label="Food and drink library identity"
+      >
+        <p className="my-screen-lead-title">Food &amp; Drink Library</p>
+      </section>
 
       <div className="my-object-list-control">
         <label className="my-section-label" htmlFor={searchId}>
