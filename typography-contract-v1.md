@@ -84,12 +84,13 @@ Rules:
 
 ## Secondary screen context
 
-Use inside the shared secondary screen header for navigation context:
+Use inside the shared secondary screen header for the back destination label:
 
+- Today
+- Nutrition report
+- Fluid report
+- Bodyweight report
 - Food & Drink Library
-- Create item
-- Edit item
-- detail/workflow screens
 
 Approved role:
 
@@ -101,8 +102,10 @@ font-weight: 400;
 color: var(--my-color-text-secondary);
 ```
 
-The back chevron and context label form a quiet navigation group. They orient
-the user but do not compete with the main object name or workflow content.
+The back chevron and destination label form a quiet navigation group. They
+orient the user but do not compete with the main object name or workflow
+content. This role intentionally matches the quiet Today/root date role so root
+context and secondary back context feel related without becoming page titles.
 
 The selected object name may use the existing 18 / 22 primary title role when
 the detail hierarchy needs it. Do not make the secondary header label behave
@@ -332,7 +335,7 @@ Reason: numeric inputs are measurement-adjacent and should align with the readou
 - Do not remove or bypass the local `@font-face` definitions.
 - Do not load IBM Plex from Google Fonts or another remote CDN.
 - Do not rename the CSS families away from the approved token names.
-- Do not use the primary 18 / 22 title role for secondary navigation context.
+- Do not use the primary 18 / 22 title role for secondary back destination labels.
 - Do not show an explicit `Today` title on the root screen.
 - Do not add extra title roles such as `heroTitle`, `cardTitle`, `formTitle`, or `modalTitle` in v1.
 - Do not use viewport-scaled font sizes.

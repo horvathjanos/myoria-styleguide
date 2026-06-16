@@ -92,7 +92,6 @@ Rules:
   `--my-detail-rail-width`, not `width: fit-content`, and logged-entry detail
   content must not stretch to the full screen width unless a later contract
   explicitly introduces a full-width snapshot pattern.
-- Use the shared secondary screen header as quiet navigation/context. The
 - Use the shared secondary screen header as quiet back destination context.
   The header label names where Back goes, such as `Nutrition report`,
   `Fluid report`, or `Bodyweight report`.
@@ -174,6 +173,10 @@ list rows / list state
 
 The pattern is currently anchored by Food & Drink Library, but it is intended to be reusable for similar list-management screens.
 
+The `ScreenLead` block owns the current screen identity. Its margin to the
+first body/control section uses `--my-top-identity-body-gap`, the same rhythm
+token that separates Today's root date from the first readout block.
+
 Default full-screen object lists do not include internal group headers, list labels, visible result counts, swipe actions, long-press actions, inline secondary row actions, skeleton rows, hover state, selected/current row state, or row focus styling in v1. These require separate approved patterns when a concrete use case needs them.
 
 ## Header
@@ -194,8 +197,8 @@ screen content-left axis
 ├─ 44px back-control touch target
 │  └─ visible back chevron starts on the content-left axis
 ├──── visible header lane: 24px chevron zone + one 8px spacing step
-└──── header-title axis
-      Screen Title starts after the visible header lane
+└──── back-label axis
+      Back destination label starts after the visible header lane
 ```
 
 Rules:
@@ -205,16 +208,46 @@ Rules:
 - Back control does not use negative margin.
 - Header geometry is defined by the reusable header primitive, not screen-local offsets.
 - The visible back chevron starts on the same content-left axis as object-list controls and list-row content.
-- The header title starts after the reusable visible header lane: a 24px chevron zone plus one 8px spacing step.
+- The back destination label starts after the reusable visible header lane: a 24px chevron zone plus one 8px spacing step.
 - The visible back chevron stays inside the 44px touch target.
-- The visible back chevron and secondary context label should read as one
+- The visible back chevron and secondary back label should read as one
   precise navigation group.
-- The secondary context label is quiet orientation, not the page's primary
+- The secondary back label is quiet orientation, not the page's primary
   content or hero heading.
-- The header-title axis is intentionally separate from the object-list content-left axis in v1, but the visible back affordance is not.
+- The back-label axis is intentionally separate from the object-list content-left axis in v1, but the visible back affordance is not.
 - Do not place placeholder overflow menus in the header.
 - Do not move object creation into the header by default.
 - Do not move the title left with negative margins, transforms, absolute-position offsets, or screen-local pixel nudges.
+
+## Root and secondary top rhythm
+
+Root and secondary screens share one top-rhythm grammar without forcing the
+same absolute layout:
+
+```text
+Root:
+TopIdentity(date)
+--my-top-identity-body-gap
+FirstBodySection
+
+Secondary:
+BackDestination
+FirstContentBlock(ScreenLead or ObjectSummary)
+--my-top-identity-body-gap when the first content block is a ScreenLead
+FirstBodySection
+```
+
+Rules:
+
+- Today's root date is the root top identity.
+- Secondary headers name only the back destination.
+- Secondary `ScreenLead` names the current report/list/workflow screen.
+- Logged-entry detail screens use their object/measurement summary as the
+  current identity and do not add a generic title just to match list screens.
+- Align identity-to-body rhythm through shared tokens, not route-specific
+  margin patches.
+- Do not force root and secondary screens to have identical absolute first-body
+  positions when the secondary screen legitimately includes a back destination.
 
 ## Control group
 
@@ -765,7 +798,7 @@ nutrition readout shape inside that shared grammar.
 Approved structure:
 
 ```text
-[back chevron] Navigation context
+[back chevron] Back destination
 
 saved display name
 metadata context
@@ -781,7 +814,7 @@ DELETE ENTRY
 
 Rules:
 
-- Use the shared secondary screen header as quiet navigation context.
+- Use the shared secondary screen header as quiet back destination context.
 - The identity/meta block names the saved object or measurement and its logged
   context.
 - Keep the detail read-only; do not render snapshot facts as inputs.

@@ -60,6 +60,8 @@
   --my-screen-padding-bottom-comfortable: 48px;
   --my-header-content-gap-compact: 32px;
   --my-header-content-gap-comfortable: 48px;
+  --my-top-identity-body-gap-compact: 24px;
+  --my-top-identity-body-gap-comfortable: 32px;
   --my-section-gap-compact: 24px;
   --my-section-gap-comfortable: 32px;
   --my-row-padding-y-compact: 8px;
@@ -76,6 +78,7 @@
   --my-screen-padding-top: var(--my-screen-padding-top-comfortable);
   --my-screen-padding-bottom: var(--my-screen-padding-bottom-comfortable);
   --my-header-content-gap: var(--my-header-content-gap-comfortable);
+  --my-top-identity-body-gap: var(--my-top-identity-body-gap-comfortable);
   --my-section-gap: var(--my-section-gap-comfortable);
   --my-row-padding-y: var(--my-row-padding-y-comfortable);
   --my-row-min-height: var(--my-row-min-height-comfortable);
@@ -151,6 +154,7 @@
   --my-screen-padding-top: var(--my-screen-padding-top-comfortable);
   --my-screen-padding-bottom: var(--my-screen-padding-bottom-comfortable);
   --my-header-content-gap: var(--my-header-content-gap-comfortable);
+  --my-top-identity-body-gap: var(--my-top-identity-body-gap-comfortable);
   --my-section-gap: var(--my-section-gap-comfortable);
   --my-row-padding-y: var(--my-row-padding-y-comfortable);
   --my-row-min-height: var(--my-row-min-height-comfortable);
@@ -163,6 +167,7 @@
   --my-screen-padding-top: var(--my-screen-padding-top-compact);
   --my-screen-padding-bottom: var(--my-screen-padding-bottom-compact);
   --my-header-content-gap: var(--my-header-content-gap-compact);
+  --my-top-identity-body-gap: var(--my-top-identity-body-gap-compact);
   --my-section-gap: var(--my-section-gap-compact);
   --my-row-padding-y: var(--my-row-padding-y-compact);
   --my-row-min-height: var(--my-row-min-height-compact);

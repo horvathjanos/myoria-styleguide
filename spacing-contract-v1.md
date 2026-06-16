@@ -131,6 +131,7 @@ Approved density mapping structure:
   --my-screen-padding-top: var(--my-screen-padding-top-comfortable);
   --my-screen-padding-bottom: var(--my-screen-padding-bottom-comfortable);
   --my-header-content-gap: var(--my-header-content-gap-comfortable);
+  --my-top-identity-body-gap: var(--my-top-identity-body-gap-comfortable);
   --my-section-gap: var(--my-section-gap-comfortable);
   --my-row-padding-y: var(--my-row-padding-y-comfortable);
   --my-row-min-height: var(--my-row-min-height-comfortable);
@@ -143,6 +144,7 @@ Approved density mapping structure:
   --my-screen-padding-top: var(--my-screen-padding-top-compact);
   --my-screen-padding-bottom: var(--my-screen-padding-bottom-compact);
   --my-header-content-gap: var(--my-header-content-gap-compact);
+  --my-top-identity-body-gap: var(--my-top-identity-body-gap-compact);
   --my-section-gap: var(--my-section-gap-compact);
   --my-row-padding-y: var(--my-row-padding-y-compact);
   --my-row-min-height: var(--my-row-min-height-compact);
@@ -157,6 +159,7 @@ Approved density-mapped tokens:
 
 - screen padding x / top / bottom
 - header-content gap
+- top-identity/body gap
 - section gap
 - row padding y
 - row min-height
@@ -219,6 +222,24 @@ Approved responsive header-to-content gap:
 Reason: 32px keeps content reachable on dense mobile screens; 48px preserves calmer Braun/Rams spacing where space allows.
 
 Do not use random header/content gaps. Do not patch individual screens with local header margins unless a specific screen-level design-system exception exists.
+
+## Top identity to first body spacing
+
+Approved responsive top-identity/body gap:
+
+```css
+--my-top-identity-body-gap-compact: 24px;
+--my-top-identity-body-gap-comfortable: 32px;
+```
+
+Use this token between the screen's top identity and the first body section.
+On Today, the top identity is the root date. On secondary list/report screens,
+the top identity is the `ScreenLead`. This keeps root and secondary screens on
+the same rhythm system without forcing identical absolute layouts.
+
+Do not patch Today or individual secondary routes with one-off margins to align
+route switching. If absolute first-body positions need further alignment, solve
+that as a broader screen-composition decision.
 
 ## Section-to-section spacing
 
@@ -385,7 +406,7 @@ Approved back control rule:
 
 The visual chevron stays inside the normal screen padding grid.
 
-Approved header title axis:
+Approved back-label axis:
 
 ```css
 .my-screen-header {

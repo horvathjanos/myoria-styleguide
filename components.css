@@ -10,7 +10,7 @@
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--my-header-content-gap);
+  margin-bottom: var(--my-top-identity-body-gap);
 }
 
 .my-root-title {
@@ -84,7 +84,7 @@
 .my-screen-lead {
   display: grid;
   gap: var(--my-space-1);
-  margin-bottom: var(--my-section-gap);
+  margin-bottom: var(--my-top-identity-body-gap);
 }
 
 .my-screen-lead-title {

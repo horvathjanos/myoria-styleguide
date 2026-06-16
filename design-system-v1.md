@@ -154,12 +154,15 @@ Tokens/classes involved:
 - `--my-section-spacing`
 - `--my-row-spacing`
 - `--my-touch-target`
+- `--my-top-identity-body-gap`
 - `.my-screen`, `.my-list-row`, `.my-back-control`
 
 Intended usage:
 
 - Use the 4/8/12/16/24/32/48/64 px scale.
 - Use 32 px horizontal screen padding for secondary screens in this draft.
+- Use the shared top-identity/body gap between the root date or secondary
+  `ScreenLead` and the first body section.
 - Use at least 44 px touch targets for tappable controls.
 - Use 56-64 px minimum rows for navigation rows.
 
@@ -189,12 +192,16 @@ Tokens/classes involved:
 Intended usage:
 
 - Today root header: one quiet date/context line only, no explicit `Today` title, no back control.
+- Today root date is the root screen top identity. It uses the same quiet
+  14 / 18 sans role as the secondary back destination label.
 - Secondary screen header: quiet left chevron plus destination label.
 - Secondary header text names where Back goes, not the current screen identity
   and not a hero/page heading.
 - Current secondary screen identity belongs to the first content block below
   the header: `ScreenLead` for report/list/workflow screens, or
   `ObjectSummary` for object/detail/logged-entry screens.
+- The gap from top identity to first body section is shared across root and
+  secondary screens through `--my-top-identity-body-gap`.
 - Action-bearing header: title/back cluster on the left and a text action on the right when the action is truly screen-level.
 - No overflow menu unless real functionality exists.
 
