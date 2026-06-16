@@ -28,23 +28,9 @@
 
 .my-screen-header {
   align-items: center;
-  display: grid;
-  grid-template-columns:
-    var(--my-row-chevron-zone-width)
-    minmax(0, 1fr);
-  column-gap: var(--my-space-2);
+  display: flex;
+  justify-content: space-between;
   margin-bottom: var(--my-section-gap);
-}
-
-.my-screen-header > .my-back-control {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.my-screen-header > .my-secondary-screen-title {
-  grid-column: 2;
-  grid-row: 1;
-  min-width: 0;
 }
 
 .my-screen-header--with-action {
@@ -81,10 +67,9 @@
 .my-back-control {
   align-items: center;
   display: inline-flex;
-  height: var(--my-touch-target);
+  gap: var(--my-space-2);
   justify-content: flex-start;
-  margin-left: 0;
-  width: var(--my-touch-target);
+  min-height: var(--my-touch-target);
 }
 
 .my-secondary-screen-title {
