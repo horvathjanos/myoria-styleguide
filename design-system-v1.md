@@ -154,6 +154,7 @@ Tokens/classes involved:
 - `--my-section-spacing`
 - `--my-row-spacing`
 - `--my-touch-target`
+- `--my-top-context-slot-height`
 - `--my-top-identity-body-gap`
 - `.my-screen`, `.my-list-row`, `.my-back-control`
 
@@ -163,6 +164,8 @@ Intended usage:
 - Use 32 px horizontal screen padding for secondary screens in this draft.
 - Use the shared top-identity/body gap between the root date or secondary
   `ScreenLead` and the first body section.
+- Use the shared top-context slot for the root date and secondary back
+  destination so route changes do not create a vertical context jump.
 - Use at least 44 px touch targets for tappable controls.
 - Use 56-64 px minimum rows for navigation rows.
 
@@ -194,6 +197,8 @@ Intended usage:
 - Today root header: one quiet date/context line only, no explicit `Today` title, no back control.
 - Today root date is the root screen top identity. It uses the same quiet
   14 / 18 sans role as the secondary back destination label.
+- Today root date and secondary back destination occupy the same shared
+  top-context slot height.
 - Secondary screen header: quiet left chevron plus destination label.
 - Secondary header text names where Back goes, not the current screen identity
   and not a hero/page heading.

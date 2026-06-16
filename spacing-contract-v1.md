@@ -223,6 +223,29 @@ Reason: 32px keeps content reachable on dense mobile screens; 48px preserves cal
 
 Do not use random header/content gaps. Do not patch individual screens with local header margins unless a specific screen-level design-system exception exists.
 
+## Top context slot
+
+Approved top-context slot height:
+
+```css
+--my-top-context-slot-height: var(--my-touch-target);
+```
+
+Use this slot for the first context line on root and secondary screens. On
+Today, the slot contains the root date. On secondary screens, the slot contains
+the shared back control and back destination label.
+
+Reason: the root date and secondary back destination are both quiet top context
+signals. Sharing the slot keeps route switching stable without adding a fake
+root chevron or route-local offsets.
+
+Rules:
+
+- Do not make the root date use Today-only padding or transforms.
+- Do not add invisible controls to root screens to mimic secondary headers.
+- Do not create route-specific top offsets for detail/list/report screens.
+- Do not reduce the secondary back control below the approved touch target.
+
 ## Top identity to first body spacing
 
 Approved responsive top-identity/body gap:

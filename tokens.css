@@ -89,6 +89,7 @@
   --my-row-content-chevron-gap: 12px;
   --my-row-chevron-zone-width: 24px;
   --my-touch-target: 44px;
+  --my-top-context-slot-height: var(--my-touch-target);
   --my-back-title-gap: 0;
 
   /* Full-screen object-list composition tokens. */

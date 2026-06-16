@@ -7,10 +7,11 @@
 }
 
 .my-root-header {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--my-top-identity-body-gap);
+  min-height: var(--my-top-context-slot-height);
 }
 
 .my-root-title {
@@ -31,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--my-section-gap);
+  min-height: var(--my-top-context-slot-height);
 }
 
 .my-screen-header--with-action {

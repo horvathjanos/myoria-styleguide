@@ -219,6 +219,34 @@ Rules:
 - Do not move object creation into the header by default.
 - Do not move the title left with negative margins, transforms, absolute-position offsets, or screen-local pixel nudges.
 
+## Top context slot
+
+The first visible context line on root and secondary screens occupies a shared
+top-context slot:
+
+```text
+Root:
+[44px top context slot]
+└─ Date line
+
+Secondary:
+[44px top context slot]
+└─ Back control + back destination label
+```
+
+Rules:
+
+- Use `--my-top-context-slot-height` for the shared slot height.
+- The slot height matches the approved touch target so secondary back controls
+  keep their accessible hit area while root date placement remains aligned.
+- The root date and secondary back destination keep their distinct semantics:
+  the root date is current screen identity, while the secondary label names the
+  back destination.
+- Do not add a fake root chevron, invisible back affordance, absolute
+  positioning, transforms, negative margins, or route-specific pixel offsets to
+  align the slot.
+- Do not use the top-context slot to create generic detail titles.
+
 ## Root and secondary top rhythm
 
 Root and secondary screens share one top-rhythm grammar without forcing the
