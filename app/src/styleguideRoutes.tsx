@@ -18,6 +18,7 @@ import { BodyWeightEntryDetailScreenPage } from './screens/BodyWeightEntryDetail
 import { FluidEntryDetailScreenPage } from './screens/FluidEntryDetailScreenPage';
 import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
 import { NutritionEntryDetailScreenPage } from './screens/NutritionEntryDetailScreenPage';
+import { ReportDayScreenPage } from './screens/ReportDayScreenPage';
 import { TodayScreenPage } from './screens/TodayScreenPage';
 
 export type StyleguideRouteGroup =
@@ -137,6 +138,14 @@ export const styleguideRoutes = [
     path: 'screens/food-drink-library/',
     title: 'Food & Drink Library',
     page: FoodDrinkLibraryScreenPage,
+  },
+  {
+    group: 'Screens',
+    id: 'report-day',
+    navLabel: 'Report Day',
+    path: 'screens/report-day/',
+    title: 'Report Day',
+    page: ReportDayScreenPage,
   },
   {
     group: 'Screens',

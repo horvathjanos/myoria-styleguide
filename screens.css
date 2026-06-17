@@ -135,3 +135,180 @@
 .my-local-correction > .my-section-label {
   display: none;
 }
+
+.my-report-day {
+  align-content: start;
+  display: grid;
+}
+
+.my-report-mode-selector {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--my-space-2);
+  margin-bottom: var(--my-section-gap);
+  min-height: var(--my-touch-target);
+}
+
+.my-report-mode-option {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--my-space-2);
+}
+
+.my-report-mode-option a,
+.my-report-mode-divider {
+  align-items: center;
+  display: inline-flex;
+  font-family: var(--my-font-condensed);
+  font-size: var(--my-type-section-label-size);
+  font-weight: 500;
+  line-height: var(--my-type-section-label-line);
+  min-height: var(--my-touch-target);
+  text-transform: uppercase;
+}
+
+.my-report-mode-option .is-active {
+  color: var(--my-color-text-primary);
+}
+
+.my-report-mode-option .is-inactive {
+  color: var(--my-color-text-muted);
+}
+
+.my-report-mode-divider {
+  color: var(--my-color-divider);
+  font-family: var(--my-font-sans);
+  font-weight: 400;
+}
+
+.my-report-day-summary {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  display: grid;
+  gap: var(--my-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: var(--my-section-gap);
+  padding-top: var(--my-space-4);
+}
+
+.my-report-summary-metric {
+  display: grid;
+  gap: var(--my-space-1);
+  min-width: 0;
+}
+
+.my-report-summary-metric .my-measurement,
+.my-report-summary-count {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-metric-value-size);
+  font-weight: 400;
+  line-height: var(--my-type-metric-value-line);
+}
+
+.my-report-day-entries {
+  display: grid;
+  gap: var(--my-space-4);
+}
+
+.my-report-day-section-header {
+  align-items: end;
+  display: grid;
+  gap: var(--my-space-4);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.my-report-day-section-header p {
+  margin: 0;
+}
+
+.my-report-day-entry-count {
+  color: var(--my-color-text-muted);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+}
+
+.my-report-day-action-row {
+  min-height: var(--my-touch-target);
+}
+
+.my-report-day-list {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+}
+
+.my-report-entry-row {
+  align-items: center;
+  display: grid;
+  gap: var(--my-row-content-chevron-gap);
+  grid-template-columns: minmax(0, 1fr) var(--my-row-chevron-zone-width);
+  min-height: var(--my-row-min-height);
+  padding: var(--my-row-padding-y) 0;
+}
+
+.my-report-entry-row + .my-report-entry-row {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+}
+
+.my-report-entry-row--unavailable {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.my-report-entry-row-main {
+  align-items: center;
+  display: grid;
+  gap: var(--my-row-content-chevron-gap);
+  grid-template-columns: minmax(0, 1fr) max-content;
+  min-width: 0;
+}
+
+.my-report-entry-row-content {
+  display: grid;
+  gap: var(--my-row-title-meta-gap);
+  min-width: 0;
+}
+
+.my-report-entry-row-title {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-title-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-title-line);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-report-entry-row-secondary {
+  color: var(--my-color-text-secondary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-report-entry-row-meta,
+.my-report-entry-row-trailing {
+  color: var(--my-color-text-muted);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+  white-space: nowrap;
+}
+
+.my-report-entry-row-meta {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-report-entry-row-trailing {
+  justify-self: end;
+}
