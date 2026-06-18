@@ -1,7 +1,7 @@
 # Report Day Contract V1
 
-Status: MYORIA-442 styleguide source of truth for report day-mode production
-parity slices.
+Status: MYORIA-442 established the report day-mode styleguide baseline.
+MYORIA-443 refines its visual hierarchy before production parity slices begin.
 
 This contract defines the day-mode grammar for the Nutrition, Fluid, and
 Bodyweight report screens. It is styleguide/design-system work only; it does
@@ -39,7 +39,7 @@ Use the shared secondary screen shell:
 Report name
 Selected day · timezone
 
-DAY | WEEK | MONTH | YEAR | ALL
+DAY  |  WEEK  |  MONTH  |  YEAR  |  ALL
 ```
 
 Rules:
@@ -50,6 +50,8 @@ Rules:
 - Report day examples use user-facing date text, for example `Tuesday, 2 June`.
 - Do not show raw local-day ids or raw ISO timestamps in the visual grammar.
 - Day/Week/Month/Year/All uses quiet text selection with pipe separators.
+- Pipe separators are structural marks only. Keep them smaller and quieter than
+  mode labels so the selector does not read like a technical table.
 - Range modes are shown as available navigation targets in the styleguide, but
   range report implementation remains deferred.
 
@@ -86,7 +88,8 @@ Rules:
 - Summary facts sit in the report body, below the mode selector.
 - A simple structural line may introduce the summary.
 - No filled cards, shadows, badges, icons, or dashboard KPI containers.
-- Numeric values use the measurement/value hierarchy.
+- Numeric values use a calmer report-level measurement/value hierarchy, smaller
+  and less contrast-heavy than the Today root readouts.
 - Units are visually subordinate when present.
 - Labels use section-label grammar.
 - Domain differences are content differences only, not separate visual systems.
@@ -97,7 +100,7 @@ Structure:
 
 ```text
 ENTRIES                ADD FOOD
-3 entries
+3 logged
 
 ────────────────────────────
 row
@@ -108,7 +111,8 @@ row
 Rules:
 
 - The section title is `ENTRIES`.
-- Entry count is quiet metadata.
+- Entry count is quiet metadata, for example `3 logged`, and remains
+  subordinate to the section title and Add action.
 - Add actions are quiet text actions, right-aligned in the section header.
 - Add action copy is domain-specific: `ADD FOOD`, `ADD FLUID`, `ADD WEIGHT`.
 - Do not use large filled Add buttons in report day mode.
@@ -208,8 +212,8 @@ Rules:
 - Dark-mode validation can continue through the global styleguide controls; no
   dark-mode-only report design is introduced here.
 
-Recommended production slices:
+Recommended production slices after styleguide review:
 
-- `MYORIA-443 implement Fluid Report day-mode parity from styleguide`
-- `MYORIA-444 implement Bodyweight Report day-mode parity from styleguide`
-- `MYORIA-445 implement Nutrition Report day-mode parity from styleguide`
+- Fluid Report day-mode production parity from the styleguide.
+- Bodyweight Report day-mode production parity from the styleguide.
+- Nutrition Report day-mode production parity from the styleguide.

@@ -145,7 +145,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--my-space-2);
+  gap: var(--my-space-3);
   margin-bottom: var(--my-section-gap);
   min-height: var(--my-touch-target);
 }
@@ -153,7 +153,7 @@
 .my-report-mode-option {
   align-items: center;
   display: inline-flex;
-  gap: var(--my-space-2);
+  gap: var(--my-space-3);
 }
 
 .my-report-mode-option a,
@@ -179,7 +179,10 @@
 .my-report-mode-divider {
   color: var(--my-color-divider);
   font-family: var(--my-font-sans);
+  font-size: var(--my-type-metric-unit-size);
   font-weight: 400;
+  line-height: var(--my-type-metric-unit-line);
+  min-height: auto;
 }
 
 .my-report-day-summary {
@@ -199,11 +202,17 @@
 
 .my-report-summary-metric .my-measurement,
 .my-report-summary-count {
-  color: var(--my-color-text-primary);
+  color: var(--my-color-text-secondary);
   font-family: var(--my-font-mono);
-  font-size: var(--my-type-metric-value-size);
+  font-size: 20px;
   font-weight: 400;
-  line-height: var(--my-type-metric-value-line);
+  line-height: 24px;
+}
+
+.my-report-summary-metric .my-measurement-unit {
+  color: var(--my-color-text-muted);
+  font-size: var(--my-type-metric-unit-size);
+  line-height: var(--my-type-metric-unit-line);
 }
 
 .my-report-day-entries {
@@ -224,10 +233,11 @@
 
 .my-report-day-entry-count {
   color: var(--my-color-text-muted);
-  font-family: var(--my-font-mono);
+  font-family: var(--my-font-sans);
   font-size: var(--my-type-row-meta-size);
   font-weight: 400;
   line-height: var(--my-type-row-meta-line);
+  margin-top: var(--my-space-1);
 }
 
 .my-report-day-action-row {

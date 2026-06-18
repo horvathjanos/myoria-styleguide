@@ -130,7 +130,7 @@ export function ReportDayScreenPage(): ReactElement {
             ariaLabel="Nutrition report day preview"
             domain="nutrition"
             entries={nutritionEntries}
-            entryCountLabel="3 entries"
+            entryCountLabel="3 logged"
             metrics={[
               { label: 'Energy', value: '900', unit: 'kcal' },
               { label: 'Protein', value: '93', unit: 'g' },
@@ -147,7 +147,7 @@ export function ReportDayScreenPage(): ReactElement {
             ariaLabel="Fluid report day preview"
             domain="fluid"
             entries={fluidEntries}
-            entryCountLabel="3 entries"
+            entryCountLabel="3 logged"
             metrics={[
               { label: 'Total', value: '1.0', unit: 'L' },
               { label: 'Entries', value: '3' },
@@ -162,7 +162,7 @@ export function ReportDayScreenPage(): ReactElement {
             ariaLabel="Bodyweight report day preview"
             domain="bodyweight"
             entries={bodyweightEntries}
-            entryCountLabel="2 entries"
+            entryCountLabel="2 logged"
             metrics={[
               { label: 'Latest', value: '73.5', unit: 'kg' },
               { label: 'Entries', value: '2' },
@@ -179,7 +179,7 @@ export function ReportDayScreenPage(): ReactElement {
             emptyBody="Add a food entry when there is something to log."
             emptyTitle="No entries for this day"
             entries={[]}
-            entryCountLabel="0 entries"
+            entryCountLabel="0 logged"
             metrics={[
               { label: 'Energy', value: '0', unit: 'kcal' },
               { label: 'Protein', value: '0', unit: 'g' },
@@ -196,7 +196,7 @@ export function ReportDayScreenPage(): ReactElement {
             ariaLabel="Fluid report unavailable row preview"
             domain="fluid"
             entries={unavailableEntries}
-            entryCountLabel="2 entries"
+            entryCountLabel="2 logged"
             metrics={[
               { label: 'Total', value: '0.9', unit: 'L' },
               { label: 'Entries', value: '2' },
@@ -291,7 +291,9 @@ function ReportModeSelector({
             {mode}
           </a>
           {index < modes.length - 1 ? (
-            <span className="my-report-mode-divider">|</span>
+            <span className="my-report-mode-divider" aria-hidden="true">
+              |
+            </span>
           ) : null}
         </span>
       ))}
