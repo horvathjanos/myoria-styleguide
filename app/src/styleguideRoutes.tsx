@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { CompactDensityPage } from './pages/validation/CompactDensityPage';
 import { ProgressScalePage } from './pages/validation/ProgressScalePage';
 import { ValidationOverviewPage } from './pages/validation/ValidationOverviewPage';
+import { AddFoodFlowScreenPage } from './screens/AddFoodFlowScreenPage';
 import { BodyWeightEntryDetailScreenPage } from './screens/BodyWeightEntryDetailScreenPage';
 import { FluidEntryDetailScreenPage } from './screens/FluidEntryDetailScreenPage';
 import { FoodDrinkLibraryScreenPage } from './screens/FoodDrinkLibraryScreenPage';
@@ -138,6 +139,14 @@ export const styleguideRoutes = [
     path: 'screens/food-drink-library/',
     title: 'Food & Drink Library',
     page: FoodDrinkLibraryScreenPage,
+  },
+  {
+    group: 'Screens',
+    id: 'add-food-flow',
+    navLabel: 'Add Food Flow',
+    path: 'screens/add-food/',
+    title: 'Add Food Flow',
+    page: AddFoodFlowScreenPage,
   },
   {
     group: 'Screens',

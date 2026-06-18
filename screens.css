@@ -322,3 +322,115 @@
 .my-report-entry-row-trailing {
   justify-self: end;
 }
+
+.my-add-food-flow {
+  align-content: start;
+  display: grid;
+  gap: var(--my-section-gap);
+}
+
+.my-add-food-search {
+  display: grid;
+  gap: var(--my-search-block-inner-gap);
+}
+
+.my-add-food-results {
+  display: grid;
+  gap: var(--my-space-3);
+}
+
+.my-local-status,
+.my-local-error {
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-help-size);
+  font-weight: 400;
+  line-height: var(--my-type-help-line);
+  margin: 0;
+}
+
+.my-local-status {
+  color: var(--my-color-text-secondary);
+}
+
+.my-local-error {
+  color: var(--my-color-error);
+}
+
+.my-add-food-list {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+}
+
+.my-add-food-row {
+  display: grid;
+  min-height: var(--my-row-min-height);
+  padding: var(--my-row-padding-y) 0;
+}
+
+.my-add-food-row + .my-add-food-row {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+}
+
+.my-add-food-row:focus-visible {
+  outline: var(--my-line-hairline) solid currentColor;
+  outline-offset: var(--my-space-1);
+}
+
+.my-add-food-row-main {
+  display: grid;
+  gap: var(--my-row-title-meta-gap);
+  min-width: 0;
+}
+
+.my-add-food-row-primary {
+  align-items: baseline;
+  column-gap: var(--my-row-content-chevron-gap);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(72px, max-content);
+  min-width: 0;
+}
+
+.my-add-food-row-title {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-sans);
+  font-size: var(--my-type-row-title-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-title-line);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-add-food-row-kcal {
+  color: var(--my-color-text-primary);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  justify-self: end;
+  line-height: var(--my-type-row-meta-line);
+  min-width: 72px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.my-add-food-row-default,
+.my-add-food-row-macros {
+  color: var(--my-color-text-muted);
+  font-family: var(--my-font-mono);
+  font-size: var(--my-type-row-meta-size);
+  font-weight: 400;
+  line-height: var(--my-type-row-meta-line);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-add-food-row-macros {
+  color: var(--my-color-text-secondary);
+}
+
+.my-add-food-action-row {
+  border-top: var(--my-line-hairline) solid var(--my-color-divider);
+  padding-top: var(--my-space-3);
+}
