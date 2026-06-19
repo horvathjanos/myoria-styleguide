@@ -84,6 +84,17 @@ MYORIA-484 follow-up note:
   Fluid`; selecting the item should default to `100 ml`, and logging that
   default should create matching 100 ml Nutrition and Fluid projections.
 
+MYORIA-486 follow-up note:
+
+- Screen background containment requires retest after the MYORIA-486 production
+  shell fix. Retest Today, Nutrition report, Fluid report, Bodyweight report,
+  Add Food, Add Fluid, Add Weight, Food & Drink Library, and Create Item.
+- Confirm each screen uses one continuous full-screen background and does not
+  appear as an inner rectangle caused by mismatched app-shell/safe-area and
+  route-root backgrounds.
+- Today date-row versus child back-row/header rhythm is classified as Needs
+  Contract and should not block this background containment retest.
+
 ## 3. Required Environment Metadata
 
 Record this metadata before running the checklist:
