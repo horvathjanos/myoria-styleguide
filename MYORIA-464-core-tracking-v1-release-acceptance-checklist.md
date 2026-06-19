@@ -169,7 +169,7 @@ Status: Accepted for V1, with manual QA required.
 
 ### Food Library Basics
 
-Status: Required for V1; visual debt is non-blocking.
+Status: Accepted for V1, pending manual QA; visual debt is non-blocking.
 
 - Accepted for V1: create item is functionally sufficient if manual QA can
   create nutrition-only, fluid-only, and mixed items supported by the current
@@ -182,6 +182,8 @@ Status: Required for V1; visual debt is non-blocking.
 - Non-blocking design debt: Food Library detail and create/edit forms retain
   older visual grammar. MYORIA-456 and MYORIA-466 classify this as debt pending
   dedicated detail/form contracts, not a Core Tracking V1 release blocker.
+- Accepted for V1: Food Library functional QA acceptance is defined by
+  `docs/styleguide/MYORIA-477-food-library-functional-qa-acceptance.md`.
 - Required for V1: manually QA active scope, archived scope, search, create,
   edit, duplicate warning, archive/hide, restore, and logging availability
   after restore.
