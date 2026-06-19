@@ -76,6 +76,14 @@ MYORIA-485 follow-up note:
   background re-reads the current Today summary from the existing persistence
   boundaries.
 
+MYORIA-484 follow-up note:
+
+- Mixed Food + Drink Add Food rows must not show a fixed Fluid contribution
+  amount that contradicts the selected default amount. For a per-100 ml mixed
+  item such as a protein drink, the row may say `Default 100 ml` and `Also logs
+  Fluid`; selecting the item should default to `100 ml`, and logging that
+  default should create matching 100 ml Nutrition and Fluid projections.
+
 ## 3. Required Environment Metadata
 
 Record this metadata before running the checklist:
@@ -317,6 +325,8 @@ Bodyweight:
 Status: Accepted with limitation.
 
 - Create a mixed Food + Drink Library item.
+- Confirm the Add Food row default amount, selected-item amount, Nutrition
+  logged amount, and Fluid projection amount all agree.
 - Log the mixed item through the supported Add Food flow.
 - Confirm Nutrition projection appears.
 - Confirm Nutrition projection contributes to Nutrition totals.
