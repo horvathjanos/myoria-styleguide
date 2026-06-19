@@ -14,6 +14,142 @@ type ProgressScaleProps = {
   width: string;
 };
 
+type TodayFixture = {
+  bodyweight: {
+    ariaLabel: string;
+    detail: string;
+    unit: string;
+    value: string;
+  };
+  date: string;
+  fluid: {
+    ariaLabel: string;
+    progressWidth: string;
+    value: string;
+  };
+  nutrition: {
+    ariaLabel: string;
+    calories: {
+      progressWidth: string;
+      value: string;
+    };
+    macros: TodayMacroFixture[];
+  };
+  workout: {
+    ariaLabel: string;
+    detail: string;
+    showOperationalMarker: boolean;
+    status: string;
+  };
+};
+
+type TodayMacroFixture = {
+  ariaLabel: string;
+  label: string;
+  overDetail?: string;
+  overrun?: boolean;
+  progressWidth: string;
+  value: string;
+};
+
+const defaultTodayFixture: TodayFixture = {
+  bodyweight: {
+    ariaLabel: 'Bodyweight, 73.5 kg, logged 07:12',
+    detail: 'Logged 07:12',
+    unit: 'kg',
+    value: '73.5',
+  },
+  date: 'Tuesday, 2 June',
+  fluid: {
+    ariaLabel: 'Fluid, 0.6 of 3 liters',
+    progressWidth: '18%',
+    value: '0.6 / 3',
+  },
+  nutrition: {
+    ariaLabel: 'Nutrition, 861 of 2300 kcal',
+    calories: {
+      progressWidth: '37%',
+      value: '861 / 2300',
+    },
+    macros: [
+      {
+        ariaLabel: 'Protein, 156 of 180 grams',
+        label: 'Protein',
+        progressWidth: '87%',
+        value: '156 / 180',
+      },
+      {
+        ariaLabel: 'Carbs, 210 of 250 grams',
+        label: 'Carbs',
+        progressWidth: '84%',
+        value: '210 / 250',
+      },
+      {
+        ariaLabel: 'Fat, 92 of 70 grams, 22 grams over',
+        label: 'Fat',
+        overDetail: '22 g over',
+        overrun: true,
+        progressWidth: '100%',
+        value: '92 / 70',
+      },
+    ],
+  },
+  workout: {
+    ariaLabel: 'Workout active, push session, 42 min',
+    detail: 'Push session · 42 min',
+    showOperationalMarker: true,
+    status: 'Active',
+  },
+};
+
+const emptyTodayFixture: TodayFixture = {
+  bodyweight: {
+    ariaLabel: 'Bodyweight, not logged',
+    detail: 'Not logged',
+    unit: '',
+    value: '—',
+  },
+  date: 'Tuesday, 2 June',
+  fluid: {
+    ariaLabel: 'Fluid, 0 of 3 liters',
+    progressWidth: '0%',
+    value: '0 / 3',
+  },
+  nutrition: {
+    ariaLabel: 'Nutrition, 0 of 2300 kcal',
+    calories: {
+      progressWidth: '0%',
+      value: '0 / 2300',
+    },
+    macros: [
+      {
+        ariaLabel: 'Protein, 0 of 180 grams',
+        label: 'Protein',
+        progressWidth: '0%',
+        value: '0 / 180',
+      },
+      {
+        ariaLabel: 'Carbs, 0 of 250 grams',
+        label: 'Carbs',
+        progressWidth: '0%',
+        value: '0 / 250',
+      },
+      {
+        ariaLabel: 'Fat, 0 of 80 grams',
+        label: 'Fat',
+        progressWidth: '0%',
+        value: '0 / 80',
+      },
+    ],
+  },
+  workout: {
+    ariaLabel: 'Workout, no workouts yet',
+    detail: '',
+    showOperationalMarker: false,
+    status: 'No workouts yet',
+  },
+};
+
 export function TodayScreenPage(): ReactElement {
   return (
     <ScreenPreviewPage
@@ -22,159 +158,145 @@ export function TodayScreenPage(): ReactElement {
     >
       <PreviewStack>
         <PhonePreview label="Default">
-          <section className="my-screen" aria-label="Today screen preview">
-            <header className="my-root-header">
-              <p className="my-root-date">Tuesday, 2 June</p>
-            </header>
+          <TodayScreen fixture={defaultTodayFixture} />
+        </PhonePreview>
 
-            <div className="my-readout-stack">
-              <a
-                className="my-readout-block"
-                href="#"
-                aria-label="Nutrition, 861 of 2300 kcal"
-              >
-                <span className="my-section-label">Nutrition</span>
-                <span className="my-readout-main">
-                  <span className="my-readout-content">
-                    <Measurement value="861 / 2300" unit="kcal" />
-                  </span>
-                  <span className="my-list-row-chevron-zone" aria-hidden="true">
-                    <span className="my-chevron" />
-                  </span>
-                </span>
-                <ProgressScale emphasized width="37%" />
-
-                <span
-                  className="my-readout-secondary-stack"
-                  aria-label="Nutrition macro targets"
-                >
-                  <span
-                    className="my-readout-secondary"
-                    aria-label="Protein, 156 of 180 grams"
-                  >
-                    <span className="my-readout-secondary-main">
-                      <span className="my-section-label">Protein</span>
-                      <Measurement
-                        className="my-readout-secondary-value"
-                        supportingUnit
-                        value="156 / 180"
-                        unit="g"
-                      />
-                    </span>
-                    <ProgressScale width="87%" />
-                  </span>
-
-                  <span
-                    className="my-readout-secondary"
-                    aria-label="Carbs, 210 of 250 grams"
-                  >
-                    <span className="my-readout-secondary-main">
-                      <span className="my-section-label">Carbs</span>
-                      <Measurement
-                        className="my-readout-secondary-value"
-                        supportingUnit
-                        value="210 / 250"
-                        unit="g"
-                      />
-                    </span>
-                    <ProgressScale width="84%" />
-                  </span>
-
-                  <span
-                    className="my-readout-secondary"
-                    aria-label="Fat, 92 of 70 grams, 22 grams over"
-                  >
-                    <span className="my-readout-secondary-main">
-                      <span className="my-section-label">Fat</span>
-                      <Measurement
-                        className="my-readout-secondary-value"
-                        supportingUnit
-                        value="92 / 70"
-                        unit="g"
-                      />
-                    </span>
-                    <ProgressScale
-                      width="100%"
-                      overrun
-                      overDetail="22 g over"
-                    />
-                  </span>
-                </span>
-              </a>
-
-              <div className="my-readout-pair">
-                <a
-                  className="my-readout-pair-item"
-                  href="#"
-                  aria-label="Fluid, 0.6 of 3 liters"
-                >
-                  <span className="my-section-label">Fluid</span>
-                  <span className="my-readout-pair-main">
-                    <Measurement
-                      className="my-readout-pair-value"
-                      supportingUnit
-                      value="0.6 / 3"
-                      unit="L"
-                    />
-                    <span
-                      className="my-list-row-chevron-zone"
-                      aria-hidden="true"
-                    >
-                      <span className="my-chevron" />
-                    </span>
-                  </span>
-                  <ProgressScale width="18%" />
-                </a>
-
-                <a
-                  className="my-readout-pair-item"
-                  href="#"
-                  aria-label="Bodyweight, 73.5 kg, logged 07:12"
-                >
-                  <span className="my-section-label">Bodyweight</span>
-                  <span className="my-readout-pair-main">
-                    <Measurement
-                      className="my-readout-pair-value"
-                      supportingUnit
-                      value="73.5"
-                      unit="kg"
-                    />
-                    <span
-                      className="my-list-row-chevron-zone"
-                      aria-hidden="true"
-                    >
-                      <span className="my-chevron" />
-                    </span>
-                  </span>
-                  <span className="my-readout-detail">Logged 07:12</span>
-                </a>
-              </div>
-
-              <a
-                className="my-readout-block"
-                href="#"
-                aria-label="Workout active, push session, 42 min"
-              >
-                <span className="my-section-label">Workout</span>
-                <span className="my-readout-main">
-                  <span className="my-readout-content">
-                    <span
-                      className="my-operational-marker"
-                      aria-hidden="true"
-                    />
-                    <span className="my-operational-status">Active</span>
-                  </span>
-                  <span className="my-list-row-chevron-zone" aria-hidden="true">
-                    <span className="my-chevron" />
-                  </span>
-                </span>
-                <span className="my-readout-detail">Push session · 42 min</span>
-              </a>
-            </div>
-          </section>
+        <PhonePreview label="Empty day">
+          <TodayScreen fixture={emptyTodayFixture} />
         </PhonePreview>
       </PreviewStack>
     </ScreenPreviewPage>
+  );
+}
+
+function TodayScreen({ fixture }: { fixture: TodayFixture }): ReactElement {
+  return (
+    <section className="my-screen" aria-label="Today screen preview">
+      <header className="my-root-header">
+        <p className="my-root-date">{fixture.date}</p>
+      </header>
+
+      <div className="my-readout-stack">
+        <a
+          className="my-readout-block"
+          href="#"
+          aria-label={fixture.nutrition.ariaLabel}
+        >
+          <span className="my-section-label">Nutrition</span>
+          <span className="my-readout-main">
+            <span className="my-readout-content">
+              <Measurement
+                value={fixture.nutrition.calories.value}
+                unit="kcal"
+              />
+            </span>
+            <span className="my-list-row-chevron-zone" aria-hidden="true">
+              <span className="my-chevron" />
+            </span>
+          </span>
+          <ProgressScale
+            emphasized
+            width={fixture.nutrition.calories.progressWidth}
+          />
+
+          <span
+            className="my-readout-secondary-stack"
+            aria-label="Nutrition macro targets"
+          >
+            {fixture.nutrition.macros.map((macro) => (
+              <span
+                className="my-readout-secondary"
+                aria-label={macro.ariaLabel}
+                key={macro.label}
+              >
+                <span className="my-readout-secondary-main">
+                  <span className="my-section-label">{macro.label}</span>
+                  <Measurement
+                    className="my-readout-secondary-value"
+                    supportingUnit
+                    value={macro.value}
+                    unit="g"
+                  />
+                </span>
+                <ProgressScale
+                  width={macro.progressWidth}
+                  overrun={macro.overrun}
+                  overDetail={macro.overDetail}
+                />
+              </span>
+            ))}
+          </span>
+        </a>
+
+        <div className="my-readout-pair">
+          <a
+            className="my-readout-pair-item"
+            href="#"
+            aria-label={fixture.fluid.ariaLabel}
+          >
+            <span className="my-section-label">Fluid</span>
+            <span className="my-readout-pair-main">
+              <Measurement
+                className="my-readout-pair-value"
+                supportingUnit
+                value={fixture.fluid.value}
+                unit="L"
+              />
+              <span className="my-list-row-chevron-zone" aria-hidden="true">
+                <span className="my-chevron" />
+              </span>
+            </span>
+            <ProgressScale width={fixture.fluid.progressWidth} />
+          </a>
+
+          <a
+            className="my-readout-pair-item"
+            href="#"
+            aria-label={fixture.bodyweight.ariaLabel}
+          >
+            <span className="my-section-label">Bodyweight</span>
+            <span className="my-readout-pair-main">
+              <Measurement
+                className="my-readout-pair-value"
+                supportingUnit
+                value={fixture.bodyweight.value}
+                unit={fixture.bodyweight.unit}
+              />
+              <span className="my-list-row-chevron-zone" aria-hidden="true">
+                <span className="my-chevron" />
+              </span>
+            </span>
+            <span className="my-readout-detail">
+              {fixture.bodyweight.detail}
+            </span>
+          </a>
+        </div>
+
+        <a
+          className="my-readout-block"
+          href="#"
+          aria-label={fixture.workout.ariaLabel}
+        >
+          <span className="my-section-label">Workout</span>
+          <span className="my-readout-main">
+            <span className="my-readout-content">
+              {fixture.workout.showOperationalMarker ? (
+                <span className="my-operational-marker" aria-hidden="true" />
+              ) : null}
+              <span className="my-operational-status">
+                {fixture.workout.status}
+              </span>
+            </span>
+            <span className="my-list-row-chevron-zone" aria-hidden="true">
+              <span className="my-chevron" />
+            </span>
+          </span>
+          {fixture.workout.detail ? (
+            <span className="my-readout-detail">{fixture.workout.detail}</span>
+          ) : null}
+        </a>
+      </div>
+    </section>
   );
 }
 
