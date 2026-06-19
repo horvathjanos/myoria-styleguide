@@ -7,24 +7,25 @@ Status: Required for V1.
 Core Tracking V1 accepts the current SQLite persistence foundation for app
 restart survival, pending a recorded manual QA pass on the release candidate.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-The current import/export implementation is not enough to declare the full Core
-Tracking V1 data safety gate done. Static source and test review found real
-round-trip gaps for the newer Food & Drink Library lifecycle and linked mixed
-Food + Drink projections:
+The current import/export implementation now includes focused round-trip
+support for the newer Food & Drink Library lifecycle and linked mixed Food +
+Drink projections. MYORIA-479 extends the v1 JSON path to include:
 
-- Food & Drink Library records in `foods` and `food_aliases` are not exported
-  or restored by the current v1 JSON path.
-- Food & Drink Library archived/restored state in `foods.is_archived` and
-  `foods.archived_at` is therefore not covered by import/export round-trip.
-- `logged_events` are not exported or restored.
-- `nutrition_food_logs.logged_event_id` is not part of the current nutrition
-  archive record.
-- Fluid export can serialize `loggedEventId` on domain objects, but the import
-  parser and SQLite restore path do not preserve it.
-- Current restore saves imported Nutrition and Fluid rows as independent
-  projections, not as linked mixed entries.
+- Food & Drink Library records from `foods`.
+- Food & Drink Library aliases from `food_aliases`.
+- Food & Drink Library archived/restored state through `is_archived` and
+  `archived_at`.
+- Canonical `logged_events`.
+- `nutrition_food_logs.logged_event_id`.
+- `fluid_entries.logged_event_id`.
+- Import preview counts for Food Library records, aliases, and linked events.
+
+Static automated tests now cover export, parse, preview counts, additive
+restore, and SQLite save/list behavior for these fields. Manual import/export
+QA is still required before declaring the full Core Tracking V1 data safety
+gate done.
 
 Status: Accepted with limitation.
 
@@ -35,13 +36,12 @@ state. It must not be documented as a complete Core Tracking V1 round-trip
 until manual QA passes and the linked/Food Library gaps are either fixed or
 explicitly accepted by product.
 
-Status: Follow-up if rejected.
+Status: Completed follow-up.
 
-If Core Tracking V1 requires complete import/export recovery for Food & Drink
-Library active/archived/restored state and linked mixed Food + Drink entries,
-create the smallest focused implementation issue to extend v1 JSON export,
-parse, preview, and restore for `foods`, `food_aliases`, `logged_events`, and
-projection linkage metadata. Do not implement that in MYORIA-478.
+MYORIA-479 implemented the focused extension to v1 JSON export, parse, preview,
+and restore for `foods`, `food_aliases`, `logged_events`, and projection
+linkage metadata. This did not change Workout scope or convert restore into a
+full database replacement.
 
 ## Current Implementation Summary
 
@@ -155,17 +155,12 @@ Workout appears in the current export artifact because the implementation
 already supports it, but Workout remains outside Core Tracking V1 acceptance.
 MYORIA-478 does not require Workout QA and does not reopen Workout scope.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479.
 
-The current export does not include the newer Food & Drink Library tables
-(`foods`, `food_aliases`) as Food Library records. Exporting only active legacy
-`saved_foods` is not enough for the MYORIA-477 Food Library lifecycle.
-
-Status: Blocker if found.
-
-The current export does not include `logged_events`, and Nutrition archive
-records do not include `logged_event_id`. Therefore, linked mixed Food + Drink
-identity cannot be reconstructed from the current JSON export.
+Current export includes the newer Food & Drink Library records from `foods`,
+aliases from `food_aliases`, canonical `logged_events`, and linkage metadata on
+Nutrition and Fluid projections. Legacy `savedFoods` remains present for
+backward-compatible legacy saved food recovery.
 
 ## Import / Restore Behavior
 
@@ -192,17 +187,13 @@ corrupt state. Static review shows preview validation before restore, but
 restore itself is a sequence of repository saves rather than one cross-domain
 transaction.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479.
 
-Current restore cannot restore the newer Food & Drink Library active/archived
-lifecycle because the import data shape has only legacy `savedFoods`, not
-`foods` and `food_aliases`.
-
-Status: Blocker if found.
-
-Current restore cannot restore linked mixed Food + Drink semantics because it
-does not save `logged_events` and does not preserve projection
-`logged_event_id` values.
+Current restore saves imported Food & Drink Library records and aliases through
+the Food Library repository, saves imported `logged_events`, and then restores
+Nutrition and Fluid projection rows with their original `logged_event_id`
+values. Restore remains additive/upsert-style and does not clear unrelated
+tables.
 
 ## Import Preview / Validation Behavior
 
@@ -245,20 +236,18 @@ Current export/import covers:
 - optional nutrition label snapshot fields
 - `deletedAt` for Nutrition logs
 
-Current export/import does not cover:
-
-- `nutrition_food_logs.logged_event_id`
-- the canonical `logged_events` row behind a mixed Food + Drink entry
-- current Food Library source records in `foods` and aliases in `food_aliases`
+Current export/import now covers `nutrition_food_logs.logged_event_id`, the
+canonical `logged_events` row behind a mixed Food + Drink entry, and current
+Food Library source records in `foods` plus aliases in `food_aliases`.
 
 Status: Required for V1.
 
 Manual QA must confirm Nutrition entries and totals persist after app restart.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-Import/export round-trip does not currently preserve linked Nutrition
-projection semantics for mixed Food + Drink entries.
+Import/export round-trip now preserves linked Nutrition projection metadata for
+mixed Food + Drink entries.
 
 ## Fluid Data Safety
 
@@ -271,21 +260,19 @@ Current export/import covers active Fluid entries in the selected local-day
 period. It preserves amount, drink type, timestamp, local day, timezone, source,
 confidence, note, and audit timestamps.
 
-Current export/import does not cover:
+Current export/import still does not cover:
 
 - deleted Fluid entries, because export reads active Fluid entries only
-- `loggedEventId`, because parser and SQLite save do not preserve it
-- the canonical `logged_events` row behind mixed Food + Drink entries
 
 Status: Required for V1.
 
 Manual QA must confirm normal Fluid entries and totals persist after app
 restart.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-Import/export round-trip does not currently preserve linked Fluid projection
-semantics for mixed Food + Drink entries.
+Import/export round-trip now preserves linked Fluid projection metadata for
+mixed Food + Drink entries.
 
 Status: Accepted with limitation.
 
@@ -327,20 +314,12 @@ App restart persistence must cover the MYORIA-477 Food & Drink Library
 lifecycle: active items, archived items, restored items, aliases, nutrition
 contribution, fluid contribution, and mixed Food + Drink definitions.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-Current import/export does not cover the newer Food & Drink Library lifecycle.
-The v1 export shape includes `savedFoods` from the legacy `saved_foods` table,
-not Food & Drink Library records from `foods` and `food_aliases`. It also uses
-`SavedFoodRepository.listActive()`, so archived legacy saved foods are omitted.
-
-Status: Follow-up if rejected.
-
-If final Core Tracking V1 data safety requires Food Library round-trip, add a
-focused implementation issue to export, preview, parse, restore, and test
-`foods` plus `food_aliases`, including active, archived, restored, aliases,
-nutrition-only, fluid-only, mixed Food + Drink, and duplicate-detection-relevant
-fields.
+Current import/export covers the newer Food & Drink Library lifecycle through
+`foods` and `food_aliases`, including active, archived/restored state, aliases,
+nutrition-only definitions, fluid-only definitions, and mixed Food + Drink
+definitions. Legacy `savedFoods` still exports active legacy saved foods.
 
 ## Goals Data Safety
 
@@ -371,25 +350,13 @@ App restart persistence must keep mixed Food + Drink entries linked through
 `logged_events`, `nutrition_food_logs.logged_event_id`, and
 `fluid_entries.logged_event_id`.
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-Current import/export does not round-trip this linkage. It can round-trip the
-Nutrition snapshot and active Fluid projection values as separate records, but
-it cannot prove or restore canonical linked lifecycle semantics.
-
-Consequences after import may include:
-
-- Nutrition and Fluid totals still contain restored projection values.
-- Projection rows may no longer be recognized as linked projections.
-- Linked unavailable edit/delete behavior from MYORIA-473 may not apply after
-  restore.
-- The canonical mixed event cannot be reconstructed.
-
-Status: Follow-up if rejected.
-
-If linked mixed entries are required in import/export recovery, add a focused
-linked-event import/export issue before declaring Core Tracking V1 data safety
-done.
+Current import/export round-trips linked mixed Food + Drink event linkage by
+exporting/restoring `logged_events`, `nutrition_food_logs.logged_event_id`, and
+`fluid_entries.logged_event_id`. Imported mixed projections remain linked and
+therefore continue to follow the MYORIA-473 unavailable projection-specific
+edit/delete behavior.
 
 ## Deleted / Archived / Restored State Behavior
 
@@ -454,9 +421,10 @@ recovery:
   rows are omitted.
 - Legacy active saved foods round-trip; archived legacy saved foods are omitted
   by current export.
-- New Food & Drink Library records and archived/restored lifecycle do not
-  round-trip.
-- Linked mixed Food + Drink canonical event linkage does not round-trip.
+- New Food & Drink Library records and archived/restored lifecycle round-trip
+  through MYORIA-479.
+- Linked mixed Food + Drink canonical event linkage round-trips through
+  MYORIA-479.
 - Import/export includes Workout artifacts in current code, but Workout is
   Deferred and not part of the Core Tracking V1 gate.
 - Nutrition local day is derived at read time from `loggedAt` and timezone, not
@@ -529,13 +497,11 @@ Import / restore:
 - Confirm Today renders correctly after import.
 - Confirm report screens render correctly after import.
 
-Expected current failures unless fixed or explicitly accepted:
+Expected current limitations:
 
-- Food Library active/archived/restored state does not round-trip through the
-  current v1 import/export path.
-- Linked mixed Nutrition/Fluid projections do not round-trip as linked
-  canonical events.
 - Deleted Fluid and Bodyweight rows do not round-trip as deleted history.
+- Manual QA must still verify Food Library active/archived/restored state and
+  linked mixed Nutrition/Fluid projections in a release build.
 
 Invalid import:
 
@@ -590,12 +556,11 @@ Targeted persistence/import-export tests discovered for MYORIA-478 include:
 - `src/adapters/persistence/sqlite/migrations/__tests__/runSqliteMigrations.test.ts`
 - `src/adapters/persistence/sqlite/migrations/__tests__/loggedEventsMigration.integration.test.ts`
 
-Status: Accepted with limitation.
+Status: Implemented by MYORIA-479; manual QA still required.
 
 Existing automated coverage proves many repository and parser behaviors. It
-does not currently prove complete Core Tracking V1 import/export round-trip for
-Food Library lifecycle or linked mixed entries because the implementation does
-not include those fields.
+now includes focused coverage for Food Library lifecycle and linked mixed
+entry import/export fields. It still does not replace release-device manual QA.
 
 ## Risks / Unknowns
 
@@ -613,20 +578,20 @@ Status: Blocker if found.
 - Any migration error on clean or existing install.
 - Any import failure that overwrites existing data after invalid preview.
 - Any import/export claim that says Food Library lifecycle or linked mixed
-  entries round-trip without implementation support.
+  entries passed release QA before manual QA has been recorded.
 
-## Follow-Up Implementation Issue Only If QA Rejects Current Behavior
+## MYORIA-479 Implementation Record
 
-Status: Follow-up if rejected.
+Status: Implemented; manual QA still required.
 
-Create a focused implementation issue if release QA or product acceptance
-requires complete Core Tracking V1 import/export recovery. Suggested title:
+MYORIA-479 implemented the focused Core Tracking V1 import/export recovery
+extension:
 
 ```text
 MYORIA-479 preserve Food Library and linked events in v1 import export
 ```
 
-Minimum scope:
+Completed scope:
 
 - Export and parse Food & Drink Library `foods` rows.
 - Export and parse `food_aliases`.
@@ -635,8 +600,8 @@ Minimum scope:
 - Preserve `nutrition_food_logs.logged_event_id`.
 - Preserve `fluid_entries.logged_event_id` through parse and SQLite save.
 - Add import preview counts for Food Library and linked events.
-- Add round-trip tests for nutrition-only, fluid-only, mixed Food + Drink,
-  archived/restored Food Library items, and linked mixed projections.
+- Add focused tests for Food Library export/restore state, aliases, linked
+  event export/restore, and projection linkage preservation.
 
 Out of scope for that follow-up unless explicitly requested:
 
@@ -647,11 +612,11 @@ Out of scope for that follow-up unless explicitly requested:
 
 ## Impact On Core Tracking V1 Blockers / Readiness
 
-Status: Blocker if found.
+Status: Implemented by MYORIA-479; manual QA still required.
 
-MYORIA-464 should treat MYORIA-478 as a data safety gate that is not fully
-ready as-is if complete import/export round-trip is required for Food Library
-lifecycle and linked mixed entries.
+MYORIA-464 should treat the previously documented Food Library and linked mixed
+entry import/export gaps as implemented in code, pending release-device manual
+QA.
 
 Status: Accepted for V1.
 
@@ -666,8 +631,8 @@ Core Tracking V1 cannot be declared done until:
 
 - recorded app restart persistence QA passes
 - recorded import/export manual QA passes for supported current behavior
-- product either accepts the import/export limitations or a focused follow-up
-  implementation issue fixes them
+- product accepts the remaining active-data limitations, especially deleted
+  Fluid and Bodyweight history being omitted from import/export
 
 Workout remains Deferred.
 
@@ -682,15 +647,14 @@ MYORIA-478 is done when:
   are documented without guessing
 - current automated coverage is named
 - manual QA requirements are explicit
-- Food Library import/export lifecycle gaps are documented
-- linked mixed Food + Drink import/export linkage gaps are documented
+- Food Library import/export lifecycle implementation status is documented
+- linked mixed Food + Drink import/export linkage implementation status is
+  documented
 - accepted V1 limitations are explicit
-- follow-up implementation scope is narrow and conditional
-- no production behavior, domain/application behavior, persistence schema,
-  migrations, tests, styleguide routes, generated bundles, or Workout work are
-  changed by this documentation task
+- MYORIA-479 implementation scope is recorded as focused and complete pending
+  manual QA
+- no Workout work is added
 
 Core Tracking V1 release readiness is not complete until the manual app restart
-and import/export QA gates pass, and until the documented blocker-level
-round-trip gaps are either accepted by product as V1 limitations or fixed in a
-focused follow-up issue.
+and import/export QA gates pass, and until product accepts the remaining
+active-data limitations.

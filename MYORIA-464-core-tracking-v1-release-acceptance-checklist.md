@@ -239,11 +239,10 @@ Status: Required for V1 manual QA.
   Fluid, Bodyweight, saved foods, profile, and goals data.
 - Required for V1: import preview must reject invalid files and unsupported
   versions before restore.
-- Blocker if found: MYORIA-478 documents that current import/export does not
-  round-trip the newer Food & Drink Library `foods`/`food_aliases` lifecycle or
-  linked mixed Food + Drink `logged_events` linkage. Core Tracking V1 data
-  safety is not complete until those limitations are either accepted for V1 or
-  fixed in a focused follow-up implementation issue.
+- Implemented by MYORIA-479; manual QA required: import/export now round-trips
+  the newer Food & Drink Library `foods`/`food_aliases` lifecycle and linked
+  mixed Food + Drink `logged_events` linkage. Core Tracking V1 data safety is
+  not complete until release-device manual import/export QA passes.
 
 ### Styleguide / Token Enforcement
 
