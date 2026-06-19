@@ -260,8 +260,9 @@ These block declaring Core Tracking V1 done:
 - Required for V1: a recorded manual QA pass must cover Today, Nutrition, Fluid,
   Bodyweight, Food Library, goals, import/export, persistence, app restart, and
   navigation.
-- Needs confirmation: linked Nutrition + Fluid projection edit/delete behavior
-  must be accepted or fixed.
+- Accepted for V1: linked Nutrition + Fluid projection edit/delete behavior is
+  accepted with limitation by
+  `docs/styleguide/MYORIA-473-linked-nutrition-fluid-entry-lifecycle-decision.md`.
 - Needs confirmation: Bodyweight delete-and-relog correction must be accepted or
   direct edit must be implemented.
 - Needs confirmation: range placeholders must be accepted or minimal range
