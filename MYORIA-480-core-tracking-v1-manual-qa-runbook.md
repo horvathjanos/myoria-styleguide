@@ -58,6 +58,24 @@ MYORIA-481 follow-up note:
   summary metrics use the quieter report-day hierarchy.
 - This note does not mark manual QA as passed or Core Tracking V1 as complete.
 
+MYORIA-485 follow-up note:
+
+- App restart persistence QA must use one named app runtime context for setup,
+  logging, restart, and retest. On the iPhone 17 iOS 26.4 simulator inspected
+  for MYORIA-485, both the standalone Myoria app
+  `horvathjanos.myoria` and Expo Go `host.exp.Exponent` were installed.
+- The standalone Myoria app stored SQLite at
+  `Documents/SQLite/myoria.db` inside its app data container.
+- Expo Go stored the same logical database name at
+  `Documents/ExponentExperienceData/@anonymous/myoria-95c5fa64-f51d-49fb-ba06-958b997b6b0d/SQLite/myoria.db`
+  inside the Expo Go data container.
+- Those are separate iOS sandbox containers. Values logged in one runtime are
+  not expected to appear when launching the other runtime. This is a dev/
+  simulator launch-context artifact, not evidence of SQLite data loss.
+- MYORIA-485 also added a focused Today resume refresh so returning from
+  background re-reads the current Today summary from the existing persistence
+  boundaries.
+
 ## 3. Required Environment Metadata
 
 Record this metadata before running the checklist:
@@ -318,7 +336,31 @@ Status: Accepted with limitation.
 
 Status: Required for V1.
 
-Restart the app from the release candidate environment and confirm:
+Use one named runtime context for the full persistence QA sequence. Do not mix
+the standalone Myoria app icon with Expo Go / Metro `i` unless the goal is
+explicitly to compare separate development containers.
+
+Accepted restart procedure for simulator QA:
+
+- Record the simulator name, OS version, runtime context, bundle identifier,
+  and commit SHA before logging test data.
+- If testing the standalone app, launch, log, background, force quit, and
+  relaunch the same `horvathjanos.myoria` app icon.
+- If testing Expo Go through Metro, launch from Metro/Expo Go, log, background,
+  force quit Expo Go, then reopen the same Expo Go project/runtime context.
+- Treat `pnpm start -- --clear` as a Metro bundler cache reset only. It must not
+  be required for persisted SQLite rows to reappear in the same runtime
+  context.
+- If results differ between icon launch and Metro `i`, first confirm whether
+  the simulator has both `horvathjanos.myoria` and `host.exp.Exponent`
+  installed. If both exist, inspect the app containers before classifying the
+  result as data loss.
+- The expected database file for the standalone Myoria bundle is
+  `Documents/SQLite/myoria.db` inside the `horvathjanos.myoria` data container.
+  The expected Expo Go project database file is under Expo Go's
+  `Documents/ExponentExperienceData/.../SQLite/myoria.db` project container.
+
+Restart the app from the same release candidate environment and confirm:
 
 - Nutrition entries persist.
 - Nutrition totals persist.
@@ -334,6 +376,9 @@ Restart the app from the release candidate environment and confirm:
 - Goals persist.
 - Linked mixed entry linkage persists.
 - Today renders correctly after restart.
+- Today renders correctly after background/resume without a Metro cache clear.
+- Today renders correctly after force quit and icon relaunch within the same app
+  runtime context.
 - Local-day/timezone behavior is correct enough for V1, especially near
   local-day boundaries where practical.
 
