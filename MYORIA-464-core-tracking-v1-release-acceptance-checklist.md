@@ -33,6 +33,12 @@ work:
 Until those points are resolved and recorded, Core Tracking V1 is close but not
 done.
 
+MYORIA-480 defines the executable manual QA runbook and result template for the
+final release-candidate QA run:
+`docs/styleguide/MYORIA-480-core-tracking-v1-manual-qa-runbook.md`. That
+runbook does not record a pass; Core Tracking V1 still requires a human QA
+result on a named build, commit, device or simulator before release-ready status.
+
 ## Definition Of Core Tracking V1
 
 Core Tracking V1 is the private iOS-first structured tracking milestone for the
