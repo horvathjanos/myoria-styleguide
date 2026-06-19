@@ -148,20 +148,21 @@ Status: Required for V1, with linked-entry behavior tied to Nutrition.
 
 ### Bodyweight
 
-Status: Required for V1, with direct-edit decision.
+Status: Accepted for V1, with manual QA required.
 
 - Accepted for V1: the user can log bodyweight.
 - Accepted for V1: the user can inspect Bodyweight report entries through entry
   detail snapshots.
 - Accepted for V1: the user can delete Bodyweight entries from report/detail
   and selected-day surfaces.
-- Needs confirmation: direct Bodyweight edit is not currently visible. V1 must
-  explicitly accept delete-and-relog correction or require a Bodyweight edit
-  slice.
-- Accepted for V1 if confirmed: delete-and-relog is enough for private V1
-  Bodyweight correction.
-- Required for V1 if rejected: add focused amount/timestamp edit for Bodyweight
-  report detail.
+- Accepted for V1: delete-and-relog is enough for private V1 Bodyweight
+  correction, as decided by
+  `docs/styleguide/MYORIA-474-bodyweight-correction-behavior-decision.md`.
+- Deferred: direct Bodyweight amount edit is not required for Core Tracking V1.
+- Deferred: Bodyweight timestamp edit/correction is not required for Core
+  Tracking V1.
+- Follow-up if rejected: add focused amount/timestamp edit for Bodyweight report
+  detail if product later rejects delete-and-relog.
 - Accepted for V1: missing Bodyweight states are accepted when they render as
   the Today missing marker plus `Not logged`, and report/selected-day empty
   states remain understandable in manual QA.
@@ -263,8 +264,9 @@ These block declaring Core Tracking V1 done:
 - Accepted for V1: linked Nutrition + Fluid projection edit/delete behavior is
   accepted with limitation by
   `docs/styleguide/MYORIA-473-linked-nutrition-fluid-entry-lifecycle-decision.md`.
-- Needs confirmation: Bodyweight delete-and-relog correction must be accepted or
-  direct edit must be implemented.
+- Accepted for V1: Bodyweight delete-and-relog correction is accepted with
+  limitation by
+  `docs/styleguide/MYORIA-474-bodyweight-correction-behavior-decision.md`.
 - Needs confirmation: range placeholders must be accepted or minimal range
   reports must be implemented.
 - Needs confirmation: empty-goals/default target behavior must be accepted or a
