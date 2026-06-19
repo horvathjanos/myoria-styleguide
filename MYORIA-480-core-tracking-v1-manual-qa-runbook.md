@@ -49,6 +49,15 @@ Manual QA results must use these statuses where relevant:
 - Non-blocking design debt
 - Retest required
 
+MYORIA-481 follow-up note:
+
+- Report Day visual parity for Nutrition, Fluid, and Bodyweight requires retest
+  after the MYORIA-481 production UI fix.
+- Retest should confirm the mode selector / summary area shows only the
+  contract-backed summary separator, entry-list dividers remain visible, and
+  summary metrics use the quieter report-day hierarchy.
+- This note does not mark manual QA as passed or Core Tracking V1 as complete.
+
 ## 3. Required Environment Metadata
 
 Record this metadata before running the checklist:
