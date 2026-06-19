@@ -269,8 +269,9 @@ These block declaring Core Tracking V1 done:
   `docs/styleguide/MYORIA-474-bodyweight-correction-behavior-decision.md`.
 - Accepted for V1: range placeholders are accepted with limitation by
   `docs/styleguide/MYORIA-475-range-report-placeholder-acceptance-decision.md`.
-- Needs confirmation: empty-goals/default target behavior must be accepted or a
-  seed/default goal slice must be implemented.
+- Accepted for V1: empty-goals/default target behavior is accepted by
+  `docs/styleguide/MYORIA-476-goals-default-targets-acceptance-decision.md`;
+  seeded/default goals are not required for Core Tracking V1.
 - Required for V1: `pnpm check:ui-styles` and `pnpm lint` must pass on the
   release candidate.
 - Required for V1: import/export round-trip manual QA must pass if the app keeps
@@ -469,8 +470,9 @@ manual QA.
   highest-impact product unknown.
 - Needs confirmation: Bodyweight delete-and-relog may be acceptable for private
   V1, but it is weaker than Nutrition and Fluid correction.
-- Needs confirmation: empty-goals first-run behavior may feel unfinished if no
-  default targets are present.
+- Non-blocking design debt: empty-goals first-run behavior may feel unfinished,
+  but MYORIA-476 accepts the current fallback/default target behavior for Core
+  Tracking V1 as long as final manual QA passes.
 - Needs confirmation: range placeholders may be acceptable for private V1, but
   release notes must name the deferral.
 - Risk: import/export has automated coverage, but real app-environment
