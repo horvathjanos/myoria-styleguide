@@ -206,16 +206,16 @@ Status: Required for V1; default policy needs confirmation.
 
 ### Range Reports
 
-Status: Needs confirmation; recommended acceptance is Deferred.
+Status: Accepted for V1, with manual QA required.
 
-- Accepted for V1 if confirmed: Week/Month/Year/All report modes may remain
-  quiet placeholders for Nutrition, Fluid, and Bodyweight.
-- Deferred if accepted: range aggregation, charts, advanced analytics, and
-  cross-range insight implementation move out of Core Tracking V1.
-- Required for V1 if rejected: implement the smallest useful range slices:
-  Nutrition total calories/macros by range, Fluid total liters by range,
-  Bodyweight latest/average trend by range, and tests for empty and populated
-  ranges.
+- Accepted for V1: Week/Month/Year/All report modes may remain quiet
+  placeholders for Nutrition, Fluid, and Bodyweight, as decided by
+  `docs/styleguide/MYORIA-475-range-report-placeholder-acceptance-decision.md`.
+- Deferred: range aggregation, charts, advanced analytics, and cross-range
+  insight implementation move out of Core Tracking V1.
+- Follow-up if rejected: implement the smallest useful range slices: Nutrition
+  total calories/macros by range, Fluid total liters by range, Bodyweight
+  latest/average trend by range, and tests for empty and populated ranges.
 
 Recommendation: accept placeholders for V1. Day reports plus Today are the core
 tracking loop, and MYORIA-463 found the placeholders consistent and tested.
@@ -267,8 +267,8 @@ These block declaring Core Tracking V1 done:
 - Accepted for V1: Bodyweight delete-and-relog correction is accepted with
   limitation by
   `docs/styleguide/MYORIA-474-bodyweight-correction-behavior-decision.md`.
-- Needs confirmation: range placeholders must be accepted or minimal range
-  reports must be implemented.
+- Accepted for V1: range placeholders are accepted with limitation by
+  `docs/styleguide/MYORIA-475-range-report-placeholder-acceptance-decision.md`.
 - Needs confirmation: empty-goals/default target behavior must be accepted or a
   seed/default goal slice must be implemented.
 - Required for V1: `pnpm check:ui-styles` and `pnpm lint` must pass on the
@@ -281,8 +281,9 @@ These block declaring Core Tracking V1 done:
 - Deferred: Workout implementation and workout styleguide migration.
 - Deferred: advanced workout history, active sessions, templates, progression,
   and workout analytics.
-- Deferred if confirmed: Week/Month/Year/All range report implementation beyond
-  placeholders.
+- Deferred: Week/Month/Year/All range report implementation beyond
+  placeholders, as accepted by
+  `docs/styleguide/MYORIA-475-range-report-placeholder-acceptance-decision.md`.
 - Deferred: advanced charts, plateau detection, advanced analytics, and AI
   insights.
 - Deferred: photo recognition, wearable integrations, remote sync/backend, and
