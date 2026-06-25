@@ -108,7 +108,8 @@ Add Weight logging QA, so no separate runbook step was added.
 
 ## Known Remaining Form Debt
 
-- Add Food selected-item amount/unit confirmation form remains unmigrated.
+- Add Food selected-item amount/unit confirmation form was outside MYORIA-489
+  and was later migrated/refined by MYORIA-490 and MYORIA-496.
 - Food & Drink Library Create/Edit Item forms remain unmigrated.
 - Boolean/toggle grammar for Food Library contribution controls remains a
   MYORIA-487/MYORIA-488 known gap.
@@ -117,7 +118,7 @@ Add Weight logging QA, so no separate runbook step was added.
 
 ## Non-Goals
 
-- No Add Food selected-item migration.
+- No Add Food selected-item migration in MYORIA-489.
 - No Food Library Create/Edit migration.
 - No report-screen migration.
 - No Today migration.

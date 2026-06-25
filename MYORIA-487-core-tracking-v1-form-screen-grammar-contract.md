@@ -93,7 +93,7 @@ be small and consistent.
 | Screen | Current classification | Evidence | V1 decision |
 | --- | --- | --- | --- |
 | Add Food search/list screen | PASS | `food-add-flow-contract-v1.md`; `NutritionAddFoodWorkflowScreen` picker uses quiet identity, underline search, divider rows, fixed trailing kcal, text Cancel, local states. | Accepted for V1. Keep behavior and picker grammar. |
-| Add Food selected-item amount/unit screen | FUNCTIONAL / VISUAL DEBT | Uses `detailTotalsBlock`, boxed amount field, segmented unit buttons, filled submit button, and older local styles. Mixed Food + Drink copy is explicit and no longer misleading after MYORIA-484. | Accepted V1 debt if amount entry, unit selection, mixed copy, submit, cancel, and local errors pass QA. Needs selected-confirmation contract before alignment. |
+| Add Food selected-item amount/unit screen | PASS / REFINED BY MYORIA-496 | Uses shared `MyoriaFormField`, `MyoriaTextInput`, `MyoriaOptionGroup`, and `MyoriaFormActionRow` grammar. Mixed Food + Drink copy is explicit and remains visible. | Accepted for V1 if amount entry, unit selection, mixed copy, submit, cancel, MYORIA-495 create-return, and local errors pass QA. |
 | Add Fluid form | FUNCTIONAL / VISUAL DEBT | `DrinkLoggingScreen` uses full-screen background but large title, boxed numeric input, heavy Save/Cancel buttons, and local colors. | Accepted V1 debt if custom amount save/cancel/error states pass QA. Align after shared form field/action contract. |
 | Add Weight form | FUNCTIONAL / VISUAL DEBT | `BodyweightLoggingScreen` mirrors Add Fluid with large title, boxed numeric input, heavy Save/Cancel buttons, and local colors. | Accepted V1 debt if save/cancel/error states pass QA. Align with Add Fluid in one small slice after contract. |
 | Food & Drink Library list | PASS | Uses `SecondaryHeader`, quiet title, underline search, text scope selector, quiet `CREATE ITEM`, divider rows, and chevrons. Existing docs classify it as mostly aligned. | Accepted for V1. Do not churn while form work is pending. |
@@ -293,7 +293,6 @@ Blockers for V1:
 
 ## Accepted Debt
 
-- Add Food selected-item confirmation visual grammar.
 - Add Fluid/Add Weight form visual grammar.
 - Food Library detail card/action grammar.
 - Food Library Create/Edit long-form grammar.
@@ -332,6 +331,8 @@ Non-goals:
 - No report-day changes.
 
 ### 3. Align Add Food selected-item form grammar
+
+Status: completed by MYORIA-490 and refined by MYORIA-496.
 
 Goal: align selected food identity, amount input, unit selector, mixed Food +
 Drink copy, Cancel, and submit action to the selected-confirmation contract.
